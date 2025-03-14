@@ -23,10 +23,8 @@ public class Parsing {
       }
 
 
-    //TODO  
-    public String JSONtoString(String JSONResponse){
-
-      return "";
+    public boolean requestDenied (String response){
+      return response.contains("2W1VXBaWnPXICnxklKXAOw7TO");
     }
-    }
+}
 
