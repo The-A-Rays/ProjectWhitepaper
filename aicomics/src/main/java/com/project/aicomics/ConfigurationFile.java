@@ -2,6 +2,8 @@ package com.project.aicomics;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 
@@ -12,15 +14,15 @@ import java.util.Scanner;
 public class ConfigurationFile {
 
     private static ConfigurationFile INSTANCE = null;
-    String completionsURL;
-    String embedURL;
-    String modelURL;
-    String org;
-    String apiKey;
-    String model;
+    private File apiconfig = new File("src\\main\\resources\\apikey.txt");
+    private String completionsURL;
+    private String embedURL;
+    private String modelURL;
+    private String org;
+    private String apiKey;
+    private String model;
 
     private ConfigurationFile() {
-        File apiconfig = new File("src\\main\\resources\\apikey.txt");
         try (Scanner read = new Scanner(apiconfig)) {
             completionsURL = read.nextLine().substring(16);
             embedURL = read.nextLine().substring(15);
@@ -29,13 +31,32 @@ public class ConfigurationFile {
             apiKey = read.nextLine().substring(8);
             model = read.nextLine().substring(6);
         } catch (FileNotFoundException e) {
-            System.out.println("File not found exception: Please check API config file");
+            System.out.println("File not found exception: Unable to read on construction, please check API config file:" + e);
         }
 
         // Very simple checks to ensure the URLs are placed in the correct position
         if (completionsURL.charAt(0) != 'h') System.out.println("completionsURL not read correctly. Check API config file");
         if (embedURL.charAt(0) != 'h') System.out.println("embed URL not read correctly. Check API config file");
         if (modelURL.charAt(0) != 'h') System.out.println("model URL not read correctly. Check API config file");
+    }
+
+    /**
+     * Writes new data to API config file
+     */
+    public void changeAPIConfig(String newOrgKey, String newAPIKey, String newModel) {
+        try (FileWriter wr = new FileWriter(apiconfig)) {
+            wr.write("COMPLETIONS_URL " + completionsURL + "\n");
+            wr.write("EMBEDDINGS_URL "  + embedURL + "\n");
+            wr.write("MODELS_URL "      + modelURL + "\n");
+            wr.write("ORG_KEY "         + newOrgKey + "\n");
+            wr.write("API_KEY "         + newAPIKey + "\n");
+            wr.write("MODEL "           + newModel + "\n");
+            org = newOrgKey;
+            apiKey = newAPIKey;
+            model = newModel;
+        } catch (IOException e) {
+            System.out.println("IO exception: Unable to write, please check API config file: " + e);
+        }
     }
     
     /**
