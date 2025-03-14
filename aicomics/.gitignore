@@ -6,7 +6,7 @@ target/
 !**/src/test/**/target/
 
 .env
-apikey.txt
+.aicomics/src/main/resources/apikey.txt
 
 ### STS ###
 .apt_generated
