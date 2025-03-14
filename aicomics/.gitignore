@@ -1,4 +1,4 @@
-src/main/resources/apikey.txt
+./src/main/resources/apikey.txt
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
