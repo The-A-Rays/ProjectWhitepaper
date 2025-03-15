@@ -55,13 +55,13 @@ public class OpenAIService {
         try {
             ResponseEntity<String> response = restTemplate.exchange(apiUrl, HttpMethod.POST, requestEntity, String.class); //send request
             //return response.getBody(); //gets the JSON response
-            return JSONParser(response.getBody()); //gets the content needed form the original JSON response
+            return JSONParser(response.getBody()); //gets the content needed from the original JSON response
         } catch (Exception e) {
             return "Error calling OpenAI API: " + e.getMessage();
         }
     }
 
-    //returns only the conent needed form the original response
+    //returns only the content needed form the original response
     private String JSONParser(String fullResponse){
         ObjectMapper obj = new ObjectMapper();
         try {
