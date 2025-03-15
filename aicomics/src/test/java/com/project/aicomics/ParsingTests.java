@@ -17,7 +17,7 @@ public class ParsingTests {
     
     assertEquals(2, responseAfterParsing.size());
     assertEquals("Why did the scarecrow win an award?", responseAfterParsing.get(0));
-    assertEquals("Because he was outstanding in his field", responseAfterParsing.get(1));
+    assertEquals("Because he was outstanding in his field!", responseAfterParsing.get(1));
   }
 
   @Test //test for when the string is not formatted as expected - 1
@@ -27,7 +27,7 @@ public class ParsingTests {
     ArrayList <String> responseAfterParsing = Parsing.parseNumberedList(initialResponse);     
     
     assertEquals(1, responseAfterParsing.size());
-    assertEquals("Because he was outstanding in his field", responseAfterParsing.get(0));
+    assertEquals("Because he was outstanding in his field!", responseAfterParsing.get(0));
   }
 
   @Test //test for when the string is formatted as expected - 2
@@ -68,7 +68,7 @@ public class ParsingTests {
             "2. They don't have the guts. \\n" + //
             "\", \"refusal\": null, \"annotations\": [] }, \"logprobs\": null, \"finish_reason\": \"stop\" } ], \"usage\": { \"prompt_tokens\": 96, \"completion_tokens\": 21, \"total_tokens\": 117, \"prompt_tokens_details\": { \"cached_tokens\": 0, \"audio_tokens\": 0 }, \"completion_tokens_details\": { \"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0 } }, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_06737a9306\" }";
     String content = Parsing.JSONParser(fullResponse);
-    String expected = "1. Why don't scientists trust atoms? 2. Because they make up everything!";
+    String expected = "1. Why don't skeletons fight each other? 2. They don't have the guts.";
     assertEquals(expected, content);
   }
   

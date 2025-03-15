@@ -17,11 +17,8 @@ public class Parsing {
         Matcher m = p.matcher(numberedList);
 
         while (m.find()){
-            parsedList.add(m.group(2));
+            parsedList.add(m.group(2).trim());
         }
-       for (int i = 0; i < parsedList.size(); i++){
-            parsedList.add(parsedList.get(i).trim());
-       }
        return parsedList;
     }
 
