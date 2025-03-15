@@ -13,9 +13,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.project.aicomics.ConfigurationFile;
 
 @Service
@@ -54,24 +51,10 @@ public class OpenAIService {
 
         try {
             ResponseEntity<String> response = restTemplate.exchange(apiUrl, HttpMethod.POST, requestEntity, String.class); //send request
-            //return response.getBody(); //gets the JSON response
-            return JSONParser(response.getBody()); //gets the content needed from the original JSON response
+            return response.getBody(); //gets the JSON response
+            //return JSONParser(response.getBody()); //gets the content needed from the original JSON response
         } catch (Exception e) {
             return "Error calling OpenAI API: " + e.getMessage();
         }
     }
-
-    //returns only the content needed form the original response
-    private String JSONParser(String fullResponse){
-        ObjectMapper obj = new ObjectMapper();
-        try {
-            JsonNode node = obj.readTree(fullResponse);
-            return node.findPath("content").asText();
-        } catch (JsonProcessingException ex) {
-            return "error parsing the content of the response." + ex.getOriginalMessage();
-        }
-
-    }
-
-    
 }
