@@ -17,12 +17,12 @@ public class Parsing {
         }
        for (int i = 0; i < parsedList.size(); i++){
             parsedList.add(parsedList.get(i));
-            System.out.println(parsedList.get(i));
+          //  System.out.println(parsedList.get(i));
        }
        return parsedList;
       }
 
-
+  
     public boolean requestDenied (String response){
       return response.contains("2W1VXBaWnPXICnxklKXAOw7TO");
     }
