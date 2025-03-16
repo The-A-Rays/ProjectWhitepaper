@@ -10,6 +10,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Parsing {
   
+    /**
+     * Uses a regex to parse a numbered list string into a list
+     * @param numberedList String containing list to be parsed
+     * @return ArrayList<String> List object version of the string
+     */
     public static ArrayList<String> parseNumberedList(String numberedList){
         ArrayList<String> parsedList = new ArrayList<>();             
                     
@@ -22,11 +27,19 @@ public class Parsing {
        return parsedList;
     }
 
+    /**
+     * @param response String to be parsed
+     * @return Boolean value whether the response includes the
+     * safeword string "2W1VXBaWnPXICnxklKXAOw7TO"
+     */
     public static boolean requestDenied (String response){
       return response.contains("2W1VXBaWnPXICnxklKXAOw7TO");
     }
 
-    //returns only the content needed from the original response
+    /**
+     * @param fullResponse JSON in String form to be parsed
+     * @return String content of JSON
+     */
     public static String JSONParser(String fullResponse){
         ObjectMapper obj = new ObjectMapper();
         try {

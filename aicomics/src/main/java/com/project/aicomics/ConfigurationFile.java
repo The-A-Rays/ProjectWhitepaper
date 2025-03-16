@@ -23,12 +23,12 @@ public class ConfigurationFile {
     private String apiKey;
     private String model;
 
-    //ran into issues when packaging the application as a jar 
-    // it didn't like private File apiconfig = new File("src\\main\\resources\\apikey.txt");
-    // mentioned some issue relating to a relative path not being accessible when in a jar file
-    // so i loaded the file from the classpath
-
+    /**
+     * Constructor is private to enable only ever creating one object of this class
+     * through getInstance()
+     */
     private ConfigurationFile() {
+        // Uses inputStream instead of File due to File having weird reactions to being integrated into a jar
         try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream("apikey.txt")) {
             if (inputStream == null) {
                 throw new FileNotFoundException("apikey.txt file not found in resources.");
@@ -46,24 +46,6 @@ public class ConfigurationFile {
             System.out.println("Error reading API config file: " + e.getMessage());
         }
     }
-
-    // private ConfigurationFile() {
-    //     try (Scanner read = new Scanner(apiconfig)) {
-    //         completionsURL = read.nextLine().substring(16);
-    //         embedURL = read.nextLine().substring(15);
-    //         modelURL = read.nextLine().substring(11);
-    //         org = read.nextLine().substring(8);
-    //         apiKey = read.nextLine().substring(8);
-    //         model = read.nextLine().substring(6);
-    //     } catch (FileNotFoundException e) {
-    //         System.out.println("File not found exception: Unable to read on construction, please check API config file:" + e);
-    //     }
-
-    //     // Very simple checks to ensure the URLs are placed in the correct position
-    //     if (completionsURL.charAt(0) != 'h') System.out.println("completionsURL not read correctly. Check API config file");
-    //     if (embedURL.charAt(0) != 'h') System.out.println("embed URL not read correctly. Check API config file");
-    //     if (modelURL.charAt(0) != 'h') System.out.println("model URL not read correctly. Check API config file");
-    // }
 
     /**
      * Writes new data to API config file
