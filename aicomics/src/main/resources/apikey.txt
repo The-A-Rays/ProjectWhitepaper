@@ -2,5 +2,5 @@ COMPLETIONS_URL https://api.openai.com/v1/chat/completions
 EMBEDDINGS_URL https://api.openai.com/v1/embeddings
 MODELS_URL https://api.openai.com/v1/models
 ORG_KEY org-55
-API_KEY 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
+API_KEY 
 MODEL gpt-4o-mini
