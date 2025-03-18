@@ -15,6 +15,7 @@ public class OpenAIController {
 
     @GetMapping("/generate")
     public String generateText(@RequestParam String prompt) {
-        return openAIService.generateText(prompt);
+        String behaviour = "You are a helpful assistant";
+        return openAIService.CallAPI(behaviour, prompt);
     }
 }
