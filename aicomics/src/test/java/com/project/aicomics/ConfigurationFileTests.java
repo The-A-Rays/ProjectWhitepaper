@@ -61,19 +61,20 @@ public class ConfigurationFileTests {
 
     }
 
-    @Test
-    void testAPIinfoAgain() {
-        cnf.changeAPIConfig("org-55", "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", "gpt-4o-mini");
+    // Messed with jar creation by changing apiconfig
+    // @Test
+    // void testAPIinfoAgain() {
+    //     cnf.changeAPIConfig("org-55", "", "gpt-4o-mini");
 
-        System.out.println(cnf.getOrg());
-        Assertions.assertEquals("org-55", cnf.getOrg());
+    //     System.out.println(cnf.getOrg());
+    //     Assertions.assertEquals("org-55", cnf.getOrg());
 
-        System.out.println(cnf.getAPIKey());
-        Assertions.assertEquals("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", cnf.getAPIKey());
+    //     System.out.println(cnf.getAPIKey());
+    //     Assertions.assertEquals("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", cnf.getAPIKey());
 
-        System.out.println(cnf.getModel());
-        Assertions.assertEquals("gpt-4o-mini", cnf.getModel());
+    //     System.out.println(cnf.getModel());
+    //     Assertions.assertEquals("gpt-4o-mini", cnf.getModel());
 
-    }
+    // }
     
 }
