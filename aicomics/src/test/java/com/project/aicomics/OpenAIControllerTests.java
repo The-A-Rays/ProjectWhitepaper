@@ -1,6 +1,5 @@
 package com.project.aicomics;
 
-import com.project.aicomics.service.OpenAIService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +14,6 @@ public class OpenAIControllerTests {
 
     @Autowired
     private TestRestTemplate restTemplate;
-
-    @Autowired
-    private OpenAIService openAIService;
 
     @BeforeEach
     void setUp() {

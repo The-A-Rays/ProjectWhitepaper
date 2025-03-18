@@ -1,6 +1,5 @@
 package com.project.aicomics;
 
-import com.project.aicomics.ConfigurationFile;
 import com.project.aicomics.service.OpenAIService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,11 +14,8 @@ public class OpenAIServiceTests {
     @Autowired
     private OpenAIService openAIService;
 
-    private ConfigurationFile config;
-
     @BeforeEach
     void setUp() {
-        config = ConfigurationFile.getInstance();
     }
 
     @Test
