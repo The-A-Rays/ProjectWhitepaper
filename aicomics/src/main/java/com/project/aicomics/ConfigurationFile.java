@@ -1,10 +1,8 @@
 package com.project.aicomics;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Scanner;
 
 
@@ -28,13 +26,11 @@ public class ConfigurationFile {
      * through getInstance()
      */
     private ConfigurationFile() {
-        // Uses inputStream instead of File due to File having weird reactions to being integrated into a jar
-        try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream("apikey.txt")) {
-            if (inputStream == null) {
-                throw new FileNotFoundException("apikey.txt file not found in resources.");
-            }
-            
-            try (Scanner read = new Scanner(inputStream)) {
+        File apikey; 
+        try {
+            File apikeyDir = new File(File.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getParentFile();
+            apikey = new File(apikeyDir, "apikey.txt");
+            try (Scanner read = new Scanner(apikey)) {
                 completionsURL = read.nextLine().substring(16);
                 embedURL = read.nextLine().substring(15);
                 modelURL = read.nextLine().substring(11);
@@ -42,9 +38,7 @@ public class ConfigurationFile {
                 apiKey = read.nextLine().substring(8);
                 model = read.nextLine().substring(6);
             }
-        } catch (IOException e) {
-            System.out.println("Error reading API config file: " + e.getMessage());
-        }
+        } catch (Exception e) {System.out.println("apikey file not generated. Please contact developer" + e);}
     }
 
     /**
