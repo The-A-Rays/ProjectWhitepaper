@@ -28,8 +28,8 @@ public class ConfigurationFile {
     private ConfigurationFile() {
         File apikey; 
         try {
-            File apikeyDir = new File(File.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getParentFile();
-            apikey = new File(apikeyDir, "apikey.txt");
+            apikey = new File(getClass().getProtectionDomain().getCodeSource().getLocation() + "apikey.txt");
+            apikey.createNewFile();
             try (Scanner read = new Scanner(apikey)) {
                 completionsURL = read.nextLine().substring(16);
                 embedURL = read.nextLine().substring(15);

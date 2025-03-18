@@ -13,7 +13,6 @@ public class AicomicsApplication {
 	public static void main(String[] args) {
 		OpenAIService ai = new OpenAIService();
 		SpringApplication.run(AicomicsApplication.class, args);
-		System.out.println(ai.generateText("tell me a joke"));
 	}
 
 }
