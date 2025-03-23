@@ -13,32 +13,38 @@ import java.util.Scanner;
 public class ConfigurationFile {
 
     private static ConfigurationFile INSTANCE = null;
-    private File apiconfig = new File("src\\main\\resources\\apikey.txt");
-    private String completionsURL;
-    private String embedURL;
-    private String modelURL;
+    private File apiconfig;
+    private String completionsURL = "https://api.openai.com/v1/chat/completions";
+    private String embedURL = "https://api.openai.com/v1/embeddings";
+    private String modelURL = "https://api.openai.com/v1/models";
     private String org;
     private String apiKey;
     private String model;
+    private String language = "English";
 
     /**
      * Constructor is private to enable only ever creating one object of this class
      * through getInstance()
      */
     private ConfigurationFile() {
-        File apikey; 
         try {
-            apikey = new File(getClass().getProtectionDomain().getCodeSource().getLocation() + "apikey.txt");
-            apikey.createNewFile();
-            try (Scanner read = new Scanner(apikey)) {
+            apiconfig = new File("apikey.txt");
+            if (apiconfig.createNewFile()) {
+                this.changeAPIConfig("Put org key here", "Put API key here", "put model here");
+                System.out.println("API Configuration File not found. Program will not function normally. \n Please configure file and re-run program. Program will now close.");
+                throw new IllegalArgumentException();
+            }
+            System.out.println(apiconfig);
+            try (Scanner read = new Scanner(apiconfig)) {
                 completionsURL = read.nextLine().substring(16);
                 embedURL = read.nextLine().substring(15);
                 modelURL = read.nextLine().substring(11);
                 org = read.nextLine().substring(8);
                 apiKey = read.nextLine().substring(8);
                 model = read.nextLine().substring(6);
+                language = read.nextLine().substring(9);
             }
-        } catch (Exception e) {System.out.println("apikey file not generated. Please contact developer" + e);}
+        } catch (IOException e) {System.out.println("apikey file not generated. Please contact developer " + e);}
     }
 
     /**
@@ -52,6 +58,7 @@ public class ConfigurationFile {
             wr.write("ORG_KEY "         + newOrgKey + "\n");
             wr.write("API_KEY "         + newAPIKey + "\n");
             wr.write("MODEL "           + newModel + "\n");
+            wr.write("LANGUAGE"         + language + "\n");
             org = newOrgKey;
             apiKey = newAPIKey;
             model = newModel;
