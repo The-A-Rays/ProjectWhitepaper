@@ -9,11 +9,11 @@ import com.project.aicomics.service.OpenAIService;
 
 public class Translations {
 
-    private enum languages {spanish, english};
+    public enum Language {spanish, english};
     private OpenAIService ai = new OpenAIService();
     private String translatedFile;
 
-    public Translations(languages originalLanguage, languages targetLanguage) {
+    public Translations(Language originalLanguage, Language targetLanguage) {
         this.translatedFile = originalLanguage.toString().toLowerCase() + "-" + targetLanguage.toString().toLowerCase() + ".tsv";
     }
 

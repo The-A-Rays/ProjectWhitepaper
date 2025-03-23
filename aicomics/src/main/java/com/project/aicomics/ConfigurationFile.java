@@ -14,13 +14,13 @@ public class ConfigurationFile {
 
     private static ConfigurationFile INSTANCE = null;
     private File apiconfig;
-    private String completionsURL = "https://api.openai.com/v1/chat/completions";
-    private String embedURL = "https://api.openai.com/v1/embeddings";
-    private String modelURL = "https://api.openai.com/v1/models";
-    private String org;
-    private String apiKey;
-    private String model;
-    private String language = "English";
+    // Using an array as the number of String variables has gotten rather large.
+    // Comp URL, Embed URL, Model URL, Org key, API key, Model, Status
+    private String[] fileInfo = {"https://api.openai.com/v1/chat/completions", "https://api.openai.com/v1/embeddings",
+                                "https://api.openai.com/v1/models", "", "", "", "Config File Error: File not Initialized"};
+    private Translations.Language language = Translations.Language.english; 
+    // This is why I dont like enums ^
+    // If there is another solution to languages here other than strings thatd be wonderful
 
     /**
      * Constructor is private to enable only ever creating one object of this class
@@ -31,20 +31,25 @@ public class ConfigurationFile {
             apiconfig = new File("apikey.txt");
             if (apiconfig.createNewFile()) {
                 this.changeAPIConfig("Put org key here", "Put API key here", "put model here");
-                System.out.println("API Configuration File not found. Program will not function normally. \n Please configure file and re-run program. Program will now close.");
-                throw new IllegalArgumentException();
+                fileInfo[6] = ("API Configuration File not found. Program will not function normally. \n Please configure file and re-run program.");
             }
             System.out.println(apiconfig);
             try (Scanner read = new Scanner(apiconfig)) {
-                completionsURL = read.nextLine().substring(16);
-                embedURL = read.nextLine().substring(15);
-                modelURL = read.nextLine().substring(11);
-                org = read.nextLine().substring(8);
-                apiKey = read.nextLine().substring(8);
-                model = read.nextLine().substring(6);
-                language = read.nextLine().substring(9);
+                fileInfo[0] = read.nextLine().substring(16);
+                fileInfo[1] = read.nextLine().substring(15);
+                fileInfo[2] = read.nextLine().substring(11);
+                fileInfo[3] = read.nextLine().substring(8);
+                fileInfo[4] = read.nextLine().substring(8);
+                fileInfo[5] = read.nextLine().substring(6);
+                language = Translations.Language.valueOf(Translations.Language.class, read.nextLine().substring(9));
             }
-        } catch (IOException e) {System.out.println("apikey file not generated. Please contact developer " + e);}
+        } catch (IOException e) {
+            fileInfo[6] = ("apikey file not generated. Please contact developer " + e);
+            }
+        catch (IllegalArgumentException e) {
+            fileInfo[6] = ("Language read in is not a valid option. Please enter a valid language and restart.");
+            throw e;
+            }
     }
 
     /**
@@ -52,18 +57,18 @@ public class ConfigurationFile {
      */
     public void changeAPIConfig(String newOrgKey, String newAPIKey, String newModel) {
         try (FileWriter wr = new FileWriter(apiconfig)) {
-            wr.write("COMPLETIONS_URL " + completionsURL + "\n");
-            wr.write("EMBEDDINGS_URL "  + embedURL + "\n");
-            wr.write("MODELS_URL "      + modelURL + "\n");
+            wr.write("COMPLETIONS_URL " + fileInfo[0] + "\n");
+            wr.write("EMBEDDINGS_URL "  + fileInfo[1] + "\n");
+            wr.write("MODELS_URL "      + fileInfo[2] + "\n");
             wr.write("ORG_KEY "         + newOrgKey + "\n");
             wr.write("API_KEY "         + newAPIKey + "\n");
             wr.write("MODEL "           + newModel + "\n");
             wr.write("LANGUAGE"         + language + "\n");
-            org = newOrgKey;
-            apiKey = newAPIKey;
-            model = newModel;
+            fileInfo[3] = newOrgKey;
+            fileInfo[4] = newAPIKey;
+            fileInfo[5] = newModel;
         } catch (IOException e) {
-            System.out.println("IO exception: Unable to write, please check API config file: " + e);
+            fileInfo[6] = ("IO exception: Unable to write, please check API config file: " + e);
         }
     }
     
@@ -76,26 +81,30 @@ public class ConfigurationFile {
     }
 
     public String getCompURL() {
-        return completionsURL;
+        return fileInfo[0];
     }
 
     public String getEmbedURL() {
-        return embedURL;
+        return fileInfo[1];
     }
 
     public String getModelURL() {
-        return modelURL;
+        return fileInfo[2];
     }
 
     public String getOrg() {
-        return org;
+        return fileInfo[3];
     }
 
     public String getAPIKey() {
-        return apiKey;
+        return fileInfo[4];
     }
 
     public String getModel() {
-        return model;
+        return fileInfo[5];
+    }
+
+    public String getStatus() {
+        return fileInfo[6];
     }
 }

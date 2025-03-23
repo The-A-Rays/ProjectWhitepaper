@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>AI Comic Generator</title>
 </head>
 <body>
-    <h1>Hello World!</h1>
-        <p> I'm alive! The first artificial generative ai! </p>
-        <p> By Ema, Conor, and Ryan </p>
-    
+    <h1>Status</h1>
+    <p th:text="${status}"></p>
+    <h1>Generate Text</h1>
+    <form action="http://localhost:8080/api/openai/generate?prompt=">
+        <input type="text">
+        <input type="button">
+    </form>
 </body>
 </html>
