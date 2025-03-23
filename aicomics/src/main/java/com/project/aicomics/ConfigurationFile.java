@@ -19,8 +19,6 @@ public class ConfigurationFile {
     private String[] fileInfo = {"https://api.openai.com/v1/chat/completions", "https://api.openai.com/v1/embeddings",
                                 "https://api.openai.com/v1/models", "", "", "", "Config File Error: File not Initialized"};
     private Translations.Language language = Translations.Language.english; 
-    // This is why I dont like enums ^
-    // If there is another solution to languages here other than strings thatd be wonderful
 
     /**
      * Constructor is private to enable only ever creating one object of this class
@@ -41,7 +39,7 @@ public class ConfigurationFile {
                 fileInfo[3] = read.nextLine().substring(8);
                 fileInfo[4] = read.nextLine().substring(8);
                 fileInfo[5] = read.nextLine().substring(6);
-                language = Translations.Language.valueOf(Translations.Language.class, read.nextLine().substring(8));
+                language = Translations.Language.valueOf(Translations.Language.class, read.nextLine().substring(9));
             }
         } catch (IOException e) {
             fileInfo[6] = ("apikey file not generated. Please contact developer " + e);
@@ -63,7 +61,7 @@ public class ConfigurationFile {
             wr.write("ORG_KEY "         + newOrgKey + "\n");
             wr.write("API_KEY "         + newAPIKey + "\n");
             wr.write("MODEL "           + newModel + "\n");
-            wr.write("LANGUAGE"         + language + "\n");
+            wr.write("LANGUAGE "        + language + "\n");
             fileInfo[3] = newOrgKey;
             fileInfo[4] = newAPIKey;
             fileInfo[5] = newModel;
