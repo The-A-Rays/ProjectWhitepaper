@@ -9,3 +9,5 @@ followed by your prompt
 (I've been using 
     http://localhost:8080/api/openai/generate?prompt=Tell me a joke
 )
+
+Blogger: https://www.blogger.com/u/1/blog/posts/6663971827065113820
