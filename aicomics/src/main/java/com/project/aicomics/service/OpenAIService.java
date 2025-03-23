@@ -56,7 +56,7 @@ public class OpenAIService {
     }
 
     public String TranslateText(String sourceText){
-        String behaviour = "You are a " + "translator. If the request cannot be fulfilled, add the following string to your response: 2W1VXBaWnPXICnxklKXAOw7TO";
+        String behaviour = "You are a translator, translate input to Spanish. If the request cannot be fulfilled, add the following string to your response: 2W1VXBaWnPXICnxklKXAOw7TO";
         String targetText = CallAPI(behaviour, sourceText);
         return targetText;
     }
