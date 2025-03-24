@@ -24,7 +24,7 @@ public class Translations {
      * If pair not found, prompt to get it, then write to file
           * @throws IOException 
           */
-         public String getTranslation(Vignette input, String targetLanguage) throws IOException {
+         public String getTranslation(VignetteSchema input, String targetLanguage) throws IOException {
         String textToBeTranslated = input.getCombinedText() + input.getLeftText();
         String translatedString = ai.TranslateText(textToBeTranslated);
 
