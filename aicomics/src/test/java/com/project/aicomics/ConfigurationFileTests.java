@@ -30,7 +30,7 @@ public class ConfigurationFileTests {
 
     @Test
     void testAPIinfo() {
-        cnf.changeAPIConfig("org-55", "api-154y2", "gpt-4o-mini");
+        cnf.changeAPIConfig("org-55", "api-154y2", "gpt-4o-mini", Translations.Language.spanish);
 
         System.out.println(cnf.getOrg());
         Assertions.assertEquals("org-55", cnf.getOrg());

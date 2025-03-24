@@ -28,7 +28,7 @@ public class ConfigurationFile {
         try {
             apiconfig = new File("apikey.txt");
             if (apiconfig.createNewFile()) {
-                this.changeAPIConfig("Put org key here", "Put API key here", "put model here");
+                this.changeAPIConfig("Put org key here", "Put API key here", "put model here", Translations.Language.english);
                 fileInfo[6] = ("API Configuration File not found. Program will not function normally. \n Please configure file and re-run program.");
             }
             System.out.println(apiconfig);
@@ -39,7 +39,7 @@ public class ConfigurationFile {
                 fileInfo[3] = read.nextLine().substring(8);
                 fileInfo[4] = read.nextLine().substring(8);
                 fileInfo[5] = read.nextLine().substring(6);
-                language = Translations.Language.valueOf(Translations.Language.class, read.nextLine().substring(8));
+                language = Translations.Language.valueOf(Translations.Language.class, read.nextLine().substring(9));
             }
         } catch (IOException e) {
             fileInfo[6] = ("apikey file not generated. Please contact developer " + e);
@@ -53,7 +53,7 @@ public class ConfigurationFile {
     /**
      * Writes new data to API config file
      */
-    public void changeAPIConfig(String newOrgKey, String newAPIKey, String newModel) {
+    public void changeAPIConfig(String newOrgKey, String newAPIKey, String newModel, Translations.Language language) {
         try (FileWriter wr = new FileWriter(apiconfig)) {
             wr.write("COMPLETIONS_URL " + fileInfo[0] + "\n");
             wr.write("EMBEDDINGS_URL "  + fileInfo[1] + "\n");
@@ -65,6 +65,7 @@ public class ConfigurationFile {
             fileInfo[3] = newOrgKey;
             fileInfo[4] = newAPIKey;
             fileInfo[5] = newModel;
+            this.language = language;
         } catch (IOException e) {
             fileInfo[6] = ("IO exception: Unable to write, please check API config file: " + e);
         }
@@ -104,5 +105,9 @@ public class ConfigurationFile {
 
     public String getStatus() {
         return fileInfo[6];
+    }
+
+    public Translations.Language getLanguage() {
+        return language;
     }
 }
