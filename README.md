@@ -9,3 +9,7 @@ followed by your prompt
 (I've been using 
     http://localhost:8080/api/openai/generate?prompt=Tell me a joke
 )
+
+Blogger: [https://www.blogger.com](https://thearays-comp30880.blogspot.com/)
+
+Contributors: Conor Kiely, Ryan Koenig, Ema-Elena Florea
