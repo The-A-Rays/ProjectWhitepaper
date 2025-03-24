@@ -39,7 +39,7 @@ public class ConfigurationFile {
                 fileInfo[3] = read.nextLine().substring(8);
                 fileInfo[4] = read.nextLine().substring(8);
                 fileInfo[5] = read.nextLine().substring(6);
-                language = Translations.Language.valueOf(Translations.Language.class, read.nextLine().substring(9));
+                language = Translations.Language.valueOf(Translations.Language.class, read.nextLine().substring(8));
             }
         } catch (IOException e) {
             fileInfo[6] = ("apikey file not generated. Please contact developer " + e);
