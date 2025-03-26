@@ -13,7 +13,7 @@ import com.project.aicomics.service.OpenAIService;
 public class OpenAIServiceTests {
 
     @Autowired
-    private OpenAIService openAIService;
+    private OpenAIService openAIService = new OpenAIService();
 
     @Test
     void testCallAPI_Success() {
@@ -36,6 +36,7 @@ public class OpenAIServiceTests {
         String userPrompt = "Hello";
 
         String response = openAIService.TranslateText(userPrompt);
+
 
         assertNotNull(response, "Response should not be null");
         assertFalse(response.isEmpty(), "Response should not be empty");
