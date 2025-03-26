@@ -24,37 +24,37 @@ public class Translations {
      * If pair not found, prompt to get it, then write to file
           * @throws IOException 
           */
-         public String getTranslation(VignetteSchema input, String targetLanguage) throws IOException {
-        String textToBeTranslated = input.getCombinedText() + input.getLeftText();
-        String translatedString = ai.TranslateText(textToBeTranslated);
-
+    public String getTranslation(String textToBeTranslated, String targetLanguage) throws IOException {
+        String translatedText = ai.TranslateText(textToBeTranslated);
+        translatedText = Parsing.JSONParser(translatedText);
         File file = new File(translatedFile);
 
-        //add string to newly created file
-        if (file.createNewFile()){
-            FileWriter wr = new FileWriter(file);
-            wr.write(textToBeTranslated);
-            wr.write(System.lineSeparator());
-            wr.write(translatedString);
-            wr.write(System.lineSeparator());
-        } else { //if file already exists, check weather it already has the translation
-            boolean exists = false;
-            Scanner sc = new Scanner(file);
-            while (sc.hasNextLine()){
-                if (sc.nextLine().equals(translatedString)){
-                    exists = true;
-                    break;
-                }
-            } //if not, add it
-            if (!exists){
-                //appends
-                FileWriter wr = new FileWriter(file, true);
+        if (!file.exists()) {
+            file.createNewFile();
+        }
+
+        //check if the translation already exists
+        boolean existing = false;
+        Scanner sc = new Scanner(file);
+        while (sc.hasNextLine()) {
+            String existingText = sc.nextLine();
+            if (sc.hasNextLine()) { //transaltion for existing text (if any)
+                String existingTranslation = sc.nextLine();
+                if (existingText.equals(textToBeTranslated) && existingTranslation.equals(translatedText)) {
+                    existing = true;
+                    return existingTranslation; 
+                }      
+            }
+        }
+        //write to file if it doesnt exist already
+        if (!existing) {
+            try (FileWriter wr = new FileWriter(file, true)) {
                 wr.write(textToBeTranslated);
                 wr.write(System.lineSeparator());
-                wr.write(translatedString);
+                wr.write(translatedText);
                 wr.write(System.lineSeparator());
             }
         }
-        return null;
+    return translatedText;
     }
 }
