@@ -26,7 +26,7 @@ public class Translations {
           */
     public String getTranslation(String textToBeTranslated, String targetLanguage) throws IOException {
         String translatedText = ai.TranslateText(textToBeTranslated);
-        translatedText = Parsing.JSONParser(translatedText);
+        // translatedText = Parsing.JSONParser(translatedText); JSON parsing is now built into OpenAIService Class
         File file = new File(translatedFile);
 
         if (!file.exists()) {

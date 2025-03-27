@@ -52,6 +52,7 @@ public class OpenAIService {
 
         try {
             ResponseEntity<String> response = restTemplate.exchange(apiUrl, HttpMethod.POST, requestEntity, String.class); //send request
+            // Could maybe swap these next three lines with parsing logic from parsing file.
             ObjectMapper objectMapper = new ObjectMapper();
             JsonNode jsonNode = objectMapper.readTree(response.getBody());
             String responseText = jsonNode.get("choices").get(0).get("message").get("content").asText();
@@ -67,7 +68,7 @@ public class OpenAIService {
             String behaviour = "You are a translator, translate input to Spanish. If the request cannot be fulfilled, add the following string to your response: 2W1VXBaWnPXICnxklKXAOw7TO";
             String response = CallAPI(behaviour, sourceText);
             return response;
-            
+
         } catch (Exception e) {
             e.printStackTrace();
             return "{\"error\": \"Exception occurred\"}";

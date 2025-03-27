@@ -23,13 +23,15 @@ public class TranslationsTests {
     @Test
     void testTranslation() throws IOException {
       //parameters for vignette object
-      ArrayList<String> leftPose = new ArrayList<>(List.of("catering"));
-      ArrayList<String> combinedText = new ArrayList<>(List.of("to serve, a tray, a cocktail, ordering a drink"));
-      ArrayList<String> leftText = new ArrayList<>(List.of("a tray"));
-      ArrayList<String> rightPose = new ArrayList<>(List.of("eating, drinking, sipping, slurping"));
-      ArrayList<String> background = new ArrayList<>(List.of("restaurant, food truck"));
         
-      VignetteSchema input = new VignetteSchema(leftPose, combinedText, leftText, rightPose, background);
+        VignetteSchema input = new VignetteSchema();
+        input.add("background", "restaurant, food truck");
+        input.add("combinedText", "to serve, a tray, a cocktail, ordering a drink");
+        input.add("leftPose", "catering");
+        input.add("leftText", "a tray");
+        input.add("rightPose", "eating, drinking, sipping, slurping");
+
+
     
       String translated = translations.getTranslation(input.getLeftText(), "spanish");
 
@@ -45,13 +47,12 @@ public class TranslationsTests {
   @Test
   void testTranslation2() throws IOException {
     //parameters for vignette object
-    ArrayList<String> leftPose = new ArrayList<>(List.of("catering"));
-    ArrayList<String> combinedText = new ArrayList<>(List.of("to serve, a tray, a cocktail, ordering a drink"));
-    ArrayList<String> leftText = new ArrayList<>(List.of("a politician"));
-    ArrayList<String> rightPose = new ArrayList<>(List.of("eating, drinking, sipping, slurping"));
-    ArrayList<String> background = new ArrayList<>(List.of("restaurant, food truck"));
-      
-    VignetteSchema input = new VignetteSchema(leftPose, combinedText, leftText, rightPose, background);
+    VignetteSchema input = new VignetteSchema();
+        input.add("background", "restaurant, food truck");
+        input.add("combinedText", "to serve, a tray, a cocktail, ordering a drink");
+        input.add("leftPose", "catering");
+        input.add("leftText", "a politician");
+        input.add("rightPose", "eating, drinking, sipping, slurping");
   
     String translated = translations.getTranslation(input.getLeftText(), "spanish");
 
