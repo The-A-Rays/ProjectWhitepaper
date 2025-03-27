@@ -41,14 +41,7 @@ public class OpenAIServiceTests {
         assertNotNull(response, "Response should not be null");
         assertFalse(response.isEmpty(), "Response should not be empty");
 
-        ObjectMapper objectMapper = new ObjectMapper();
-        JsonNode jsonNode = objectMapper.readTree(response);
-
-        // Extract translated text
-        String translatedText = jsonNode.get("choices").get(0).get("message").get("content").asText();        
-        System.out.println("Extracted Translated Text: " + translatedText);
-
         // Validate the translation (assuming English "Hello" translates to Spanish "Hola")
-        assertEquals("Hola", translatedText, "Translation should be 'Hola'");
+        assertEquals("Hola", response, "Translation should be 'Hola'");
     }
 }

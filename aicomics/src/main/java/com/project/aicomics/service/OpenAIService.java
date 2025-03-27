@@ -13,6 +13,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import com.project.aicomics.ConfigurationFile;
 
 @Service
@@ -49,7 +52,10 @@ public class OpenAIService {
 
         try {
             ResponseEntity<String> response = restTemplate.exchange(apiUrl, HttpMethod.POST, requestEntity, String.class); //send request
-            return response.getBody(); //gets the JSON response
+            ObjectMapper objectMapper = new ObjectMapper();
+            JsonNode jsonNode = objectMapper.readTree(response.getBody());
+            String responseText = jsonNode.get("choices").get(0).get("message").get("content").asText();
+            return responseText; //gets the response from just the content field of the JSON response
         } catch (Exception e) {
             return "Error calling OpenAI API: " + e.getMessage();
         }
@@ -60,13 +66,8 @@ public class OpenAIService {
         try {
             String behaviour = "You are a translator, translate input to Spanish. If the request cannot be fulfilled, add the following string to your response: 2W1VXBaWnPXICnxklKXAOw7TO";
             String response = CallAPI(behaviour, sourceText);
-    
-            if (!response.startsWith("{")) { // Not JSON? Log and return a default error.
-                System.err.println("API Error: " + response);
-                return "{\"error\": \"Invalid API response\"}";
-            }
-    
             return response;
+            
         } catch (Exception e) {
             e.printStackTrace();
             return "{\"error\": \"Exception occurred\"}";
