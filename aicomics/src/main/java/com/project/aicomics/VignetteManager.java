@@ -10,20 +10,30 @@ import java.util.stream.Collectors;
 public class VignetteManager {
 
     VignetteSchema schema = new VignetteSchema();
+    
 
     public VignetteManager() {
         String fileName = "English.tsv";  // The file name you want to read
         String[] firstRow = readFirstTSVLine(fileName); // Read the first line of the TSV file
 
-        if (firstRow != null) { // Ensure there are enough columns
-            // Populate schema using the first row data
-            schema.add("leftPose", firstRow[0]);
-            schema.add("combinedText", firstRow[1]);
-            schema.add("leftText", firstRow[2]);
-            schema.add("rightPose", firstRow[3]);
-            schema.add("background", firstRow[4]);
+        if (firstRow != null) {
+            // Populate schema using the first row
+            addToSchema("leftPose", firstRow[0]);
+            addToSchema("combinedText", firstRow[1]);
+            addToSchema("leftText", firstRow[2]);
+            addToSchema("rightPose", firstRow[3]);
+            addToSchema("background", firstRow[4]);
         } else {
             System.out.println("Error: Invalid or empty row in TSV.");
+        }
+        // Vignette vignette = new Vignette(null, null, null, null, null, null);
+    }
+
+    private void addToSchema(String type, String field){
+        String[] values = field.split(","); // Split by comma
+        // ArrayList<String> resultList = new ArrayList<>();
+        for (String value : values) {
+            schema.add(type, value.trim()); // Trim spaces and add to the list
         }
     }
 

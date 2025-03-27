@@ -23,9 +23,6 @@ public class VignetteSchema {
 
     Random rand = new Random();
 
-    // public void add(ArrayList<String> list, String string){
-    //     list.add(string);
-    // }
     public void add(String type, String value) {
         switch(type) {
             case "leftPose":
