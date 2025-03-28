@@ -17,5 +17,9 @@ public class Vignette {
             this.rightPose = rightPose;
             this.background = background;
         }
+
+        public void addTranslation(String translatedText){
+            this.translatedText = translatedText;
+        }
     
 }

@@ -3,6 +3,8 @@ package com.project.aicomics;
 import java.util.ArrayList;
 import java.util.Random;
 
+// This class represents what the vignette options are, that we read in from a single line of the English.tsv file (or user input in the future)
+
 public class VignetteSchema {
 
     private ArrayList<String> leftPose = new ArrayList<String>();
