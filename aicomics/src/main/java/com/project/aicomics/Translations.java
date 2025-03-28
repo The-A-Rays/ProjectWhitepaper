@@ -33,10 +33,10 @@ public class Translations {
             if (!file.exists()) {
                 file.createNewFile();
             }
-
-            //check if the translation already exists
-            boolean existing = false;
-            Scanner sc = new Scanner(file);
+        } catch (IOException e) {e.printStackTrace();}
+        //check if the translation already exists
+        boolean existing = false;
+        try (Scanner sc = new Scanner(file)) {
             while (sc.hasNextLine()) {
                 String existingText = sc.nextLine();
                 if (sc.hasNextLine()) { //transaltion for existing text (if any)
@@ -57,8 +57,7 @@ public class Translations {
                 }
             }
             sc.close();
-        } catch (IOException e) {System.out.println("Error creating file for translation storage, please contact devs: " + e);}
-        
-    return translatedText;
+        } catch (IOException e) {e.printStackTrace();}
+        return translatedText;
     }
 }

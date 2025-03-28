@@ -1,54 +1,65 @@
 package com.project.aicomics;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 // This class represents what the vignette options are, that we read in from a single line of the English.tsv file (or user input in the future)
 
 public class VignetteSchema {
 
-    private ArrayList<String> leftPose = new ArrayList<String>();
-    private ArrayList<String> combinedText = new ArrayList<String>();
-    private ArrayList<String> leftText = new ArrayList<String>();
-    private ArrayList<String> rightPose = new ArrayList<String>();
-    private ArrayList<String> background = new ArrayList<String>(); 
+    private List<String> leftPose = new ArrayList<>();
+    private List<String> combinedText = new ArrayList<>();
+    private List<String> leftText = new ArrayList<>();
+    private List<String> rightPose = new ArrayList<>();
+    private List<String> background = new ArrayList<>(); 
+    Random rand = new Random();
 
     public VignetteSchema(){} //initialises with empy arraylists
 
-    // public VignetteSchema(ArrayList<String> leftPose, ArrayList<String> combinedText, ArrayList<String> leftText, ArrayList<String> rightPose, ArrayList<String> background){
-    //     this.leftPose = leftPose;
-    //     this.combinedText = combinedText;
-    //     this.leftText = leftText;
-    //     this.rightPose = rightPose;
-    //     this.background = background;
-    // }
-
-    Random rand = new Random();
-
-    public void add(String type, String value) {
-        switch(type) {
-            case "leftPose":
-                leftPose.add(value);
-                break;
-            case "combinedText":
-                combinedText.add(value);
-                break;
-            case "leftText":
-                leftText.add(value);
-                break;
-            case "rightPose":
-                rightPose.add(value);
-                break;
-            case "background":
-                background.add(value);
-                break;
-            default:
-                System.out.println("Unknown type: " + type);
-                break;
-        }
+    /**
+     * Initializes vignette with Lists of the field
+     * @param fields must be csv format !!! Can only handle fields with all 5 options !!! 
+     * 
+     */
+    public VignetteSchema(List<String> fields){
+        leftPose = Arrays.asList(fields.get(0).split(","));
+        combinedText = Arrays.asList(fields.get(1).split(","));
+        leftText = Arrays.asList(fields.get(2).split(","));
+        rightPose = Arrays.asList(fields.get(3).split(","));
+        background = Arrays.asList(fields.get(0).split(","));
     }
+
+    /**
+     * Old method to import strings into the lists, didn;t work as inteded so constructor is used now.
+     * @param type 
+     * @param value
+     */
+    // public void add(String type, String value) {
+    //     switch(type) {
+    //         case "leftPose":
+    //             leftPose.add(value);
+    //             break;
+    //         case "c21111 ombinedText":
+    //             combinedText.add(value);
+    //             break;
+    //         case "leftText":
+    //             leftText.add(value);
+    //             break;
+    //         case "rightPose":
+    //             rightPose.add(value);
+    //             break;
+    //         case "background":
+    //             background.add(value);
+    //             break;
+    //         default:
+    //             System.out.println("Unknown type: " + type);
+    //             break;
+    //     }
+    // }
     
-    public String getVignetteField(ArrayList<String> list){
+    public String getVignetteField(List<String> list){
         if(list == null || list.isEmpty()) {
             return null;
         }

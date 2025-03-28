@@ -5,20 +5,32 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 // This class should read in a schema from the file, and create a single vignette object including the translated text
 
 public class VignetteManager {
 
+    private static VignetteManager INSTANCE;
     private ArrayList<VignetteSchema> schemas = new ArrayList<>();
-    private Translations translator;
 
-    public VignetteManager(Translations translator) {
-        this.translator = translator;
-        loadTSV("English.tsv");
+    private VignetteManager() {
+        loadTSV();
     }
 
-    private void loadTSV(String fileName) {
+    public static synchronized VignetteManager getInstance() {
+        if (INSTANCE == null) {
+            INSTANCE = new VignetteManager();
+        }
+        return INSTANCE;
+    }
+
+    /**
+     * Creates a vignette schema from the english.tsv file.
+     * !!! Currently only reads in one line, will need to be changed later when how we choose which vignette is made clear !!!
+     */
+    private void loadTSV() {
+        String fileName = "aicomics\\src\\main\\resources\\English.tsv";
         try (InputStream inputStream = VignetteManager.class.getClassLoader().getResourceAsStream(fileName)) {
             if (inputStream == null) {
                 throw new IOException("File not found: " + fileName);
@@ -28,13 +40,8 @@ public class VignetteManager {
                 int i = 0;
                 while ((line = reader.readLine()) != null && i < 1) {
                     String[] fields = line.split("\t");
-                    if (fields.length >= 5) {
-                        VignetteSchema schema = new VignetteSchema();
-                        schema.add("leftPose", fields[0]);
-                        schema.add("combinedText", fields[1]);
-                        schema.add("leftText", fields[2]);
-                        schema.add("rightPose", fields[3]);
-                        schema.add("background", fields[4]);
+                    if (fields.length == 5) {
+                        VignetteSchema schema = new VignetteSchema(Arrays.asList(fields));
                         schemas.add(schema);
                     }
                     i++;
@@ -45,7 +52,13 @@ public class VignetteManager {
         }
     }
 
-    public Vignette generateVignette() {
+    /**
+     * Generates a vignette based on the loaded schemas
+     * !!! Only works with the one generated vignette, will need to be changed when how we choose which vignette is made clear !!!
+     * @param translator A Translations Object to translate the text into the selected language
+     * @return A fully selected vignette
+     */
+    public Vignette generateVignette(Translations translator) {
         if (schemas.isEmpty()) {
             System.out.println("No schemas loaded.");
             return null;
@@ -56,7 +69,7 @@ public class VignetteManager {
 
         // Apply translations
         
-        String translatedText = "";
+        String translatedText;
         if(schema.getLeftText().isEmpty() || schema.getLeftText() == null){
             translatedText = translator.getTranslation(schema.getCombinedText(), "spanish");
         }
