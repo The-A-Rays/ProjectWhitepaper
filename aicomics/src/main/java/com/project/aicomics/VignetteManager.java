@@ -1,10 +1,9 @@
 package com.project.aicomics;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.IOException;
-
 import java.util.ArrayList;
 
 // This class should read in a schema from the file, and create a single vignette object including the translated text
@@ -59,18 +58,10 @@ public class VignetteManager {
         
         String translatedText = "";
         if(schema.getLeftText().isEmpty() || schema.getLeftText() == null){
-            try {
-                translatedText = translator.getTranslation(schema.getCombinedText(), "spanish");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            translatedText = translator.getTranslation(schema.getCombinedText(), "spanish");
         }
         else {
-            try {
-                translatedText = translator.getTranslation(schema.getLeftText(), "spanish");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            translatedText = translator.getTranslation(schema.getLeftText(), "spanish");
         }
 
         return new Vignette(
