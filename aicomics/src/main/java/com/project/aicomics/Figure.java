@@ -56,6 +56,8 @@ public class Figure {
         }
     }
 
+
+    //setters and getters
     public void setSkinColor(Colors color) {
         this.skinColor = color;
     }
@@ -68,6 +70,14 @@ public class Figure {
         this.beardColor = color;
     }
 
+    public void setHairLength(int length) {
+        this.hairLength = length;
+    }
+
+    public void setlips(Colors color) {
+        this.hairColor = color;
+    }
+
     public Colors getSkinColor() {
         return skinColor;
     }
@@ -78,6 +88,18 @@ public class Figure {
 
     public Colors getBeardColor() {
         return beardColor;
+    }
+
+    public int getHairLength() {
+        return hairLength;
+    }
+
+    public Colors setlips() {
+        return lips;
+    }
+
+    public boolean getAppearence(){
+        return appearance;
     }
 
     //method to print all available colors

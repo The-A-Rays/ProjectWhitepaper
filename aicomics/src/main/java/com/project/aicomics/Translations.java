@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 import com.project.aicomics.service.OpenAIService;
 
+//use input stream instead of file (the file would be in the jar so user wont be able to see/edit)
 public class Translations {
 
     public enum Language {spanish, english};
@@ -17,7 +18,7 @@ public class Translations {
         this.translatedFile = originalLanguage.toString().toLowerCase() + "-" + targetLanguage.toString().toLowerCase() + ".tsv";
     }
 
-    //TODO 
+
     /**
      * Gets the translation of a given vignette
      * Check language pair if it has the translation already
