@@ -27,7 +27,7 @@ public class VignetteManager {
 
     /**
      * Creates a vignette schema from the english.tsv file.
-     * !!! Currently only reads in one line, will need to be changed later when how we choose which vignette is made clear !!!
+     * !!! Currently only reads in three lines, will need to be changed later when how we choose which vignette is made clear !!!
      */
     private void loadTSV() {
         String fileName = "aicomics\\src\\main\\resources\\English.tsv";
@@ -38,7 +38,7 @@ public class VignetteManager {
             try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
                 String line;
                 int i = 0;
-                while ((line = reader.readLine()) != null && i < 1) {
+                while ((line = reader.readLine()) != null && i < 3) {
                     String[] fields = line.split("\t");
                     if (fields.length == 5) {
                         VignetteSchema schema = new VignetteSchema(Arrays.asList(fields));
@@ -54,18 +54,17 @@ public class VignetteManager {
 
     /**
      * Generates a vignette based on the loaded schemas
-     * !!! Only works with the one generated vignette, will need to be changed when how we choose which vignette is made clear !!!
      * @param translator A Translations Object to translate the text into the selected language
+     * @param vignetteNumber int for which vignette to pick from the tsv
      * @return A fully selected vignette
      */
-    public Vignette generateVignette(Translations translator) {
+    public Vignette generateVignette(Translations translator, int vignetteNumber) {
         if (schemas.isEmpty()) {
             System.out.println("No schemas loaded.");
             return null;
         }
 
-        // For now just pick the first schema (later you can pick random if you want)
-        VignetteSchema schema = schemas.get(0);
+        VignetteSchema schema = schemas.get(vignetteNumber);
 
         // Apply translations
         

@@ -39,8 +39,8 @@ public class Figure {
 
 
     //constructor with default colors
-    public Figure(boolean appearance) {
-        this.appearance = appearance;
+    public Figure(boolean male) {
+        this.appearance = male;
         this.skinColor = Colors.LIGHT_SKIN;
                 
         if (appearance) { //male

@@ -1,5 +1,7 @@
 package com.project.aicomics;
 
+import java.util.ArrayList;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,6 +15,17 @@ public class AicomicsApplication {
 	public static void main(String[] args) {
 		OpenAIService ai = new OpenAIService();
 		SpringApplication.run(AicomicsApplication.class, args);
+		// Creating xml doc
+		VignetteManager mng = VignetteManager.getInstance();
+		Translations trans = new Translations(Translations.Language.english, Translations.Language.spanish);
+		ArrayList<Figure> figures = new ArrayList<>();
+		figures.add(new Figure(true));
+		figures.add(new Figure(false));
+		ArrayList<Vignette> scenes = new ArrayList<>();
+		scenes.add(mng.generateVignette(trans, 0));
+		scenes.add(mng.generateVignette(trans, 1));
+		scenes.add(mng.generateVignette(trans, 2));
+		XMLManager.createComic("genericComic", "This is a generic comic!", figures, scenes);
 	}
 
 }
