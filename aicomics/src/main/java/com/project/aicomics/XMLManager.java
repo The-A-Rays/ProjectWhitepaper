@@ -10,9 +10,6 @@ import org.jdom2.Element;
 import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-
 
 
 /*
@@ -42,7 +39,6 @@ public class XMLManager {
     public static void createComic(String fileName, String title, List<Figure> figuresList, List<Vignette> scenesList) {
         if (figuresList.size() > 2 || figuresList.size() < 1) throw new IllegalArgumentException("figuresList must be 1 or 2 figures");
         if (scenesList.size() < 1) throw new IllegalArgumentException("Must have at least 1 scene");
-        XmlMapper xmlmap = new XmlMapper();
         Document doc = new Document();
 
         Element comic = new Element("comic");
@@ -54,21 +50,34 @@ public class XMLManager {
         rubric.addContent(comicTitle);
 
         Element figures = new Element("figures");
-        try {
-            for (Figure fig : figuresList) {
-                String xml = xmlmap.writeValueAsString(fig);
-                figures.setText(xml);
+        for (Figure fig : figuresList) {
+            Element f = new Element("figure");
+            if (fig.getAppearence()) {
+                f.addContent(new Element("skin").setText("male"));
+                f.addContent(new Element("beard").setText(fig.getBeardColor().toString()));
+            }else {
+                f.addContent(new Element("skin").setText("female"));
+                f.addContent(new Element("beard").setText("none"));
             }
-        } catch (JsonProcessingException e) {e.getStackTrace();}
+            f.addContent(new Element("skin").setText(fig.getSkinColor().toString()));
+            f.addContent(new Element("hair").setText(fig.getHairColor().toString()));
+            f.addContent(new Element("lips").setText(fig.getLipColor().toString()));
+            f.addContent(new Element("hairLength").setText(Integer.toString(fig.getHairLength())));
+            figures.addContent(f);
+        }
 
 
         Element panels = new Element("panels");
-        try {
-            for (Vignette scene : scenesList) {
-                String xml = xmlmap.writeValueAsString(scene);
-                panels.addContent(xml);
-            }
-        } catch (JsonProcessingException e) {e.getStackTrace();}
+        for (Vignette scene : scenesList) {
+            Element p = new Element("panel");
+            p.addContent(new Element("leftPose").setText(scene.getLeftPose()));
+            p.addContent(new Element("combinedText").setText(scene.getCombinedText()));
+            p.addContent(new Element("translatedText").setText(scene.getTranslatedText()));
+            p.addContent(new Element("leftText").setText(scene.getLeftText()));
+            p.addContent(new Element("rightPose").setText(scene.getRightPose()));
+            p.addContent(new Element("background").setText(scene.getBackground()));
+            panels.addContent(p);
+        }
 
         comic.addContent(rubric);
         comic.addContent(figures);

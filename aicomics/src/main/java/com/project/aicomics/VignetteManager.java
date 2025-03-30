@@ -15,12 +15,12 @@ public class VignetteManager {
     private ArrayList<VignetteSchema> schemas = new ArrayList<>();
 
     private VignetteManager() {
-        loadTSV();
     }
 
     public static synchronized VignetteManager getInstance() {
         if (INSTANCE == null) {
             INSTANCE = new VignetteManager();
+            INSTANCE.loadTSV();
         }
         return INSTANCE;
     }

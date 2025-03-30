@@ -94,6 +94,10 @@ public class Figure {
         return hairLength;
     }
 
+    public Colors getLipColor() {
+        return lips;
+    }
+
     public Colors setlips() {
         return lips;
     }
