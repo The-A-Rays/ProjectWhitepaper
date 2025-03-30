@@ -53,7 +53,7 @@ public class ConfigurationFile {
     /**
      * Writes new data to API config file
      */
-    public void changeAPIConfig(String newOrgKey, String newAPIKey, String newModel, Translations.Language language) {
+    public final void changeAPIConfig(String newOrgKey, String newAPIKey, String newModel, Translations.Language language) {
         try (FileWriter wr = new FileWriter(apiconfig)) {
             wr.write("COMPLETIONS_URL " + fileInfo[0] + "\n");
             wr.write("EMBEDDINGS_URL "  + fileInfo[1] + "\n");
