@@ -56,8 +56,6 @@ public class Figure {
         }
     }
 
-
-    // Method to change color (only allows predefined colors)
     public void setSkinColor(Colors color) {
         this.skinColor = color;
     }
@@ -70,7 +68,6 @@ public class Figure {
         this.beardColor = color;
     }
 
-    // Getter methods
     public Colors getSkinColor() {
         return skinColor;
     }
