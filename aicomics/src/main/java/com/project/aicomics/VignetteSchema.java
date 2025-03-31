@@ -24,11 +24,13 @@ public class VignetteSchema {
      * 
      */
     public VignetteSchema(List<String> fields){
-        leftPose = Arrays.asList(fields.get(0).split(","));
-        combinedText = Arrays.asList(fields.get(1).split(","));
-        leftText = Arrays.asList(fields.get(2).split(","));
-        rightPose = Arrays.asList(fields.get(3).split(","));
-        background = Arrays.asList(fields.get(0).split(","));
+        if(!(fields == null)){
+            leftPose = Arrays.asList(fields.get(0).split(","));
+            combinedText = Arrays.asList(fields.get(1).split(","));
+            leftText = Arrays.asList(fields.get(2).split(","));
+            rightPose = Arrays.asList(fields.get(3).split(","));
+            background = Arrays.asList(fields.get(4).split(","));
+        }
     }
     
     public String getVignetteField(List<String> list){
