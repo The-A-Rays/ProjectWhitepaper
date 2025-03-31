@@ -30,34 +30,6 @@ public class VignetteSchema {
         rightPose = Arrays.asList(fields.get(3).split(","));
         background = Arrays.asList(fields.get(0).split(","));
     }
-
-    /**
-     * Old method to import strings into the lists, didn;t work as inteded so constructor is used now.
-     * @param type 
-     * @param value
-     */
-    // public void add(String type, String value) {
-    //     switch(type) {
-    //         case "leftPose":
-    //             leftPose.add(value);
-    //             break;
-    //         case "c21111 ombinedText":
-    //             combinedText.add(value);
-    //             break;
-    //         case "leftText":
-    //             leftText.add(value);
-    //             break;
-    //         case "rightPose":
-    //             rightPose.add(value);
-    //             break;
-    //         case "background":
-    //             background.add(value);
-    //             break;
-    //         default:
-    //             System.out.println("Unknown type: " + type);
-    //             break;
-    //     }
-    // }
     
     public String getVignetteField(List<String> list){
         if(list == null || list.isEmpty()) {
