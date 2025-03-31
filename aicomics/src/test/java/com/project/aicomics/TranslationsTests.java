@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -26,12 +27,9 @@ public class TranslationsTests {
     void testTranslation() throws IOException {
       //parameters for vignette object
         
-        VignetteSchema input = new VignetteSchema();
-        input.add("background", "restaurant, food truck");
-        input.add("combinedText", "to serve, a tray, a cocktail, ordering a drink");
-        input.add("leftPose", "catering");
-        input.add("leftText", "a tray");
-        input.add("rightPose", "eating, drinking, sipping, slurping");
+        List<String> listTwo = Arrays.asList("catering", "to serve, a tray, a cocktail, ordering a drink", "a tray", "eating, drinking, sipping, slurping", "restaurant, food truck");
+
+        VignetteSchema input = new VignetteSchema(listTwo);
 
 
     
@@ -49,12 +47,9 @@ public class TranslationsTests {
   @Test
   void testTranslation2() throws IOException {
     //parameters for vignette object
-    VignetteSchema input = new VignetteSchema();
-        input.add("background", "restaurant, food truck");
-        input.add("combinedText", "to serve, a tray, a cocktail, ordering a drink");
-        input.add("leftPose", "catering");
-        input.add("leftText", "a politician");
-        input.add("rightPose", "eating, drinking, sipping, slurping");
+    List<String> listTwo = Arrays.asList("catering", "to serve, a tray, a cocktail, ordering a drink", "a politician", "eating, drinking, sipping, slurping", "restaurant, food truck");
+
+    VignetteSchema input = new VignetteSchema(listTwo);
   
     String translated = translations.getTranslation(input.getLeftText(), "spanish");
 
