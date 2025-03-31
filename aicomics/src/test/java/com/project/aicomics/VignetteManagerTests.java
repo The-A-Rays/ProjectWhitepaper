@@ -14,9 +14,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class VignetteManagerTests {
 
     private VignetteManager manager;
-    List<String> list = Arrays.asList("catering", "to serve, a tray, a cocktail", "catering", "ordering a drink", "eating, drinking, sipping", "restaurant, food truck");
+    List<String> list = Arrays.asList("catering", "to serve, a tray, a cocktail", "", "ordering a drink", "eating, drinking, sipping", "restaurant, food truck");
 
-    private VignetteSchema schema = new VignetteSchema(null);
+    private VignetteSchema schema = new VignetteSchema(list);
 
     @Test
     void testSchemaIsPopulatedCorrectly() {
@@ -26,34 +26,6 @@ class VignetteManagerTests {
         assertFalse(schema.getRightPose().isEmpty(), "Right Pose should not be empty");
         assertFalse(schema.getBackground().isEmpty(), "Background should not be empty");
     }
-
-    // @Test
-    // void testCommaSeparatedValuesAreSplitCorrectly() {
-    //     List<String> leftPoses = schema.getLeftPose();
-    //     List<String> combinedText = schema.getCombinedText();
-    //     List<String> rightPoses = schema.getRightPose();
-    //     List<String> backgrounds = schema.getBackground();
-
-    //     // Check leftPose
-    //     assertEquals(1, leftPoses.size());
-    //     assertTrue(leftPoses.contains("attracted"));
-
-    //     // Check combinedText
-    //     assertEquals(2, combinedText.size());
-    //     assertTrue(combinedText.contains("to fall in love"));
-    //     assertTrue(combinedText.contains("love"));
-
-    //     // Check rightPose
-    //     assertEquals(2, rightPoses.size());
-    //     assertTrue(rightPoses.contains("nude"));
-    //     assertTrue(rightPoses.contains("posing"));
-
-    //     // Check background
-    //     assertEquals(3, backgrounds.size());
-    //     assertTrue(backgrounds.contains("bedroom"));
-    //     assertTrue(backgrounds.contains("red carpet event"));
-    //     assertTrue(backgrounds.contains("locker room"));
-    // }
 
     // @Test
     // void testHandlesEmptyTSVGracefully() {
