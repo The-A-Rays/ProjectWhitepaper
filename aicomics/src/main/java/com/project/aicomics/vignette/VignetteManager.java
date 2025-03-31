@@ -1,4 +1,4 @@
-package com.project.aicomics;
+package com.project.aicomics.vignette;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,6 +6,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import com.project.aicomics.Translations;
 
 // This class should read in a schema from the file, and create a single vignette object including the translated text
 
@@ -30,7 +32,7 @@ public class VignetteManager {
      * !!! Currently only reads in three lines, will need to be changed later when how we choose which vignette is made clear !!!
      */
     private void loadTSV() {
-        String fileName = "aicomics\\src\\main\\resources\\English.tsv";
+        String fileName = "English.tsv";
         try (InputStream inputStream = VignetteManager.class.getClassLoader().getResourceAsStream(fileName)) {
             if (inputStream == null) {
                 throw new IOException("File not found: " + fileName);

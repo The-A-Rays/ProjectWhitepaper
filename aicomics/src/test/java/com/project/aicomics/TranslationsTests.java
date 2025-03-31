@@ -11,6 +11,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
+import com.project.aicomics.vignette.VignetteSchema;
+
 import static com.project.aicomics.Translations.Language.english;
 import static com.project.aicomics.Translations.Language.spanish;
 

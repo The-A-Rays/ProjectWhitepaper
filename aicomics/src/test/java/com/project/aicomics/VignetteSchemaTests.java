@@ -9,6 +9,8 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
+import com.project.aicomics.vignette.VignetteSchema;
+
 public class VignetteSchemaTests {
 
     VignetteSchema vignette = new VignetteSchema(null);

@@ -7,6 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.aicomics.service.OpenAIService;
+import com.project.aicomics.vignette.Vignette;
+import com.project.aicomics.vignette.VignetteManager;
 
 @RestController
 @SpringBootApplication
@@ -27,5 +29,15 @@ public class AicomicsApplication {
 		scenes.add(mng.generateVignette(trans, 2));
 		XMLManager.createComic("genericComic", "This is a generic comic!", figures, scenes);
 	}
+
+	// Major steps for this Sprint:
+	//  Theme being conjugations in the target language: I learn, You Learn, We learn
+	// Load/Parse XML with DOM parser
+	// extract all spoken text from XML
+	// obtain trnaslations of this text
+	// Modify XML to interweave the translations
+	// Save XML lesson to a new file
+
+	// XML Blueprint Class - use DOM parser to load an XML "specification" or blueprint
 
 }

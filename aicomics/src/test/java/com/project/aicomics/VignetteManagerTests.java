@@ -2,19 +2,21 @@ package com.project.aicomics;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import com.project.aicomics.vignette.VignetteManager;
+import com.project.aicomics.vignette.VignetteSchema;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class VignetteManagerTests {
 
     private VignetteManager manager;
-    private VignetteSchema schema;
+    List<String> list = Arrays.asList("catering", "to serve, a tray, a cocktail", "catering", "ordering a drink", "eating, drinking, sipping", "restaurant, food truck");
 
-    @BeforeEach
-    void setUp() {
-        manager = new VignetteManager();
-        schema = manager.schema;
-    }
+    private VignetteSchema schema = new VignetteSchema(null);
 
     @Test
     void testSchemaIsPopulatedCorrectly() {

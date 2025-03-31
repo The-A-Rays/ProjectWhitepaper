@@ -1,4 +1,4 @@
-package com.project.aicomics;
+package com.project.aicomics.vignette;
 
 import java.util.ArrayList;
 import java.util.Arrays;

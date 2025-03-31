@@ -10,6 +10,8 @@ import org.jdom2.Element;
 import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
 
+import com.project.aicomics.vignette.Vignette;
+
 
 
 /*
