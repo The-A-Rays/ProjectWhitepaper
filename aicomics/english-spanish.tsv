@@ -2,3 +2,7 @@ a tray
 una bandeja
 a politician
 un político
+a politician
+Error calling OpenAI API: 401 Unauthorized on POST request for "https://api.openai.com/v1/chat/completions": [no body]
+a tray
+Error calling OpenAI API: 401 Unauthorized on POST request for "https://api.openai.com/v1/chat/completions": [no body]

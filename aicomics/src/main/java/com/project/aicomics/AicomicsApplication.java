@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.aicomics.service.OpenAIService;
-import com.project.aicomics.vignette.Vignette;
 import com.project.aicomics.vignette.VignetteManager;
 
 @RestController
@@ -21,13 +20,13 @@ public class AicomicsApplication {
 		VignetteManager mng = VignetteManager.getInstance();
 		Translations trans = new Translations(Translations.Language.english, Translations.Language.spanish);
 		ArrayList<Figure> figures = new ArrayList<>();
-		figures.add(new Figure(true));
-		figures.add(new Figure(false));
-		ArrayList<Vignette> scenes = new ArrayList<>();
-		scenes.add(mng.generateVignette(trans, 0));
-		scenes.add(mng.generateVignette(trans, 1));
-		scenes.add(mng.generateVignette(trans, 2));
-		XMLManager.createComic("genericComic", "This is a generic comic!", figures, scenes);
+		// figures.add(new Figure(true));
+		// figures.add(new Figure(false));
+		// ArrayList<Vignette> scenes = new ArrayList<>();
+		// scenes.add(mng.generateVignette(trans, 0));
+		// scenes.add(mng.generateVignette(trans, 1));
+		// scenes.add(mng.generateVignette(trans, 2));
+		// XMLManager.createComic("genericComic", "This is a generic comic!", figures, scenes);
 	}
 
 	// Major steps for this Sprint:
