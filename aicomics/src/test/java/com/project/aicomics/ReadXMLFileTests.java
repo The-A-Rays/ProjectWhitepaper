@@ -1,5 +1,6 @@
 package com.project.aicomics;
 import java.io.File;
+import java.io.InputStream;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -17,11 +18,16 @@ public class ReadXMLFileTests {
 
     @BeforeAll
     public static void setUp() throws Exception {
-        File xmlFile = new File("C:\\Users\\flore\\Uni\\Y3\\Sem2\\SoftEng3\\ProjectWhitepaper\\aicomics\\src\\main\\resources\\specification.xml");
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder builder = factory.newDocumentBuilder();
-        document = builder.parse(xmlFile);
-        document.getDocumentElement().normalize();
+        try (InputStream inputStream = ReadXMLFile.class.getClassLoader().getResourceAsStream("specification.xml")) {
+            if (inputStream == null) {
+                throw new IllegalStateException("File not found: specification.xml");
+            }
+
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = factory.newDocumentBuilder();
+            document = builder.parse(inputStream);
+            document.getDocumentElement().normalize();
+        }
     }
 
     @Test

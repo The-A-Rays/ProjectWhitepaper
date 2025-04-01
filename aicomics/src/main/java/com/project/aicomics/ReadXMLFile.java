@@ -1,6 +1,8 @@
 package com.project.aicomics;
 
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,20 +34,23 @@ public class ReadXMLFile {
     return "";
 }
 
-  public void readXML(){
-    File file = new File("aicomics\\src\\main\\resources\\specification.xml");
-    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-    try {
+  public void readXML() {
+    try (InputStream inputStream = ReadXMLFile.class.getClassLoader().getResourceAsStream("specification.xml")) {
+        if (inputStream == null) {
+            throw new IOException("File not found: specification.xml");
+        }
+
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
-        Document doc = (Document) builder.parse(file);
+        Document doc = builder.parse(inputStream);
         doc.getDocumentElement().normalize();
 
         this.figures = parseFigures(doc);
         this.scenes = parseScenes(doc);
 
     } catch (Exception e) {
-      System.out.println("Something went wrong when processing the file.");
-      e.printStackTrace();
+        System.out.println("Something went wrong when processing the file.");
+        e.printStackTrace();
     }
   }
 
