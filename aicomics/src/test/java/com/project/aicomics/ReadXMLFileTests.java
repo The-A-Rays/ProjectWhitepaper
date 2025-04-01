@@ -1,11 +1,14 @@
 package com.project.aicomics;
 import java.io.File;
 import java.io.InputStream;
+import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -89,6 +92,20 @@ public class ReadXMLFileTests {
                 assertFalse(setting.isBlank());//there needs to be a settign for each panel
             }
         }
+    }
+    @Test
+    public void testGetAllTranslatedText() {
+        ReadXMLFile reader = new ReadXMLFile();
+        reader.readXML();
+        List<String> spokenText = reader.getAllTranslatedText();
+
+        assertNotNull(spokenText, "Returned list should not be null.");
+        assertEquals(98, spokenText.size(), "There should be 4 entries (2 original + 2 translations).");
+
+        assertEquals("I am going", spokenText.get(0));
+        assertEquals("Voy a ir.", spokenText.get(1));
+        assertEquals("You are going", spokenText.get(2));
+        assertEquals("Estás yendo.", spokenText.get(3)); // Occasionally get different translations
     }
   }
     

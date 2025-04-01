@@ -14,6 +14,8 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import com.project.aicomics.service.OpenAIService;
+
 
 public class ReadXMLFile {
   private List<Figure> figures;
@@ -147,6 +149,29 @@ public class ReadXMLFile {
           scenes.add(scene);
         }
         return scenes;
-    }   
+    }
+
+
+    public List<String> getAllTranslatedText() {
+      OpenAIService ai = new OpenAIService();
+      List<String> spokenText = new ArrayList<>();
+      
+      if (scenes == null) {
+          System.out.println("No scenes available.");
+          return spokenText;
+      }
+  
+      for (Scene scene : scenes) {
+          for (Panel panel : scene.getPanels()) {
+              for (Bubble bubble : panel.getBubbles()) {
+                  spokenText.add(bubble.getContent());
+                  spokenText.add(ai.TranslateText(bubble.getContent())); // not working
+              }
+          }
+      }
+  
+      return spokenText;
+    }
+  
   }
   
