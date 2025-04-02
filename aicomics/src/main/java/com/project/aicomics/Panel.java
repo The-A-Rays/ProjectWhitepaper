@@ -1,13 +1,10 @@
 package com.project.aicomics;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Panel {
 
-  private List<String> position;
-  private List<Figure> figures = new ArrayList<>();
-  private List<Bubble> bubbles = new ArrayList<>();
+  private List<Position> position;
   private String setting;
   private String titleBelow;
   private String border;
@@ -28,28 +25,12 @@ public class Panel {
         this.border = border;
     }
 
-  public List<String> getPosition() {
+  public List<Position> getPosition() {
       return position;
   }
 
-  public void addPosition(String position) {
+  public void addPosition(Position position) {
       this.position.add(position);
-  }
-
-  public List<Figure> getFigures() {
-      return figures;
-  }
-
-  public void setFigures(List<Figure> figures) {
-      this.figures = figures;
-  }
-
-  public List<Bubble> getBubbles() {
-      return bubbles;
-  }
-
-  public void setBubbles(List<Bubble> bubbles) {
-      this.bubbles = bubbles;
   }
 
   public String getSetting() {
