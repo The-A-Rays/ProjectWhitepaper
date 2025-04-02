@@ -19,9 +19,9 @@ public class AicomicsApplication {
 		OpenAIService ai = new OpenAIService();
 		SpringApplication.run(AicomicsApplication.class, args);
 		// Creating xml doc
-		VignetteManager mng = VignetteManager.getInstance();
-		Translations trans = new Translations(Translations.Language.english, Translations.Language.spanish);
-		ArrayList<Figure> figures = new ArrayList<>();
+		// VignetteManager mng = VignetteManager.getInstance();
+		// Translations trans = new Translations(Translations.Language.english, Translations.Language.spanish);
+		// ArrayList<Figure> figures = new ArrayList<>();
 
 		ReadXMLFile reader = new ReadXMLFile();
 		reader.readXML();

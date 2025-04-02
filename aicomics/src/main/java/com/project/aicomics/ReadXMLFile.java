@@ -165,7 +165,7 @@ public class ReadXMLFile {
           for (Panel panel : scene.getPanels()) {
               for (Bubble bubble : panel.getBubbles()) {
                   spokenText.add(bubble.getContent());
-                  spokenText.add(ai.TranslateText(bubble.getContent())); // not working
+                  spokenText.add(ai.TranslateText(bubble.getContent()));
               }
           }
       }
