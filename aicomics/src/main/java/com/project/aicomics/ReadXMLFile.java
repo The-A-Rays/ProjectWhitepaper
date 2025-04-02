@@ -86,7 +86,7 @@ private static List<Figure> parseFigures(Element elem){
      */ //extracts bubbles from different positions
      private static List<Bubble> parseBubbles(Element elem){
       List<Bubble> bubbles = new ArrayList<>();
-      NodeList bubbleNodes = elem.getElementsByTagName("baloon");   
+      NodeList bubbleNodes = elem.getElementsByTagName("balloon");   
 
       for (int j = 0; j < bubbleNodes.getLength(); j++) { //get balloons
         Node bubbleN = bubbleNodes.item(j);
@@ -130,7 +130,7 @@ private static List<Figure> parseFigures(Element elem){
                 Node child = childNodes.item(k);
                 if (child.getNodeType() == Node.ELEMENT_NODE) {
                   Position position = new Position();
-                  Element positionElem = (Element) position;
+                  Element positionElem = (Element) child;
                   switch (child.getNodeName()) {
                     case "left":
                         position.setName("left");
@@ -178,6 +178,8 @@ private static List<Figure> parseFigures(Element elem){
         System.out.println("No scenes available.");
         return spokenText;
     }
+  
+
     for (Scene scene : scenes) {
       for (Panel panel : scene.getPanels()) {
         for(Position pos: panel.getPosition()){
@@ -188,7 +190,7 @@ private static List<Figure> parseFigures(Element elem){
         }
       }
     }
-    return spokenText;
+   return spokenText;
   }
 }
 
