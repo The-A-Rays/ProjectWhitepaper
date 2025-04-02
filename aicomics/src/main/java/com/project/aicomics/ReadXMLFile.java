@@ -83,23 +83,32 @@ public class ReadXMLFile {
      * 
      * @param elem the element from which we want to extract the speeches from
      * @return a list containing all the speech bubbles' content
-     */
+     */ //extracts bubbles from different positions
     private static List<Bubble> parseBubbles(Element elem){
       List<Bubble> bubbles = new ArrayList<>();
-      NodeList bubblesNodes = elem.getElementsByTagName("balloon"); //list containing each speech bubble
+      List<String> positions = ((Panel) elem).getPosition(); //list of position names coressponding with the passed element
 
-      for (int i = 0; i < bubblesNodes.getLength(); i++) {
-         Node bubbleN = bubblesNodes.item(i);
-          if (bubbleN.getNodeType() == Node.ELEMENT_NODE) {
-            Bubble bubble = new Bubble();
-            Element bubbleElem = (Element) bubbleN;
-            bubble.setContent(getTagVal("content", bubbleElem)); //gets content
-            bubble.setStatus(bubbleElem.getAttribute("status")); //gets status
-            bubbles.add(bubble); 
-          }
-      }
-      return bubbles;
-    }
+      for (String position : positions) {
+          NodeList positionN = elem.getElementsByTagName(position);
+        for (int i = 0; i < positionN.getLength(); i++) { 
+            Element positionElem = (Element) positionN.item(i);
+            NodeList bubblesNodes = positionElem.getElementsByTagName("balloon");
+
+                for (int j = 0; j < bubblesNodes.getLength(); j++) { // get balloons
+                  Node bubbleN = bubblesNodes.item(j);
+                  if (bubbleN.getNodeType() == Node.ELEMENT_NODE) {
+                          Bubble bubble = new Bubble();
+                          Element bubbleElem = (Element) bubbleN;
+                          bubble.setContent(getTagVal("content", bubbleElem)); //gets content
+                          bubble.setStatus(bubbleElem.getAttribute("status")); //gets status
+                          bubbles.add(bubble); 
+                  }
+                }
+            }
+        }
+        return bubbles;
+   }
+    
 
     /**
      * 
@@ -139,19 +148,21 @@ public class ReadXMLFile {
                       case "middle":
                           panel.addPosition("middle");
                           break;
+                      case "border":
+                          panel.setBorder(getTagVal("border", panelElem));
+                          break; 
+                      case "below":
+                          panel.setTitleBelow(getTagVal("below", panelElem));
+                          break;    
                       default:
                           break;
                     }
                   }
                 }
-
                 
                 panel.setFigures(parseFigures(panelElem));
                 panel.setBubbles(parseBubbles(panelElem));
                 panel.setSetting(getTagVal("setting", panelElem));
-                panel.setBorder(getTagVal("border", panelElem));
-                panel.setTitleBelow(getTagVal("below", panelElem));
-                panel.setTitleAbove(getTagVal("above", panelElem));
 
                 scene.addPanel(panel); //adds each panel to the list of panels in the scene we're currently manipulating
               }
@@ -183,6 +194,7 @@ public class ReadXMLFile {
   
       return spokenText;
     }
-  
   }
+  
+  
   

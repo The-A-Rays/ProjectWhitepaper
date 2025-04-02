@@ -10,7 +10,6 @@ public class Panel {
   private List<Bubble> bubbles = new ArrayList<>();
   private String setting;
   private String titleBelow;
-  private String titleAbove;
   private String border;
 
     public String getTitleBelow() {
@@ -19,14 +18,6 @@ public class Panel {
 
     public void setTitleBelow(String titleBelow) {
         this.titleBelow = titleBelow;
-    }
-
-    public String getTitleAbove() {
-        return titleAbove;
-    }
-
-    public void setTitleAbove(String titleAbove) {
-        this.titleAbove = titleAbove;
     }
 
     public String getBorder() {
