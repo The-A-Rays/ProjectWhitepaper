@@ -1,6 +1,5 @@
 package com.project.aicomics;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -125,22 +124,34 @@ public class ReadXMLFile {
                 Panel panel = new Panel();
                 Element panelElem = (Element) panelN;
 
-                switch (panelElem.getParentNode().getNodeName()) {
-                    case "left":
-                        panel.setPosition("left");
-                        break;
-                    case "right":
-                        panel.setPosition("right");
-                        break;
-                    case "middle":
-                        panel.setPosition("middle");
-                        break;
-                    default:
-                        break;
+                //goes through child nodes of the panel node to find position/positions
+                NodeList childNodes = panelElem.getChildNodes();
+                for (int k = 0; k < childNodes.getLength(); k++) {
+                  Node child = childNodes.item(k);
+                  if (child.getNodeType() == Node.ELEMENT_NODE) {
+                    switch (child.getNodeName()) {
+                      case "left":
+                          panel.addPosition("left");
+                          break;
+                      case "right":
+                          panel.addPosition("right");
+                          break;
+                      case "middle":
+                          panel.addPosition("middle");
+                          break;
+                      default:
+                          break;
+                    }
+                  }
                 }
+
+                
                 panel.setFigures(parseFigures(panelElem));
                 panel.setBubbles(parseBubbles(panelElem));
                 panel.setSetting(getTagVal("setting", panelElem));
+                panel.setBorder(getTagVal("border", panelElem));
+                panel.setTitleBelow(getTagVal("below", panelElem));
+                panel.setTitleAbove(getTagVal("above", panelElem));
 
                 scene.addPanel(panel); //adds each panel to the list of panels in the scene we're currently manipulating
               }
