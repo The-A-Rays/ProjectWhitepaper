@@ -32,7 +32,7 @@ public class OpenAIService {
     }
 
     /**
-     * Method retrieves model, URL, and APIkey creates HTTPentity for POST request
+     * - {@link #CallAPI(String, String)} sends a request with a specified AI behavior and user prompt.
      * @param behaviour String to define ai behaviour
      * @param message String representation of prompt for ai
      * @return String response from ai (parsed from JSON format)
@@ -69,7 +69,7 @@ public class OpenAIService {
     }
 
     /**
-     * Method calls CallAPI() method with ai behaviour defined as a translator
+     * - {@link #TranslateText(String)} translates text to Spanish using OpenAI.
      * @param sourceText String representation of prompt for ai
      * @return String response from ai (parsed from JSON format)
      */
@@ -82,7 +82,7 @@ public class OpenAIService {
 
         } catch (Exception e) {
             e.printStackTrace();
-            return "{\"error\": \"Exception occurred\"}";
+            return "Translation failed due to an error.";
         }
     }
 }

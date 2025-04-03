@@ -7,6 +7,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.aicomics.service.OpenAIService;
+import com.project.aicomics.vignette.Vignette;
+import com.project.aicomics.vignette.VignetteFileReader;
+import com.project.aicomics.vignette.VignetteManager;
+import com.project.aicomics.vignette.VignetteSchema;
+import com.project.aicomics.Translations.Language;
 import com.project.aicomics.XML.*;;
 
 @RestController
@@ -14,16 +19,26 @@ import com.project.aicomics.XML.*;;
 public class AicomicsApplication {
 
 	public static void main(String[] args) {
-		OpenAIService ai = new OpenAIService();
+		// OpenAIService ai = new OpenAIService();
 		SpringApplication.run(AicomicsApplication.class, args);
 
-		ReadXMLFile reader = new ReadXMLFile();
-		reader.readXML();
-		List<String> spokenLines = reader.getAllTranslatedText();
+		try {
+            Translations translator = new Translations(Language.english, Language.spanish); // Assume this is properly implemented
 
-		for (String line : spokenLines) {
-			System.out.println(line);
-		}
+            // Read schemas from file
+            List<VignetteSchema> schemas = VignetteFileReader.readSchemas("English.tsv", 3);
+
+            // Create VignetteManager
+            VignetteManager manager = new VignetteManager(schemas, translator);
+
+            Vignette vignette = manager.getVignette(2);
+            if (vignette != null) {
+                System.out.println("Generated Vignette: " + vignette.getTranslatedText());
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 	}
 

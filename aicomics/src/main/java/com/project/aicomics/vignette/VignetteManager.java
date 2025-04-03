@@ -1,90 +1,67 @@
 package com.project.aicomics.vignette;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.List;
 
 import com.project.aicomics.Translations;
 
-// This class should read in a schema from the file, and create a single vignette object including the translated text
+// This class should take a list of VignetteSchemas and turn it into a list of Vignettes
+// I think this makes more sense for now, and having the file reading separate helps make the logic more understandable
 
 public class VignetteManager {
 
-    private static VignetteManager INSTANCE;
-    private ArrayList<VignetteSchema> schemas = new ArrayList<>();
-
-    private VignetteManager() {
-    }
-
-    public static synchronized VignetteManager getInstance() {
-        if (INSTANCE == null) {
-            INSTANCE = new VignetteManager();
-            INSTANCE.loadTSV();
-        }
-        return INSTANCE;
-    }
+    private List<Vignette> vignettes;
 
     /**
-     * Creates a vignette schema from the english.tsv file.
-     * !!! Currently only reads in three lines, will need to be changed later when how we choose which vignette is made clear !!!
+     * Constructor: Accepts a list of VignetteSchema objects and creates Vignettes from them.
+     * @param schemas List of VignetteSchema objects to be converted into Vignettes.
+     * @param translator Translations object for translating vignette text.
      */
-    private void loadTSV() {
-        String fileName = "English.tsv";
-        try (InputStream inputStream = VignetteManager.class.getClassLoader().getResourceAsStream(fileName)) {
-            if (inputStream == null) {
-                throw new IOException("File not found: " + fileName);
-            }
-            try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
-                String line;
-                int i = 0;
-                while ((line = reader.readLine()) != null && i < 3) {
-                    String[] fields = line.split("\t");
-                    if (fields.length == 5) {
-                        VignetteSchema schema = new VignetteSchema(Arrays.asList(fields));
-                        schemas.add(schema);
-                    }
-                    i++;
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public VignetteManager(List<VignetteSchema> schemas, Translations translator) {
+        this.vignettes = new ArrayList<>();
+        createVignettes(schemas, translator);
     }
 
+
     /**
-     * Generates a vignette based on the loaded schemas
+     * Generates a vignette list based on the loaded schemas
      * @param translator A Translations Object to translate the text into the selected language
-     * @param vignetteNumber int for which vignette to pick from the tsv
+     * @param shcemas the input list from which to create the Vignette objects
      * @return A fully selected vignette
      */
-    public Vignette generateVignette(Translations translator, int vignetteNumber) {
+    public void createVignettes(List<VignetteSchema> schemas, Translations translator) {
         if (schemas.isEmpty()) {
             System.out.println("No schemas loaded.");
+            return;
+        }
+
+        for(VignetteSchema schema : schemas){
+            String translatedText;
+            if(schema.getLeftText().isEmpty() || schema.getLeftText() == null){
+                translatedText = translator.getTranslation(schema.getCombinedText(), "spanish");
+            }
+            else {
+                translatedText = translator.getTranslation(schema.getLeftText(), "spanish");
+            }
+            this.vignettes.add(new Vignette(
+                schema.getLeftText(),
+                schema.getCombinedText(),
+                translatedText,
+                schema.getLeftPose(),
+                schema.getRightPose(),
+                schema.getBackground()
+            ));
+        }
+    }
+    /**
+     * Retrieves a vignette by index.
+     * @param index Index of the vignette.
+     * @return Vignette object if available, else null.
+     */
+    public Vignette getVignette(int index) {
+        if (index < 0 || index >= vignettes.size()) {
             return null;
         }
-
-        VignetteSchema schema = schemas.get(vignetteNumber);
-
-        // Apply translations
-        
-        String translatedText;
-        if(schema.getLeftText().isEmpty() || schema.getLeftText() == null){
-            translatedText = translator.getTranslation(schema.getCombinedText(), "spanish");
-        }
-        else {
-            translatedText = translator.getTranslation(schema.getLeftText(), "spanish");
-        }
-
-        return new Vignette(
-            schema.getLeftText(),
-            schema.getCombinedText(),
-            translatedText,
-            schema.getLeftPose(),
-            schema.getRightPose(),
-            schema.getBackground()
-        );
+        return vignettes.get(index);
     }
 }
