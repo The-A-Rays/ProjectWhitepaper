@@ -1,4 +1,4 @@
-package com.project.aicomics;
+package com.project.aicomics.XML;
 
 public class Bubble {
   
