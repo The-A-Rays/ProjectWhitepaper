@@ -1,8 +1,8 @@
 package com.project.aicomics;
 
 import org.junit.jupiter.api.Test;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
+// import com.fasterxml.jackson.databind.JsonNode;
+// import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.jupiter.api.Assertions.*;
@@ -13,7 +13,7 @@ import com.project.aicomics.service.OpenAIService;
 public class OpenAIServiceTests {
 
     @Autowired
-    private OpenAIService openAIService = new OpenAIService();
+    private OpenAIService openAIService;
 
     @Test
     void testCallAPI_Success() {
