@@ -169,7 +169,10 @@ private static List<Figure> parseFigures(Element elem){
       return scenes;
   }
 
-  
+  /**
+   * 
+   * @return a list of Strings containing all the speech content from the XML plus the content translated
+   */ 
   public List<String> getAllTranslatedText() {
     OpenAIService ai = new OpenAIService();
     List<String> spokenText = new ArrayList<>();
