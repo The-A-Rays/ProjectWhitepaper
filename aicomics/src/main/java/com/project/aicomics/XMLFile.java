@@ -118,7 +118,6 @@ private static List<Figure> parseFigures(Element elem){
       NodeList sceneNodes = doc.getElementsByTagName("scene");
       //itaretaes through all "scene" elements in "scenes" and looks for panels in each one
       for (int i = 0; i < sceneNodes.getLength(); i++){
-        System.out.println("scene"+i);
         Scene scene = new Scene();
         Node sceneN = sceneNodes.item(i);
         System.out.println("is it scene elem: "+(sceneN.getNodeType() == Node.ELEMENT_NODE));
@@ -128,20 +127,17 @@ private static List<Figure> parseFigures(Element elem){
           //goes trhough each panel of a specific scene and creates a panel object with the retrieved values from the .xml file
           for (int j = 0; j < panelNodes.getLength(); j++){
             Node panelN = panelNodes.item(j);
-            System.out.println("pan=" + j);
             if (panelN.getNodeType() == Node.ELEMENT_NODE){
               Panel panel = new Panel();
               Element panelElem = (Element) panelN;
 
               //goes through child nodes of the panel node to find position/positions
               NodeList childNodes = panelElem.getChildNodes();
-              System.out.println(childNodes.toString());
               for (int k = 0; k < childNodes.getLength(); k++) {
-                System.out.println("child="+k);
                 Node child = childNodes.item(k);
-                System.out.println(child.getNodeName());
-                System.out.println("is child node elem: "+ (child.getNodeType() == Node.ELEMENT_NODE));
-                if (child.getNodeType() == Node.ELEMENT_NODE) {
+                //filters out the children that are only elements EXCLUDING the damn new lines
+                if (child.getNodeType() == Node.ELEMENT_NODE && !"#text".equals(child.getNodeName())) {
+                 // System.out.println("is child" + k + "node elem: "+ (child.getNodeType() == Node.ELEMENT_NODE));
                   Position position = new Position();
                   Element positionElem = (Element) child;
                   switch (child.getNodeName()) {
