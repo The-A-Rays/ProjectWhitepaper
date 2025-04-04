@@ -120,7 +120,7 @@ private static List<Figure> parseFigures(Element elem){
       for (int i = 0; i < sceneNodes.getLength(); i++){
         Scene scene = new Scene();
         Node sceneN = sceneNodes.item(i);
-        System.out.println("is it scene elem: "+(sceneN.getNodeType() == Node.ELEMENT_NODE));
+        //System.out.println("is it scene elem: "+(sceneN.getNodeType() == Node.ELEMENT_NODE));
         if (sceneN.getNodeType() == Node.ELEMENT_NODE){
           NodeList panelNodes = ((Element)sceneN).getElementsByTagName("panel");//list containing all panles from one scene
           
@@ -138,30 +138,41 @@ private static List<Figure> parseFigures(Element elem){
                 //filters out the children that are only elements EXCLUDING the damn new lines
                 if (child.getNodeType() == Node.ELEMENT_NODE && !"#text".equals(child.getNodeName())) {
                  // System.out.println("is child" + k + "node elem: "+ (child.getNodeType() == Node.ELEMENT_NODE));
-                  Position position = new Position();
+                 
                   Element positionElem = (Element) child;
                   switch (child.getNodeName()) {
                     case "left" -> {
+                      Position position = new Position();
                         position.setName("left");
                         position.setFigures(parseFigures(positionElem));
                         position.setBubbles(parseBubbles(positionElem));
+                        panel.addPosition(position);
                         }
                     case "right" -> {
+                      Position position = new Position();
                         position.setName("right");
                         position.setFigures(parseFigures(positionElem));
                         position.setBubbles(parseBubbles(positionElem));
+                        panel.addPosition(position);
                         }
                     case "middle" -> {
+                      Position position = new Position();
                         position.setName("middle");
                         position.setFigures(parseFigures(positionElem));
                         position.setBubbles(parseBubbles(positionElem));
+                        panel.addPosition(position);
                         }
-                    case "border" -> panel.setBorder(getTagVal("border", panelElem));
-                    case "below" -> panel.setTitleBelow(getTagVal("below", panelElem));
+                    case "border" ->{
+                      panel.setBorder(getTagVal("border", panelElem));
+                    } 
+                    case "below" -> {
+                      System.out.println(getTagVal("below", panelElem));
+                      panel.setTitleBelow(getTagVal("below", panelElem));
+                    }
                     default -> {
                         }
                   }
-                  panel.addPosition(position);
+                  
                 }
               }
               panel.setSetting(getTagVal("setting", panelElem));
@@ -256,6 +267,7 @@ private static List<Figure> parseFigures(Element elem){
           panel.appendChild(setting);
           setting.setTextContent(p.getSetting());
         }
+        System.out.println(p.getTitleBelow());
         if (!p.getTitleBelow().equals("")) {
           Element below = doc.createElement("below");
           panel.appendChild(below);
