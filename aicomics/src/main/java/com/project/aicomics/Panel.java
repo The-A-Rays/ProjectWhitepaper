@@ -10,6 +10,12 @@ public class Panel {
   private String titleBelow;
   private String border;
 
+  
+  @Override
+    public String toString() {
+        return "Panel{" + "setting='" + getSetting() + ", titleBelow='" + getTitleBelow() +", border='" + getBorder() +", positions=" + getPosition() +"}";
+    }
+
     public String getTitleBelow() {
         return titleBelow;
     }

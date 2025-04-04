@@ -8,6 +8,11 @@ public class Position {
   private List<Figure> figures = new ArrayList<>();
   private List<Bubble> bubbles = new ArrayList<>();
 
+  @Override
+  public String toString() {
+      return "Position{" +"name='" + getName() + ", figures=" + getFigures() +", bubbles=" + getBubbles() + "}";
+  }
+
   public String getName(){
     return name;
   }

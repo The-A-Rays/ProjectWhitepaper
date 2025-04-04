@@ -16,6 +16,12 @@ public class Figure {
       this.lips = XMLFile.getTagVal("lips", element);
   }
 
+  @Override
+    public String toString() {
+        return "Figure{" + "id='" + getId() + ", name='" + getName() + ", appearance='" + getAppearance() + ", pose='" + getPose() + ", facing='" + getFacing() + ", skin='" + getSkin() + ", hair='" + getHair() + ", lips='" + getLips() + "}";
+    }
+
+
     public String[] getAttributes() {
         String[] attr = new String[8];
         attr[0] = id;

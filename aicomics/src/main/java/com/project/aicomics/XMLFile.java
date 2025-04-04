@@ -39,7 +39,7 @@ public class XMLFile {
         Node node = nodeList.item(0);
         return node.getTextContent();
     }
-    return "";
+    return null;
 }
 
 public void readXML() {
@@ -166,7 +166,7 @@ private static List<Figure> parseFigures(Element elem){
                       panel.setBorder(getTagVal("border", panelElem));
                     } 
                     case "below" -> {
-                      System.out.println(getTagVal("below", panelElem));
+                      //System.out.println(getTagVal("below", panelElem));
                       panel.setTitleBelow(getTagVal("below", panelElem));
                     }
                     default -> {
@@ -176,6 +176,7 @@ private static List<Figure> parseFigures(Element elem){
                 }
               }
               panel.setSetting(getTagVal("setting", panelElem));
+              System.out.println(panel.toString());
               scene.addPanel(panel); //adds each panel to the list of panels in the scene we're currently manipulating
             }
           }
@@ -246,7 +247,7 @@ private static List<Figure> parseFigures(Element elem){
         Element panel = doc.createElement("panel");
         scene.appendChild(panel);
         for (Position pos : p.getPosition()) {
-          System.out.println(pos.getName());
+          //System.out.println(pos.getName());
           Element position = doc.createElement(pos.getName().trim());
           panel.appendChild(position);
           for (Figure f : pos.getFigures()) {
@@ -262,18 +263,17 @@ private static List<Figure> parseFigures(Element elem){
           }
         }
         // Adding setting, below, and border
-        if (!p.getSetting().equals("")) {
+        if (p.getSetting() != null) {
           Element setting = doc.createElement("setting");
           panel.appendChild(setting);
           setting.setTextContent(p.getSetting());
         }
-        System.out.println(p.getTitleBelow());
-        if (!p.getTitleBelow().equals("")) {
+        if (p.getTitleBelow() != null) {
           Element below = doc.createElement("below");
           panel.appendChild(below);
           below.setTextContent(p.getTitleBelow());
         }
-        if (!p.getBorder().equals("")) {
+        if (p.getBorder() != null) {
           Element border = doc.createElement("border");
           panel.appendChild(border);
           border.setTextContent(p.getBorder());
@@ -303,17 +303,17 @@ private static List<Figure> parseFigures(Element elem){
           }
         }
         // Adding setting, below, and border
-        if (!p.getSetting().equals("")) {
+        if (p.getSetting()!=null) {
           Element setting = doc.createElement("setting");
           panel.appendChild(setting);
           setting.setTextContent(p.getSetting());
         }
-        if (!p.getTitleBelow().equals("")) {
+        if (p.getTitleBelow()!=null) {
           Element below = doc.createElement("below");
           panel.appendChild(below);
           below.setTextContent(p.getTitleBelow());
         }
-        if (!p.getBorder().equals("")) {
+        if (p.getBorder()!=null) {
           Element border = doc.createElement("border");
           panel.appendChild(border);
           border.setTextContent(p.getBorder());
@@ -343,7 +343,7 @@ private static List<Figure> parseFigures(Element elem){
     String[] atrs = f.getAttributes();
     for (int i = 0; i < atrs.length; i++) {
       String atr = atrs[i];
-      if (atr.equals("")) continue;             // Skip if the attribute is empty
+      if (atr == null) continue;             // Skip if the attribute is empty
       Element child = doc.createElement(attributeNames[i]);
       child.setTextContent(atr);
       figure.appendChild(child);
