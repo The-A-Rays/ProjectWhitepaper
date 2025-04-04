@@ -23,7 +23,7 @@ public class AicomicsApplication {
 		// Translations trans = new Translations(Translations.Language.english, Translations.Language.spanish);
 		// ArrayList<Figure> figures = new ArrayList<>();
 
-		ReadXMLFile reader = new ReadXMLFile();
+		XMLFile reader = new XMLFile();
 		reader.readXML();
 		List<String> spokenLines = reader.getAllTranslatedText();
 
