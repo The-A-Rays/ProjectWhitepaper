@@ -1,6 +1,7 @@
 package com.project.aicomics;
 
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -9,6 +10,11 @@ import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -109,53 +115,55 @@ private static List<Figure> parseFigures(Element elem){
      */
     private static List<Scene> parseScenes(Document doc) {
       List<Scene> scenes = new ArrayList<>();
-      NodeList sceneNodes = doc.getElementsByTagName("scenes").item(0).getChildNodes(); //method on individual node, hence item(0) since getElem.. returns a NodeList, in our case with only one node
-      
+      NodeList sceneNodes = doc.getElementsByTagName("scene");
       //itaretaes through all "scene" elements in "scenes" and looks for panels in each one
       for (int i = 0; i < sceneNodes.getLength(); i++){
+        System.out.println("scene"+i);
         Scene scene = new Scene();
         Node sceneN = sceneNodes.item(i);
+        System.out.println("is it scene elem: "+(sceneN.getNodeType() == Node.ELEMENT_NODE));
         if (sceneN.getNodeType() == Node.ELEMENT_NODE){
           NodeList panelNodes = ((Element)sceneN).getElementsByTagName("panel");//list containing all panles from one scene
           
           //goes trhough each panel of a specific scene and creates a panel object with the retrieved values from the .xml file
           for (int j = 0; j < panelNodes.getLength(); j++){
             Node panelN = panelNodes.item(j);
+            System.out.println("pan=" + j);
             if (panelN.getNodeType() == Node.ELEMENT_NODE){
               Panel panel = new Panel();
               Element panelElem = (Element) panelN;
 
               //goes through child nodes of the panel node to find position/positions
               NodeList childNodes = panelElem.getChildNodes();
+              System.out.println(childNodes.toString());
               for (int k = 0; k < childNodes.getLength(); k++) {
+                System.out.println("child="+k);
                 Node child = childNodes.item(k);
+                System.out.println(child.getNodeName());
+                System.out.println("is child node elem: "+ (child.getNodeType() == Node.ELEMENT_NODE));
                 if (child.getNodeType() == Node.ELEMENT_NODE) {
                   Position position = new Position();
                   Element positionElem = (Element) child;
                   switch (child.getNodeName()) {
-                    case "left":
+                    case "left" -> {
                         position.setName("left");
                         position.setFigures(parseFigures(positionElem));
                         position.setBubbles(parseBubbles(positionElem));
-                        break;
-                    case "right":
+                        }
+                    case "right" -> {
                         position.setName("right");
                         position.setFigures(parseFigures(positionElem));
                         position.setBubbles(parseBubbles(positionElem));
-                        break;
-                    case "middle":
+                        }
+                    case "middle" -> {
                         position.setName("middle");
                         position.setFigures(parseFigures(positionElem));
                         position.setBubbles(parseBubbles(positionElem));
-                        break;
-                    case "border":
-                        panel.setBorder(getTagVal("border", panelElem));
-                        break; 
-                    case "below":
-                        panel.setTitleBelow(getTagVal("below", panelElem));
-                        break;    
-                    default:
-                        break;
+                        }
+                    case "border" -> panel.setBorder(getTagVal("border", panelElem));
+                    case "below" -> panel.setTitleBelow(getTagVal("below", panelElem));
+                    default -> {
+                        }
                   }
                   panel.addPosition(position);
                 }
@@ -171,7 +179,7 @@ private static List<Figure> parseFigures(Element elem){
   }
 
   
-  private List<String> getAllTranslatedText() {
+  public List<String> getAllTranslatedText() {
     OpenAIService ai = new OpenAIService();
     List<String> spokenText = new ArrayList<>();
     
@@ -208,7 +216,7 @@ private static List<Figure> parseFigures(Element elem){
     List<String> trans = getAllTranslatedText();
     // Create base file formatting
     Element comic = doc.createElement("comic");
-    doc.appendChild(comic);
+    
     // Insert Figures
     Element xmlFigures = doc.createElement("figures");
     comic.appendChild(xmlFigures);
@@ -231,7 +239,8 @@ private static List<Figure> parseFigures(Element elem){
         Element panel = doc.createElement("panel");
         scene.appendChild(panel);
         for (Position pos : p.getPosition()) {
-          Element position = doc.createElement(pos.getName());
+          System.out.println(pos.getName());
+          Element position = doc.createElement(pos.getName().trim());
           panel.appendChild(position);
           for (Figure f : pos.getFigures()) {
             addFigure(f, position, doc);
@@ -239,10 +248,10 @@ private static List<Figure> parseFigures(Element elem){
           for (Bubble b: pos.getBubbles()) {
             Element balloon = doc.createElement("balloon");
             position.appendChild(balloon);
-            balloon.setAttribute("status", b.getStatus());
+            balloon.setAttribute("status", b.getStatus().trim());
             Element content = doc.createElement("content");
             balloon.appendChild(content);
-            content.setTextContent(b.getContent());
+            content.setTextContent(b.getContent().trim());
           }
         }
         // Adding setting, below, and border
@@ -262,13 +271,54 @@ private static List<Figure> parseFigures(Element elem){
           border.setTextContent(p.getBorder());
         }
       }
+      System.out.println("shit ran");
+      int i = 1;
       Element tScene = doc.createElement("scene");
       xmlScenes.appendChild(tScene);
-
-      
+      for (Panel p : s.getPanels()) {
+        Element panel = doc.createElement("panel");
+        scene.appendChild(panel);
+        for (Position pos : p.getPosition()) {
+          Element position = doc.createElement(pos.getName());
+          panel.appendChild(position);
+          for (Figure f : pos.getFigures()) {
+            addFigure(f, position, doc);
+          }
+          for (Bubble b: pos.getBubbles()) {
+            Element balloon = doc.createElement("balloon");
+            position.appendChild(balloon);
+            balloon.setAttribute("status", b.getStatus());
+            Element content = doc.createElement("content");
+            balloon.appendChild(content);
+            content.setTextContent(trans.get(i));
+            i += 2;
+          }
+        }
+        // Adding setting, below, and border
+        if (!p.getSetting().equals("")) {
+          Element setting = doc.createElement("setting");
+          panel.appendChild(setting);
+          setting.setTextContent(p.getSetting());
+        }
+        if (!p.getTitleBelow().equals("")) {
+          Element below = doc.createElement("below");
+          panel.appendChild(below);
+          below.setTextContent(p.getTitleBelow());
+        }
+        if (!p.getBorder().equals("")) {
+          Element border = doc.createElement("border");
+          panel.appendChild(border);
+          border.setTextContent(p.getBorder());
+        }
+      }
+      doc.appendChild(comic);
+      System.out.println("Ran");
+      System.out.println(doc);
+      try {writeXML(doc);}
+      catch (TransformerException te) {System.out.println("Error writing to file: " + te.getStackTrace());}
 
     }
-    // Print to file
+    
   }
 
   /**
@@ -290,5 +340,16 @@ private static List<Figure> parseFigures(Element elem){
       child.setTextContent(atr);
       figure.appendChild(child);
     }
+  }
+
+  private void writeXML(Document doc) throws TransformerException {
+    TransformerFactory transformerFactory = TransformerFactory.newInstance();
+    Transformer transformer = transformerFactory.newTransformer();
+    DOMSource source = new DOMSource();
+
+    StreamResult result = new StreamResult(new File("src\\main\\resources\\translatedSpecifications.xml"));
+
+    transformer.transform(source, result);
+
   }
 }

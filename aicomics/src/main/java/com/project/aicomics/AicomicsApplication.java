@@ -1,15 +1,12 @@
 package com.project.aicomics;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RestController;
-import org.w3c.dom.NodeList;
 
 import com.project.aicomics.service.OpenAIService;
-import com.project.aicomics.vignette.VignetteManager;
 
 @RestController
 @SpringBootApplication
@@ -25,6 +22,7 @@ public class AicomicsApplication {
 
 		XMLFile reader = new XMLFile();
 		reader.readXML();
+		reader.translationPrint();
 		List<String> spokenLines = reader.getAllTranslatedText();
 
 		for (String line : spokenLines) {
