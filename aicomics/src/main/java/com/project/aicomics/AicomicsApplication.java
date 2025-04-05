@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.project.aicomics.XML.XMLFile;
 import com.project.aicomics.service.OpenAIService;
 
 @RestController

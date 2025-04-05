@@ -1,3 +1,4 @@
+package com.project.aicomics.vignette;
 // package com.project.aicomics;
 
 // import java.io.File;

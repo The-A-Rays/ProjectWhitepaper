@@ -15,6 +15,8 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
+import com.project.aicomics.XML.XMLFile;
+
 public class ReadXMLFileTests {
     private static Document document;
 
