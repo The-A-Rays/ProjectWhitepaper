@@ -27,11 +27,12 @@ public class Figure {
         attr[0] = id;
         attr[1] = name;
         attr[2] = appearance;
-        attr[3] = pose;
-        attr[4] = facing;
-        attr[5] = skin;
-        attr[6] = hair;
-        attr[7] = lips;
+        attr[3] = skin;
+        attr[4] = hair;
+        attr[5] = lips;
+        attr[6] = pose;
+        attr[7] = facing;
+        
         return attr;
     }
 

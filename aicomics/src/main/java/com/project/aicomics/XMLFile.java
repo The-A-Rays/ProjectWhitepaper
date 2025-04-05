@@ -10,6 +10,7 @@ import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
@@ -26,6 +27,7 @@ import com.project.aicomics.service.OpenAIService;
 public class XMLFile {
   private List<Scene> scenes;  
   private List<Figure> figures;
+  private List<String> translatedText;
 
   /**
    * gets content from a given tag in an element
@@ -176,7 +178,6 @@ private static List<Figure> parseFigures(Element elem){
                 }
               }
               panel.setSetting(getTagVal("setting", panelElem));
-              System.out.println(panel.toString());
               scene.addPanel(panel); //adds each panel to the list of panels in the scene we're currently manipulating
             }
           }
@@ -191,6 +192,10 @@ private static List<Figure> parseFigures(Element elem){
     OpenAIService ai = new OpenAIService();
     List<String> spokenText = new ArrayList<>();
     
+    // Added so that if the method is called multiple times on the same file
+    // it doesn't give unnecessary api requests.
+    if (translatedText != null) return translatedText;
+
     if (scenes == null) {
         System.out.println("No scenes available.");
         return spokenText;
@@ -205,6 +210,7 @@ private static List<Figure> parseFigures(Element elem){
         }
       }
     }
+    translatedText = spokenText;
     return spokenText;
   }
 
@@ -224,8 +230,9 @@ private static List<Figure> parseFigures(Element elem){
     List<String> trans = getAllTranslatedText();
     // Create base file formatting
     Element comic = doc.createElement("comic");
-    
+    doc.appendChild(comic);
     // Insert Figures
+    System.out.println(figures.toString());
     Element xmlFigures = doc.createElement("figures");
     comic.appendChild(xmlFigures);
     for (Figure f : figures) {
@@ -247,7 +254,6 @@ private static List<Figure> parseFigures(Element elem){
         Element panel = doc.createElement("panel");
         scene.appendChild(panel);
         for (Position pos : p.getPosition()) {
-          //System.out.println(pos.getName());
           Element position = doc.createElement(pos.getName().trim());
           panel.appendChild(position);
           for (Figure f : pos.getFigures()) {
@@ -279,13 +285,12 @@ private static List<Figure> parseFigures(Element elem){
           border.setTextContent(p.getBorder());
         }
       }
-      System.out.println("shit ran");
       int i = 1;
       Element tScene = doc.createElement("scene");
       xmlScenes.appendChild(tScene);
       for (Panel p : s.getPanels()) {
         Element panel = doc.createElement("panel");
-        scene.appendChild(panel);
+        tScene.appendChild(panel);
         for (Position pos : p.getPosition()) {
           Element position = doc.createElement(pos.getName());
           panel.appendChild(position);
@@ -319,12 +324,9 @@ private static List<Figure> parseFigures(Element elem){
           border.setTextContent(p.getBorder());
         }
       }
-      doc.appendChild(comic);
-      System.out.println("Ran");
-      System.out.println(doc);
-      try {writeXML(doc);}
-      catch (TransformerException te) {System.out.println("Error writing to file: " + te.getStackTrace());}
-
+      try {writeXML(doc, "translatedSpecifications");}
+      catch (TransformerException te) {System.out.println("Error writing to file: " + te.toString()); return;}
+      System.out.println("Done creating XML file.");
     }
     
   }
@@ -338,8 +340,8 @@ private static List<Figure> parseFigures(Element elem){
   private void addFigure(Figure f, Element parent, Document doc) {
     Element figure = doc.createElement("figure");
     parent.appendChild(figure);
-    String[] attributeNames = {"id", "name", "appearance", "pose", 
-                               "facing", "skin", "hair", "lips"};
+    String[] attributeNames = {"id", "name", "appearance", "skin",
+                               "hair", "lips", "pose", "facing"};
     String[] atrs = f.getAttributes();
     for (int i = 0; i < atrs.length; i++) {
       String atr = atrs[i];
@@ -350,14 +352,31 @@ private static List<Figure> parseFigures(Element elem){
     }
   }
 
-  private void writeXML(Document doc) throws TransformerException {
+  /**
+   * Creates a new XML formatted file in src\main\resources
+   * @param doc Document containing the elements to be put in file
+   * @param fileName String filename or folder location ! MUST BE IN src\main\resources !
+   *  ! DO NOT INCLUDE '.xml' IT SHOULD JUST BE THE NAME OF THE FILE !
+   * @throws TransformerException
+   */
+  public static void writeXML(Document doc, String fileName) throws TransformerException {
     TransformerFactory transformerFactory = TransformerFactory.newInstance();
     Transformer transformer = transformerFactory.newTransformer();
-    DOMSource source = new DOMSource();
 
-    StreamResult result = new StreamResult(new File("src\\main\\resources\\translatedSpecifications.xml"));
+    // pretty print XML
+    transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+    DOMSource source = new DOMSource(doc);
+    StreamResult result = new StreamResult(new File(fileName + ".xml"));
 
     transformer.transform(source, result);
+    // DOMSource source = new DOMSource();
 
+    // File f = new File(fileName + ".xml");
+    // try {
+    //   f.createNewFile();
+    //   StreamResult result = new StreamResult(f);
+
+    //   transformer.transform(source, result);
+    // } catch (IOException e) {System.out.println("Unable to create new file: " + e.toString());}
   }
 }
