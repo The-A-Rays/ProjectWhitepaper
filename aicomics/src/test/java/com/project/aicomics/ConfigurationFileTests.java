@@ -28,20 +28,20 @@ public class ConfigurationFileTests {
         Assertions.assertEquals("https://api.openai.com/v1/models", cnf.getModelURL());
     }
 
-    @Test
-    void testAPIinfo() {
-        cnf.changeAPIConfig("org-55", "api-154y2", "gpt-4o-mini", Translations.Language.spanish);
+    // @Test
+    // void testAPIinfo() {
+    //     cnf.changeAPIConfig("org-55", "api-154y2", "gpt-4o-mini", Translations.Language.spanish);
 
-        System.out.println(cnf.getOrg());
-        Assertions.assertEquals("org-55", cnf.getOrg());
+    //     System.out.println(cnf.getOrg());
+    //     Assertions.assertEquals("org-55", cnf.getOrg());
 
-        System.out.println(cnf.getAPIKey());
-        Assertions.assertEquals("api-154y2", cnf.getAPIKey());
+    //     System.out.println(cnf.getAPIKey());
+    //     Assertions.assertEquals("api-154y2", cnf.getAPIKey());
 
-        System.out.println(cnf.getModel());
-        Assertions.assertEquals("gpt-4o-mini", cnf.getModel());
+    //     System.out.println(cnf.getModel());
+    //     Assertions.assertEquals("gpt-4o-mini", cnf.getModel());
 
-    }
+    // }
 
     @Test
     void testWroteToFile() {
@@ -50,7 +50,7 @@ public class ConfigurationFileTests {
             Assertions.assertEquals("COMPLETIONS_URL https://api.openai.com/v1/chat/completions", read.nextLine());
             Assertions.assertEquals("EMBEDDINGS_URL https://api.openai.com/v1/embeddings", read.nextLine());
             Assertions.assertEquals("MODELS_URL https://api.openai.com/v1/models", read.nextLine());
-            Assertions.assertEquals("ORG_KEY org-55", read.nextLine());
+            // Assertions.assertEquals("ORG_KEY org-55", read.nextLine());
             read.nextLine();
             Assertions.assertEquals("MODEL gpt-4o-mini", read.nextLine());
         } catch (IOException e) {

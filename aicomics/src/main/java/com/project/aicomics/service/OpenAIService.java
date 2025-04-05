@@ -13,31 +13,41 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import com.project.aicomics.ConfigurationFile;
+import com.project.aicomics.Parsing;
 
 @Service
+/**
+ * Class to send manage HTTP requests to OpenAI's API
+ * CallAPI() method calls API with ai behaviour and user prompt as input
+ * TranslateText() calls the first method with the behaviour designated as Translator
+ */
 public class OpenAIService {
     private final ConfigurationFile config;
-    private final RestTemplate restTemplate;
+    private final RestTemplate restTemplate; // for sending HTTP requests
 
     public OpenAIService() {
-        this.config = ConfigurationFile.getInstance(); // Access ConfigFile CLass
+        this.config = ConfigurationFile.getInstance();
         this.restTemplate = new RestTemplate();
     }
 
+    /**
+     * - {@link #CallAPI(String, String)} sends a request with a specified AI behavior and user prompt.
+     * @param behaviour String to define ai behaviour
+     * @param message String representation of prompt for ai
+     * @return String response from ai (parsed from JSON format)
+     */
     public String CallAPI(String behaviour, String message){
         String apiUrl = config.getCompURL();
         String apiKey = config.getAPIKey();
         String model = config.getModel();
 
-        // set a header for API KEY
+        // Create HTTP header
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON); //specifies JSON format 
-        headers.setBearerAuth(apiKey);
+        headers.setBearerAuth(apiKey); //sets Bearer token for authentication
 
+        // Build the request body
         Map<String, Object> requestBody = new HashMap<>();
         requestBody.put("model", model);
 
@@ -46,22 +56,23 @@ public class OpenAIService {
         messages.add(Map.of("role", "user", "content", message)); //this is the actual prompt
 
         requestBody.put("messages", messages);
-        requestBody.put("max_tokens", 100);
+        requestBody.put("max_tokens", 100); //limits ai response length
 
-        HttpEntity<Map<String, Object>> requestEntity = new HttpEntity<>(requestBody, headers); //wraps the request body and headerr together
+        HttpEntity<Map<String, Object>> requestEntity = new HttpEntity<>(requestBody, headers); //wraps the request body and header together
 
         try {
-            ResponseEntity<String> response = restTemplate.exchange(apiUrl, HttpMethod.POST, requestEntity, String.class); //send request
-            // Could maybe swap these next three lines with parsing logic from parsing file.
-            ObjectMapper objectMapper = new ObjectMapper();
-            JsonNode jsonNode = objectMapper.readTree(response.getBody());
-            String responseText = jsonNode.get("choices").get(0).get("message").get("content").asText();
-            return responseText; //gets the response from just the content field of the JSON response
+            ResponseEntity<String> response = restTemplate.exchange(apiUrl, HttpMethod.POST, requestEntity, String.class); //POST request
+            return Parsing.JSONParser(response.getBody());
         } catch (Exception e) {
             return "Error calling OpenAI API: " + e.getMessage();
         }
     }
 
+    /**
+     * - {@link #TranslateText(String)} translates text to Spanish using OpenAI.
+     * @param sourceText String representation of prompt for ai
+     * @return String response from ai (parsed from JSON format)
+     */
     public String TranslateText(String sourceText){
 
         try {
@@ -71,7 +82,7 @@ public class OpenAIService {
 
         } catch (Exception e) {
             e.printStackTrace();
-            return "{\"error\": \"Exception occurred\"}";
+            return "Translation failed due to an error.";
         }
     }
 }

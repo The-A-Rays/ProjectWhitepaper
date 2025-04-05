@@ -9,7 +9,7 @@ public class Bubble {
     public String toString() {
         return "Bubble{" + "status=" + getStatus() +", content=" + getContent() +"}";
     }
-
+  
     public String getContent() {
         return content;
     }

@@ -9,7 +9,6 @@ public class Panel {
   private String setting;
   private String titleBelow;
   private String border;
-
   
   @Override
     public String toString() {
