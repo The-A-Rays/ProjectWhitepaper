@@ -55,9 +55,12 @@ public void readXML() {
       Document doc = builder.parse(inputStream);
       doc.getDocumentElement().normalize();
 
-      this.figures = parseFigures(doc);
+      NodeList figuersNodes = doc.getElementsByTagName("figures");
+      for (int i = 0; i < figuersNodes.getLength(); i ++){
+        Node node = figuersNodes.item(i);
+        this.figures = parseFigures((Element)node);
+      }
       this.scenes = parseScenes(doc);
-      System.out.println("Scenes parsed: " + (scenes == null ? "null" : scenes.size()));
 
   } catch (Exception e) {
       System.out.println("Something went wrong when processing the file.");
@@ -65,9 +68,9 @@ public void readXML() {
   }
 }
 
-private static List<Figure> parseFigures(Document doc){
-  return parseFigures(doc.getDocumentElement());
-}
+// private static List<Figure> parseFigures(Document doc){
+//   return parseFigures(doc.getDocumentElement());
+// }
 
 /**
  * 
@@ -122,7 +125,6 @@ private static List<Figure> parseFigures(Element elem){
       for (int i = 0; i < sceneNodes.getLength(); i++){
         Scene scene = new Scene();
         Node sceneN = sceneNodes.item(i);
-        //System.out.println("is it scene elem: "+(sceneN.getNodeType() == Node.ELEMENT_NODE));
         if (sceneN.getNodeType() == Node.ELEMENT_NODE){
           NodeList panelNodes = ((Element)sceneN).getElementsByTagName("panel");//list containing all panles from one scene
           
@@ -139,7 +141,6 @@ private static List<Figure> parseFigures(Element elem){
                 Node child = childNodes.item(k);
                 //filters out the children that are only elements EXCLUDING the damn new lines
                 if (child.getNodeType() == Node.ELEMENT_NODE && !"#text".equals(child.getNodeName())) {
-                 // System.out.println("is child" + k + "node elem: "+ (child.getNodeType() == Node.ELEMENT_NODE));
                  
                   Element positionElem = (Element) child;
                   switch (child.getNodeName()) {
@@ -168,7 +169,6 @@ private static List<Figure> parseFigures(Element elem){
                       panel.setBorder(getTagVal("border", panelElem));
                     } 
                     case "below" -> {
-                      //System.out.println(getTagVal("below", panelElem));
                       panel.setTitleBelow(getTagVal("below", panelElem));
                     }
                     default -> {
