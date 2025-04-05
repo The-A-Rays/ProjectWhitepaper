@@ -232,7 +232,6 @@ private static List<Figure> parseFigures(Element elem){
     Element comic = doc.createElement("comic");
     doc.appendChild(comic);
     // Insert Figures
-    System.out.println(figures.toString());
     Element xmlFigures = doc.createElement("figures");
     comic.appendChild(xmlFigures);
     for (Figure f : figures) {

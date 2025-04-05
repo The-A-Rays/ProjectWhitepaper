@@ -323,7 +323,7 @@
                         <facing>right</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>Ella va.</content>
+                        <content>Ella está yendo.</content>
                     </balloon>
                 </left>
                 <right>
@@ -404,7 +404,7 @@
                         <facing>right</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>Ellos están yendo.</content>
+                        <content>Ellos van.</content>
                     </balloon>
                 </left>
                 <setting>lunar lander ascending from the moon</setting>
@@ -723,7 +723,7 @@
                         <facing>right</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>Ella va.</content>
+                        <content>Ella está yendo.</content>
                     </balloon>
                 </left>
                 <right>
@@ -815,7 +815,7 @@
                         <facing>right</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>Ellos están yendo.</content>
+                        <content>Ellos van.</content>
                     </balloon>
                 </left>
                 <middle>
@@ -1151,7 +1151,7 @@
                         <facing>right</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>Ella va.</content>
+                        <content>Ella está yendo.</content>
                     </balloon>
                 </left>
                 <right>
@@ -1243,7 +1243,7 @@
                         <facing>right</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>Ellos están yendo.</content>
+                        <content>Ellos van.</content>
                     </balloon>
                 </left>
                 <middle>
@@ -1585,7 +1585,7 @@
                         <facing>right</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>Ella va.</content>
+                        <content>Ella está yendo.</content>
                     </balloon>
                 </left>
                 <right>
@@ -1677,7 +1677,7 @@
                         <facing>right</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>Ellos están yendo.</content>
+                        <content>Ellos van.</content>
                     </balloon>
                 </left>
                 <middle>
@@ -2013,7 +2013,7 @@
                         <facing>right</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>Ella va.</content>
+                        <content>Ella está yendo.</content>
                     </balloon>
                 </left>
                 <right>
@@ -2105,7 +2105,7 @@
                         <facing>right</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>Ellos están yendo.</content>
+                        <content>Ellos van.</content>
                     </balloon>
                 </left>
                 <middle>
@@ -2447,7 +2447,7 @@
                         <facing>left</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>Ella va.</content>
+                        <content>Ella está yendo.</content>
                     </balloon>
                 </left>
                 <right>
@@ -2539,7 +2539,7 @@
                         <facing>right</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>Ellos están yendo.</content>
+                        <content>Ellos van.</content>
                     </balloon>
                 </left>
                 <middle>
@@ -2888,7 +2888,7 @@
                         <facing>right</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>Ella va.</content>
+                        <content>Ella está yendo.</content>
                     </balloon>
                 </left>
                 <right>
@@ -2969,7 +2969,7 @@
                         <facing>right</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>Ellos están yendo.</content>
+                        <content>Ellos van.</content>
                     </balloon>
                 </left>
                 <middle>
