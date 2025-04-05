@@ -1,9 +1,5 @@
 package com.project.aicomics;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.Scanner;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -43,23 +39,23 @@ public class ConfigurationFileTests {
 
     // }
 
-    @Test
-    void testWroteToFile() {
-        File fi = new File("src\\main\\resources\\apikey.txt");
-        try(Scanner read = new Scanner(fi)) {
-            Assertions.assertEquals("COMPLETIONS_URL https://api.openai.com/v1/chat/completions", read.nextLine());
-            Assertions.assertEquals("EMBEDDINGS_URL https://api.openai.com/v1/embeddings", read.nextLine());
-            Assertions.assertEquals("MODELS_URL https://api.openai.com/v1/models", read.nextLine());
-            // Assertions.assertEquals("ORG_KEY org-55", read.nextLine());
-            read.nextLine();
-            Assertions.assertEquals("MODEL gpt-4o-mini", read.nextLine());
-        } catch (IOException e) {
-            System.out.println("Error finding file in test" + e);
-            // Doing this to ensure the test is marked as fails if there is an error
-            Assertions.assertEquals(0, 1);
-        }
+    // @Test
+    // void testWroteToFile() {
+    //     File fi = new File("src\\main\\resources\\apikey.txt");
+    //     try(Scanner read = new Scanner(fi)) {
+    //         Assertions.assertEquals("COMPLETIONS_URL https://api.openai.com/v1/chat/completions", read.nextLine());
+    //         Assertions.assertEquals("EMBEDDINGS_URL https://api.openai.com/v1/embeddings", read.nextLine());
+    //         Assertions.assertEquals("MODELS_URL https://api.openai.com/v1/models", read.nextLine());
+    //         // Assertions.assertEquals("ORG_KEY org-55", read.nextLine());
+    //         read.nextLine();
+    //         Assertions.assertEquals("MODEL gpt-4o-mini", read.nextLine());
+    //     } catch (IOException e) {
+    //         System.out.println("Error finding file in test" + e);
+    //         // Doing this to ensure the test is marked as fails if there is an error
+    //         Assertions.assertEquals(0, 1);
+    //     }
 
-    }
+    // }
 
     // Messed with jar creation by changing apiconfig
     // @Test

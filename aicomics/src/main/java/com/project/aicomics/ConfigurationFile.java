@@ -31,7 +31,6 @@ public class ConfigurationFile {
                 this.changeAPIConfig("Put org key here or leave this if you do not need to use an org key", "Put API key here", "put model here", Translations.Language.english);
                 fileInfo[6] = ("API Configuration File not found. Program will not function normally. \n Please configure file and re-run program.");
             }
-            System.out.println(apiconfig);
             try (Scanner read = new Scanner(apiconfig)) {
                 fileInfo[0] = read.nextLine().substring(16);
                 fileInfo[1] = read.nextLine().substring(15);
