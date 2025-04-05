@@ -15,14 +15,14 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
-import com.project.aicomics.XML.ReadXMLFile;
+import com.project.aicomics.XML.XMLFile;
 
 public class ReadXMLFileTests {
     private static Document document;
 
     @BeforeAll
     public static void setUp() throws Exception {
-        try (InputStream inputStream = ReadXMLFile.class.getClassLoader().getResourceAsStream("specification.xml")) {
+        try (InputStream inputStream = XMLFile.class.getClassLoader().getResourceAsStream("specification.xml")) {
             if (inputStream == null) {
                 throw new IllegalStateException("File not found: specification.xml");
             }
@@ -96,7 +96,7 @@ public class ReadXMLFileTests {
     }
     @Test
     public void testGetAllTranslatedText() {
-        ReadXMLFile reader = new ReadXMLFile();
+        XMLFile reader = new XMLFile();
         reader.readXML();
         List<String> spokenText = reader.getAllTranslatedText();
 
@@ -108,6 +108,4 @@ public class ReadXMLFileTests {
         assertEquals("You are going", spokenText.get(2));
         assertEquals("Estás yendo.", spokenText.get(3)); // Occasionally get different translations
     }
-  }
-    
-
+}    

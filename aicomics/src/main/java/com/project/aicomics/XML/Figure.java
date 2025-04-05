@@ -1,24 +1,40 @@
  package com.project.aicomics.XML;
 
-// import java.awt.Color;
-// import java.util.Arrays;
-//  import java.util.List;
-
 import org.w3c.dom.Element;
 
 public class Figure {
      private String id, name, appearance, pose, facing, skin, hair, lips;
   
   public Figure(Element element) {
-      this.id = ReadXMLFile.getTagVal("id", element);
-      this.name = ReadXMLFile.getTagVal("name", element);
-      this.appearance = ReadXMLFile.getTagVal("appearance", element);
-      this.pose = ReadXMLFile.getTagVal("pose", element);
-      this.facing = ReadXMLFile.getTagVal("facing", element);
-      this.skin = ReadXMLFile.getTagVal("skin", element);
-      this.hair = ReadXMLFile.getTagVal("hair", element);
-      this.lips = ReadXMLFile.getTagVal("lips", element);
+      this.id = XMLFile.getTagVal("id", element);
+      this.name = XMLFile.getTagVal("name", element);
+      this.appearance = XMLFile.getTagVal("appearance", element);
+      this.pose = XMLFile.getTagVal("pose", element);
+      this.facing = XMLFile.getTagVal("facing", element);
+      this.skin = XMLFile.getTagVal("skin", element);
+      this.hair = XMLFile.getTagVal("hair", element);
+      this.lips = XMLFile.getTagVal("lips", element);
   }
+
+  @Override
+    public String toString() {
+        return "Figure{" + "id='" + getId() + ", name='" + getName() + ", appearance='" + getAppearance() + ", pose='" + getPose() + ", facing='" + getFacing() + ", skin='" + getSkin() + ", hair='" + getHair() + ", lips='" + getLips() + "}";
+    }
+
+
+    public String[] getAttributes() {
+        String[] attr = new String[8];
+        attr[0] = id;
+        attr[1] = name;
+        attr[2] = appearance;
+        attr[3] = skin;
+        attr[4] = hair;
+        attr[5] = lips;
+        attr[6] = pose;
+        attr[7] = facing;
+        
+        return attr;
+    }
 
     public String getId() {
         return id;

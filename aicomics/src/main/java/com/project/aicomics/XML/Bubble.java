@@ -5,6 +5,11 @@ public class Bubble {
   private String content;
   private String status;
 
+  @Override
+    public String toString() {
+        return "Bubble{" + "status=" + getStatus() +", content=" + getContent() +"}";
+    }
+  
     public String getContent() {
         return content;
     }
