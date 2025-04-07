@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -12,10 +11,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
-import com.project.aicomics.vignette.VignetteSchema;
-
 import static com.project.aicomics.Translations.Language.english;
 import static com.project.aicomics.Translations.Language.spanish;
+import com.project.aicomics.vignette.VignetteSchema;
 
 public class TranslationsTests {
     
@@ -33,7 +31,7 @@ public class TranslationsTests {
 
 
     
-      String translated = translations.getTranslation(input.getLeftText(), "spanish");
+      String translated = translations.getTranslation(input.getLeftText());
 
       File file = new File(testFile);
       assertTrue(file.exists(), "The translation file should exist by now from the getTranslation() method.");
@@ -51,7 +49,7 @@ public class TranslationsTests {
 
     VignetteSchema input = new VignetteSchema(listTwo);
   
-    String translated = translations.getTranslation(input.getLeftText(), "spanish");
+    String translated = translations.getTranslation(input.getLeftText());
 
     File file = new File(testFile);
     assertTrue(file.exists(), "The translation file should exist exist by now from the getTranslation() method.");

@@ -27,7 +27,7 @@ public class Translations {
      * If pair not found, prompt to get it, then write to file
           * @throws IOException 
           */
-    public String getTranslation(String textToBeTranslated, String targetLanguage) {
+    public String getTranslation(String textToBeTranslated) {
         String translatedText = ai.TranslateText(textToBeTranslated);
         // translatedText = Parsing.JSONParser(translatedText); JSON parsing is now built into OpenAIService Class
         File file = new File(translatedFile);

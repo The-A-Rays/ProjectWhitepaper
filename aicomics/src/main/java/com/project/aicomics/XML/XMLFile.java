@@ -1,6 +1,5 @@
 package com.project.aicomics.XML;
 
-
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -23,8 +22,9 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import com.project.aicomics.Translations;
+import com.project.aicomics.Translations.Language;
 import com.project.aicomics.controller.DevController;
-import com.project.aicomics.service.OpenAIService;
 
 public class XMLFile {
   private List<Scene> scenes;  
@@ -191,9 +191,9 @@ private static List<Figure> parseFigures(Element elem){
    * 
    * @return a list of Strings containing all the speech content from the XML plus the content translated
    */ 
-  public List<String> getAllTranslatedText() {
-    OpenAIService ai = new OpenAIService();
+  public List<String> getAllTranslatedText(Language lan) {
     List<String> spokenText = new ArrayList<>();
+    Translations translate = new Translations(Language.english, lan);
     
     // Added so that if the method is called multiple times on the same file
     // it doesn't give unnecessary api requests.
@@ -208,7 +208,7 @@ private static List<Figure> parseFigures(Element elem){
         for(Position pos: panel.getPosition()){
           for(Bubble bubble : pos.getBubbles()) {
             spokenText.add(bubble.getContent());
-            spokenText.add(ai.TranslateText(bubble.getContent()));
+            spokenText.add(translate.getTranslation(bubble.getContent()));
         }
         }
       }
@@ -221,7 +221,7 @@ private static List<Figure> parseFigures(Element elem){
    * Prints the XMLFile object into a new XML file with the
    * translated scenes next to the original.
    */
-  public void translationPrint() {
+  public void translationPrint(Language language) {
     DocumentBuilderFactory fac = DocumentBuilderFactory.newInstance();
     DocumentBuilder builder;
     try {builder = fac.newDocumentBuilder();}
@@ -230,7 +230,7 @@ private static List<Figure> parseFigures(Element elem){
       return;
     }
     Document doc = builder.newDocument();
-    List<String> trans = getAllTranslatedText();
+    List<String> trans = getAllTranslatedText(language);
     // Create base file formatting
     Element comic = doc.createElement("comic");
     doc.appendChild(comic);
