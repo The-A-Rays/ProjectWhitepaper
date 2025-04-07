@@ -21,7 +21,9 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
+import com.project.aicomics.controller.DevController;
 import com.project.aicomics.service.OpenAIService;
 
 public class XMLFile {
@@ -49,7 +51,6 @@ public void readXML() {
       if (inputStream == null) {
           throw new IOException("File not found: specification.xml");
       }
-
       DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
       DocumentBuilder builder = factory.newDocumentBuilder();
       Document doc = builder.parse(inputStream);
@@ -62,10 +63,13 @@ public void readXML() {
       }
       this.scenes = parseScenes(doc);
 
-  } catch (Exception e) {
-      System.out.println("Something went wrong when processing the file.");
-      e.printStackTrace();
-  }
+  } catch (IOException e) {
+    DevController.error("Fatal error processing XML file", e);
+  } catch (ParserConfigurationException e) {
+    DevController.error("Fatal error creating document factory or builder", e);
+  } catch (SAXException e) {
+    DevController.error("Fatal error putting inputStream into document builder", e);
+  } 
 }
 
 /**
@@ -222,7 +226,7 @@ private static List<Figure> parseFigures(Element elem){
     DocumentBuilder builder;
     try {builder = fac.newDocumentBuilder();}
     catch (ParserConfigurationException e) {
-      System.out.println("Error creating new document builder: " + e.getStackTrace());
+      DevController.error("Fatal error creating document builder", e);
       return;
     }
     Document doc = builder.newDocument();
@@ -323,8 +327,10 @@ private static List<Figure> parseFigures(Element elem){
         }
       }
       try {writeXML(doc, "translatedSpecifications");}
-      catch (TransformerException te) {System.out.println("Error writing to file: " + te.toString()); return;}
-      System.out.println("Done creating XML file.");
+      catch (TransformerException te) {
+        DevController.error("Error writing to new XML file", te);
+        return;
+      }
     }
     
   }

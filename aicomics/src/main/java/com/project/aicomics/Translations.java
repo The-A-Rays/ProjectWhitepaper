@@ -5,14 +5,16 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
+import com.project.aicomics.controller.DevController;
 import com.project.aicomics.service.OpenAIService;
 
 //use input stream instead of file (the file would be in the jar so user wont be able to see/edit)
 public class Translations {
 
-    public enum Language {spanish, english};
-    private OpenAIService ai = new OpenAIService();
-    private String translatedFile;
+    public enum Language {spanish, english, romanian, irish, french, italian, german, dutch};
+    @SuppressWarnings("FieldMayBeFinal")
+    private final OpenAIService ai = new OpenAIService();
+    private final String translatedFile;
 
     public Translations(Language originalLanguage, Language targetLanguage) {
         this.translatedFile = originalLanguage.toString().toLowerCase() + "-" + targetLanguage.toString().toLowerCase() + ".tsv";
@@ -34,7 +36,9 @@ public class Translations {
             if (!file.exists()) {
                 file.createNewFile();
             }
-        } catch (IOException e) {e.printStackTrace();}
+        } catch (IOException e) {
+            DevController.error("Error accessing translations file", e);
+        }
         //check if the translation already exists
         boolean existing = false;
         try (Scanner sc = new Scanner(file)) {
@@ -43,7 +47,6 @@ public class Translations {
                 if (sc.hasNextLine()) { //transaltion for existing text (if any)
                     String existingTranslation = sc.nextLine();
                     if (existingText.equals(textToBeTranslated) && existingTranslation.equals(translatedText)) {
-                        existing = true;
                         return existingTranslation; 
                     }      
                 }
@@ -58,7 +61,9 @@ public class Translations {
                 }
             }
             sc.close();
-        } catch (IOException e) {e.printStackTrace();}
+        } catch (IOException e) {
+            DevController.error("Error reading / writing to file while translating", e);
+        }
         return translatedText;
     }
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Scene {
-    private List<Panel> panels = new ArrayList<>();
+    private final List<Panel> panels = new ArrayList<>();
 
     @Override
 public String toString() {

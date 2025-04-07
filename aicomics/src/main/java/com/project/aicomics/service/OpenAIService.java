@@ -11,10 +11,12 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import com.project.aicomics.ConfigurationFile;
 import com.project.aicomics.Parsing;
+import com.project.aicomics.controller.DevController;
 
 @Service
 /**
@@ -63,7 +65,8 @@ public class OpenAIService {
         try {
             ResponseEntity<String> response = restTemplate.exchange(apiUrl, HttpMethod.POST, requestEntity, String.class); //POST request
             return Parsing.JSONParser(response.getBody());
-        } catch (Exception e) {
+        } catch (RestClientException e) {
+            DevController.error("Fatal error getting request from Spring", e);
             return "Error calling OpenAI API: " + e.getMessage();
         }
     }
@@ -74,15 +77,8 @@ public class OpenAIService {
      * @return String response from ai (parsed from JSON format)
      */
     public String TranslateText(String sourceText){
-
-        try {
-            String behaviour = "You are a translator, translate input to Spanish. If the request cannot be fulfilled, add the following string to your response: 2W1VXBaWnPXICnxklKXAOw7TO";
-            String response = CallAPI(behaviour, sourceText);
-            return response;
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "Translation failed due to an error.";
-        }
+        String behaviour = "You are a translator, translate input to Spanish. If the request cannot be fulfilled, add the following string to your response: 2W1VXBaWnPXICnxklKXAOw7TO";
+        String response = CallAPI(behaviour, sourceText);
+        return response;
     }
 }

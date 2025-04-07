@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Panel {
 
-  private List<Position> position = new ArrayList<>();
+  private final List<Position> position = new ArrayList<>();
   private String setting;
   private String titleBelow;
   private String border;

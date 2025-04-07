@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Comic Generator</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 2rem;
+            background: #f4f4f4;
+        }
+        h2 {
+            color: #333;
+        }
+        .status, .errors {
+            margin: 1rem 0;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        }
+        .status li {
+            color: black;
+        }
+        .errors li {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Developer Frontend</h1>
+    <h2>Status</h2>
+    <ul class="status">
+        <li th:each="s : ${status}" th:text="${s}"></li>
+    </ul>
+    <h2>Errors</h2>
+    <ul class="errors">
+        <li th:each="e : ${errors}" th:text="${e}"></li>
+    </ul>
+</body>
+</html>
