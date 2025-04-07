@@ -17,8 +17,8 @@ import com.project.aicomics.vignette.VignetteSchema;
 
 public class TranslationsTests {
     
-    private Translations translations = new Translations(english, spanish);
-    private static final String testFile = "english-spanish.tsv";
+    private final Translations translations = new Translations(english, spanish);
+    private static final String TESTFILE = "english-spanish.tsv";
 
     //test to ensure translated pairs are done and stored properly
     @Test
@@ -33,7 +33,7 @@ public class TranslationsTests {
     
       String translated = translations.getTranslation(input.getLeftText());
 
-      File file = new File(testFile);
+      File file = new File(TESTFILE);
       assertTrue(file.exists(), "The translation file should exist by now from the getTranslation() method.");
 
       try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
@@ -51,7 +51,7 @@ public class TranslationsTests {
   
     String translated = translations.getTranslation(input.getLeftText());
 
-    File file = new File(testFile);
+    File file = new File(TESTFILE);
     assertTrue(file.exists(), "The translation file should exist exist by now from the getTranslation() method.");
 
     try (BufferedReader reader = new BufferedReader(new FileReader(file))) {

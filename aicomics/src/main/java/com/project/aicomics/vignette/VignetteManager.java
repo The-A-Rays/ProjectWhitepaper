@@ -10,7 +10,7 @@ import com.project.aicomics.Translations;
 
 public class VignetteManager {
 
-    private List<Vignette> vignettes;
+    private final List<Vignette> vignettes;
 
     /**
      * Constructor: Accepts a list of VignetteSchema objects and creates Vignettes from them.
@@ -29,7 +29,7 @@ public class VignetteManager {
      * @param shcemas the input list from which to create the Vignette objects
      * @return A fully selected vignette
      */
-    public void createVignettes(List<VignetteSchema> schemas, Translations translator) {
+    public final void createVignettes(List<VignetteSchema> schemas, Translations translator) {
         if (schemas.isEmpty()) {
             System.out.println("No schemas loaded.");
             return;
@@ -38,10 +38,10 @@ public class VignetteManager {
         for(VignetteSchema schema : schemas){
             String translatedText;
             if(schema.getLeftText().isEmpty() || schema.getLeftText() == null){
-                translatedText = translator.getTranslation(schema.getCombinedText(), "spanish");
+                translatedText = translator.getTranslation(schema.getCombinedText());
             }
             else {
-                translatedText = translator.getTranslation(schema.getLeftText(), "spanish");
+                translatedText = translator.getTranslation(schema.getLeftText());
             }
             this.vignettes.add(new Vignette(
                 schema.getLeftText(),

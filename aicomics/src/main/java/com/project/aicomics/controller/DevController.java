@@ -17,6 +17,8 @@ public class DevController {
     @ModelAttribute
     @GetMapping("/dev")
     public String devPages(Model model) {
+        model.addAttribute("status", states);
+        model.addAttribute("errors", errors);
         return "dev";
     }
 
