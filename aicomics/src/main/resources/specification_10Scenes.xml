@@ -1,0 +1,1948 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<comic>
+   <figures>
+      <figure>
+         <id>Alfie</id>
+         <name>Alfie</name>
+         <appearance>male</appearance>
+         <skin>light brown</skin>
+         <hair>dark brown</hair>
+         <lips>red</lips>
+         <facing>right</facing>
+      </figure>
+      <figure>
+         <id>Betty</id>
+         <name>Betty</name>
+         <appearance>female</appearance>
+         <facing>right</facing>
+      </figure>
+      <figure>
+         <id>Gerry</id>
+         <name>Gerry</name>
+         <appearance>male</appearance>
+         <skin>olive</skin>
+         <hair>black</hair>
+         <facing>right</facing>
+      </figure>
+   </figures>
+
+   <scenes>
+      <scene>
+         <panel>
+            <middle>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>zero</pose>
+                  <facing>right</facing>
+               </figure>
+            </middle>
+
+            <below>Scene 0</below>
+
+            <border>white</border>
+         </panel>
+         <panel>
+            <middle>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>yawning</pose>
+                  <facing>right</facing>
+               </figure>
+
+               <balloon status = "thought">
+                  <content>yawning</content>
+               </balloon>
+            </middle>
+
+            <setting>kitchen</setting>
+         </panel>
+         <panel>
+            <middle>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>breakfasting</pose>
+                  <facing>right</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>pouring a bowl of cereal</content>
+               </balloon>
+            </middle>
+
+            <setting>kitchen</setting>
+         </panel>
+         <panel>
+            <middle>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>munching</pose>
+                  <facing>right</facing>
+               </figure>
+
+               <balloon status = "thought">
+                  <content>munching</content>
+               </balloon>
+            </middle>
+
+            <setting>kitchen</setting>
+         </panel>
+         <panel>
+            <middle>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>strong</pose>
+                  <facing>right</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>feeling ready for anything</content>
+               </balloon>
+            </middle>
+
+            <setting>kitchen</setting>
+         </panel>
+         <panel>
+            <above>outside front door</above>
+
+            <left>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>high fiving</pose>
+                  <facing>right</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>waving goodbye</content>
+               </balloon>
+            </left>
+
+            <setting>welcome mat</setting>
+         </panel>
+      </scene>
+      <scene>
+         <panel>
+            <middle>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>one</pose>
+                  <facing>right</facing>
+               </figure>
+            </middle>
+
+            <below>Scene 1</below>
+
+            <border>white</border>
+         </panel>
+         <panel>
+            <middle>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>yawning</pose>
+                  <facing>right</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>waking up</content>
+               </balloon>
+            </middle>
+
+            <setting>bedroom</setting>
+         </panel>
+         <panel>
+            <middle>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>breakfasting</pose>
+                  <facing>right</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>pouring a bowl of cereal</content>
+               </balloon>
+            </middle>
+
+            <setting>kitchen</setting>
+         </panel>
+         <panel>
+            <middle>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>swallowing</pose>
+                  <facing>right</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>tasting something unpleasant</content>
+               </balloon>
+            </middle>
+
+            <setting>kitchen</setting>
+         </panel>
+         <panel>
+            <middle>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>rumbling</pose>
+                  <facing>right</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>feeling unwell</content>
+               </balloon>
+            </middle>
+
+            <setting>kitchen</setting>
+         </panel>
+         <panel>
+            <middle>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>vomiting</pose>
+                  <facing>right</facing>
+               </figure>
+
+               <balloon status = "thought">
+                  <content>vomiting</content>
+               </balloon>
+            </middle>
+
+            <setting>kitchen</setting>
+         </panel>
+      </scene>
+      <scene>
+         <panel>
+            <left>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>one</pose>
+                  <facing>right</facing>
+                  <horizontal>more</horizontal>
+               </figure>
+            </left>
+            <right>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>seven flipped</pose>
+                  <facing>left</facing>
+                  <horizontal>less</horizontal>
+               </figure>
+            </right>
+
+            <below>Scene 2</below>
+
+            <border>white</border>
+         </panel>
+         <panel>
+            <left>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>massaging</pose>
+                  <facing>right</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>waiting with anticipation</content>
+               </balloon>
+            </left>
+            <right>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>serving</pose>
+                  <facing>left</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>serving a hamburger</content>
+               </balloon>
+            </right>
+
+            <setting>restaurant</setting>
+         </panel>
+         <panel>
+            <left>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>eating</pose>
+                  <facing>right</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>eating the hamburger</content>
+               </balloon>
+            </left>
+            <right>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>smirking</pose>
+                  <facing>left</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>looking on with amusement</content>
+               </balloon>
+            </right>
+
+            <setting>restaurant</setting>
+         </panel>
+         <panel>
+            <left>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>spitting</pose>
+                  <facing>right</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>spitting out the food</content>
+               </balloon>
+            </left>
+            <right>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>sulking</pose>
+                  <facing>left</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>not impressed</content>
+               </balloon>
+            </right>
+
+            <setting>restaurant</setting>
+         </panel>
+         <panel>
+            <left>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>vomiting</pose>
+                  <facing>right</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>being sick on floor</content>
+               </balloon>
+            </left>
+            <right>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>holding mop</pose>
+                  <facing>left</facing>
+               </figure>
+
+               <balloon status = "thought">
+                  <content>holding mop</content>
+               </balloon>
+            </right>
+
+            <setting>restaurant</setting>
+         </panel>
+         <panel>
+            <left>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>paying sadly</pose>
+                  <facing>right</facing>
+               </figure>
+
+               <balloon status = "thought">
+                  <content>paying sadly</content>
+               </balloon>
+            </left>
+            <right>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>holding mop as weapon</pose>
+                  <facing>left</facing>
+               </figure>
+
+               <balloon status = "thought">
+                  <content>holding mop as weapon</content>
+               </balloon>
+            </right>
+
+            <setting>restaurant</setting>
+         </panel>
+      </scene>
+      <scene>
+         <panel>
+            <left>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>two</pose>
+                  <facing>right</facing>
+                  <horizontal>more</horizontal>
+               </figure>
+            </left>
+            <right>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>zero flipped</pose>
+                  <facing>left</facing>
+                  <horizontal>less</horizontal>
+               </figure>
+            </right>
+
+            <below>Scene 3</below>
+
+            <border>white</border>
+         </panel>
+         <panel>
+            <left>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>arriving</pose>
+                  <facing>right</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>arriving with luggage</content>
+               </balloon>
+            </left>
+            <right>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>sighing</pose>
+                  <facing>left</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>looking officious</content>
+               </balloon>
+            </right>
+
+            <setting>airport</setting>
+         </panel>
+         <panel>
+            <left>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>arriving with passport</pose>
+                  <facing>right</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>handing over passport</content>
+               </balloon>
+            </left>
+            <right>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>stopping</pose>
+                  <facing>left</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>stopping with outstretched hand</content>
+               </balloon>
+            </right>
+
+            <setting>airport</setting>
+         </panel>
+         <panel>
+            <left>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>visiting</pose>
+                  <facing>right</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>waiting with suitcase</content>
+               </balloon>
+            </left>
+            <right>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>examining document</pose>
+                  <facing>left</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>examining passport</content>
+               </balloon>
+            </right>
+
+            <setting>airport</setting>
+         </panel>
+         <panel>
+            <left>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>arriving with passport</pose>
+                  <facing>right</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>retrieving passport</content>
+               </balloon>
+            </left>
+            <right>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>introducing</pose>
+                  <facing>left</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>welcoming</content>
+               </balloon>
+            </right>
+
+            <setting>airport</setting>
+         </panel>
+      </scene>
+      <scene>
+         <panel>
+            <left>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>two</pose>
+                  <facing>right</facing>
+                  <horizontal>more</horizontal>
+               </figure>
+            </left>
+            <right>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>six flipped</pose>
+                  <facing>left</facing>
+                  <horizontal>less</horizontal>
+               </figure>
+            </right>
+
+            <below>Scene 4</below>
+
+            <border>white</border>
+         </panel>
+         <panel>
+            <left>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>purposeful</pose>
+                  <facing>right</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>walking purposefully</content>
+               </balloon>
+            </left>
+            <right>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>walking a dog</pose>
+                  <facing>left</facing>
+               </figure>
+
+               <balloon status = "thought">
+                  <content>walking a dog</content>
+               </balloon>
+            </right>
+
+            <setting>red light at intersection</setting>
+         </panel>
+         <panel>
+            <left>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>hindering</pose>
+                  <facing>right</facing>
+                  <horizontal>little more</horizontal>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>hurrying across</content>
+               </balloon>
+            </left>
+            <middle>
+               <figure>
+                  <appearance>default</appearance>
+                  <skin>default</skin>
+                  <hair>default</hair>
+                  <pose>running dog prop</pose>
+                  <facing>left</facing>
+               </figure>
+            </middle>
+            <right>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>surprised</pose>
+                  <facing>left</facing>
+                  <horizontal>little less</horizontal>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>surprised that dog is running off</content>
+               </balloon>
+            </right>
+
+            <below>In the middle is the dog running off</below>
+
+            <setting>green light at intersection</setting>
+         </panel>
+         <panel>
+            <left>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>running away</pose>
+                  <facing>left</facing>
+                  <horizontal>little more</horizontal>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>running in panic</content>
+               </balloon>
+            </left>
+            <middle>
+               <figure>
+                  <appearance>default</appearance>
+                  <skin>default</skin>
+                  <hair>default</hair>
+                  <pose>running dog prop</pose>
+                  <facing>left</facing>
+               </figure>
+            </middle>
+            <right>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>running</pose>
+                  <facing>left</facing>
+                  <horizontal>little less</horizontal>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>breaking into a run</content>
+               </balloon>
+            </right>
+
+            <below>In the middle is the dog running off</below>
+
+            <setting>red light at intersection</setting>
+         </panel>
+         <panel>
+            <left>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>offering a tissue</pose>
+                  <facing>right</facing>
+                  <horizontal>little more</horizontal>
+               </figure>
+
+               <balloon status = "thought">
+                  <content>offering a tissue</content>
+               </balloon>
+            </left>
+            <middle>
+               <figure>
+                  <appearance>default</appearance>
+                  <skin>default</skin>
+                  <hair>default</hair>
+                  <pose>dog prop</pose>
+                  <facing>left</facing>
+               </figure>
+            </middle>
+            <right>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>slogging</pose>
+                  <facing>left</facing>
+                  <horizontal>little less</horizontal>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>out of breath</content>
+               </balloon>
+            </right>
+
+            <below>In the middle is the dog on its hind legs</below>
+
+            <setting>traffic accident</setting>
+         </panel>
+      </scene>
+      <scene>
+         <panel>
+            <left>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>three</pose>
+                  <facing>right</facing>
+                  <horizontal>more</horizontal>
+               </figure>
+            </left>
+            <right>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>seven flipped</pose>
+                  <facing>left</facing>
+                  <horizontal>less</horizontal>
+               </figure>
+            </right>
+
+            <below>Scene 5</below>
+
+            <border>white</border>
+         </panel>
+         <panel>
+            <above>walled graveyard</above>
+
+            <left>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>sad</pose>
+                  <facing>right</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>crying</content>
+               </balloon>
+            </left>
+            <right>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>dead in coffin</pose>
+                  <facing>left</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>lying dead in a coffin</content>
+               </balloon>
+            </right>
+
+            <setting>graveyard with walls</setting>
+         </panel>
+         <panel>
+            <above>walled graveyard</above>
+
+            <left>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>miserable</pose>
+                  <facing>right</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>grieving</content>
+               </balloon>
+            </left>
+            <right>
+               <figure>
+                  <appearance>default</appearance>
+                  <skin>default</skin>
+                  <hair>default</hair>
+                  <pose>gravestone prop</pose>
+                  <facing>left</facing>
+               </figure>
+            </right>
+
+            <below>On the right is a gravestone</below>
+
+            <setting>graveyard with walls</setting>
+         </panel>
+         <panel>
+            <above>walled graveyard</above>
+
+            <left>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>rejected</pose>
+                  <facing>right</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>bereft</content>
+               </balloon>
+            </left>
+            <right>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>dead</pose>
+                  <facing>left</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>rising from the dead</content>
+               </balloon>
+            </right>
+
+            <setting>graveyard with walls</setting>
+         </panel>
+         <panel>
+            <above>walled graveyard</above>
+
+            <left>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>exorcising</pose>
+                  <facing>right</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>performing an exorcism</content>
+               </balloon>
+            </left>
+            <right>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>haunting</pose>
+                  <facing>left</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>being exorcised</content>
+               </balloon>
+            </right>
+
+            <setting>graveyard with walls</setting>
+         </panel>
+         <panel>
+            <above>walled graveyard</above>
+
+            <left>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>holding flower</pose>
+                  <facing>right</facing>
+                  <horizontal>little more</horizontal>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>bringing flowers</content>
+               </balloon>
+            </left>
+            <middle>
+               <figure>
+                  <appearance>default</appearance>
+                  <skin>default</skin>
+                  <hair>default</hair>
+                  <pose>gravestone prop</pose>
+                  <facing>right</facing>
+               </figure>
+            </middle>
+            <right>
+               <figure>
+                  <appearance>default</appearance>
+                  <skin>default</skin>
+                  <hair>default</hair>
+                  <pose>grim reaper prop</pose>
+                  <facing>left</facing>
+                  <horizontal>little less</horizontal>
+               </figure>
+            </right>
+
+            <below>In the middle is a fresh grave. On the right is the grim reaper</below>
+
+            <setting>graveyard with walls</setting>
+         </panel>
+      </scene>
+      <scene>
+         <panel>
+            <left>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>six</pose>
+                  <facing>right</facing>
+                  <horizontal>more</horizontal>
+               </figure>
+            </left>
+            <right>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>zero flipped</pose>
+                  <facing>left</facing>
+                  <horizontal>less</horizontal>
+               </figure>
+            </right>
+
+            <below>Scene 6</below>
+
+            <border>white</border>
+         </panel>
+         <panel>
+            <left>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>riding</pose>
+                  <facing>right</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>riding a horse</content>
+               </balloon>
+            </left>
+
+            <setting>dark city</setting>
+         </panel>
+         <panel>
+            <left>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>riding with determination</pose>
+                  <facing>right</facing>
+               </figure>
+
+               <balloon status = "thought">
+                  <content>riding with determination</content>
+               </balloon>
+            </left>
+
+            <setting>dark city closeup</setting>
+         </panel>
+         <panel>
+            <left>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>falling off horse</pose>
+                  <facing>right</facing>
+               </figure>
+
+               <balloon status = "thought">
+                  <content>falling off horse</content>
+               </balloon>
+            </left>
+            <right>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>demonic</pose>
+                  <facing>left</facing>
+                  <vertical>rather less</vertical>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>a winged demon</content>
+               </balloon>
+            </right>
+
+            <setting>dark city gates</setting>
+         </panel>
+         <panel>
+            <left>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>enchanting</pose>
+                  <facing>right</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>casting a spell</content>
+               </balloon>
+            </left>
+            <right>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>icarus</pose>
+                  <facing>left</facing>
+                  <vertical>little less</vertical>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>falling from the sky</content>
+               </balloon>
+            </right>
+
+            <setting>dark city closeup</setting>
+         </panel>
+         <panel>
+            <left>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>exorcising</pose>
+                  <facing>right</facing>
+                  <horizontal>little more</horizontal>
+               </figure>
+
+               <balloon status = "thought">
+                  <content>exorcising</content>
+               </balloon>
+            </left>
+            <middle>
+               <figure>
+                  <appearance>default</appearance>
+                  <skin>default</skin>
+                  <hair>default</hair>
+                  <pose>feathers prop</pose>
+                  <facing>right</facing>
+               </figure>
+            </middle>
+            <right>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>exorcised</pose>
+                  <facing>left</facing>
+                  <horizontal>little less</horizontal>
+               </figure>
+
+               <balloon status = "thought">
+                  <content>exorcised</content>
+               </balloon>
+            </right>
+
+            <below>In the middle is a pile of burnt feathers</below>
+
+            <setting>dark city gates</setting>
+         </panel>
+         <panel>
+            <left>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>blessing</pose>
+                  <facing>right</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>offering a blessing</content>
+               </balloon>
+            </left>
+            <right>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>saintly</pose>
+                  <facing>left</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>finding religion</content>
+               </balloon>
+            </right>
+
+            <setting>dark city</setting>
+         </panel>
+      </scene>
+      <scene>
+         <panel>
+            <left>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>five</pose>
+                  <facing>right</facing>
+                  <horizontal>more</horizontal>
+               </figure>
+            </left>
+            <right>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>seven flipped</pose>
+                  <facing>left</facing>
+                  <horizontal>less</horizontal>
+               </figure>
+            </right>
+
+            <below>Scene 7</below>
+
+            <border>white</border>
+         </panel>
+         <panel>
+            <left>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>blessing</pose>
+                  <facing>right</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>sprinkling holy water</content>
+               </balloon>
+            </left>
+            <right>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>sick</pose>
+                  <facing>left</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>in a wheelchair</content>
+               </balloon>
+            </right>
+
+            <setting>church</setting>
+         </panel>
+         <panel>
+            <left>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>saintly</pose>
+                  <facing>right</facing>
+                  <horizontal>little more</horizontal>
+               </figure>
+
+               <balloon status = "thought">
+                  <content>saintly</content>
+               </balloon>
+            </left>
+            <middle>
+               <figure>
+                  <appearance>default</appearance>
+                  <skin>default</skin>
+                  <hair>default</hair>
+                  <pose>wheelchair prop</pose>
+                  <facing>left</facing>
+               </figure>
+            </middle>
+            <right>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>leaping</pose>
+                  <facing>left</facing>
+                  <horizontal>little less</horizontal>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>leaping into the air</content>
+               </balloon>
+            </right>
+
+            <below>In the middle is an empty wheelchair</below>
+
+            <setting>church</setting>
+         </panel>
+         <panel>
+            <left>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>blocking</pose>
+                  <facing>right</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>refusing payment</content>
+               </balloon>
+            </left>
+            <right>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>paying</pose>
+                  <facing>left</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>offering donation</content>
+               </balloon>
+            </right>
+
+            <setting>church</setting>
+         </panel>
+         <panel>
+            <left>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>fainting</pose>
+                  <facing>right</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>collapsing</content>
+               </balloon>
+            </left>
+            <right>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>hindering</pose>
+                  <facing>left</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>shocked</content>
+               </balloon>
+            </right>
+
+            <setting>church</setting>
+         </panel>
+         <panel>
+            <left>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>dropping dead</pose>
+                  <facing>right</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>giving up the ghost</content>
+               </balloon>
+            </left>
+            <right>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>pleading</pose>
+                  <facing>left</facing>
+               </figure>
+
+               <balloon status = "thought">
+                  <content>pleading</content>
+               </balloon>
+            </right>
+
+            <setting>church</setting>
+         </panel>
+         <panel>
+            <left>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>angelic</pose>
+                  <facing>right</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>rising from dead</content>
+               </balloon>
+            </left>
+            <right>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>praying</pose>
+                  <facing>left</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>praying fervently</content>
+               </balloon>
+            </right>
+
+            <setting>church</setting>
+         </panel>
+      </scene>
+      <scene>
+         <panel>
+            <left>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>four</pose>
+                  <facing>right</facing>
+                  <horizontal>more</horizontal>
+               </figure>
+            </left>
+            <right>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>zero flipped</pose>
+                  <facing>left</facing>
+                  <horizontal>less</horizontal>
+               </figure>
+            </right>
+
+            <below>Scene 8</below>
+
+            <border>white</border>
+         </panel>
+         <panel>
+            <left>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>walking with briefcase</pose>
+                  <facing>right</facing>
+               </figure>
+
+               <balloon status = "thought">
+                  <content>walking with briefcase</content>
+               </balloon>
+            </left>
+            <right>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>sneaky</pose>
+                  <facing>left</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>scheming</content>
+               </balloon>
+            </right>
+
+            <setting>courthouse exterior</setting>
+         </panel>
+         <panel>
+            <left>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>lawyer</pose>
+                  <facing>right</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>practicing law</content>
+               </balloon>
+            </left>
+            <right>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>paying</pose>
+                  <facing>left</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>making an offer</content>
+               </balloon>
+            </right>
+
+            <setting>courthouse</setting>
+         </panel>
+         <panel>
+            <left>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>insisting</pose>
+                  <facing>right</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>making demands</content>
+               </balloon>
+            </left>
+            <right>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>corrupting</pose>
+                  <facing>left</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>making an unscrupulous offer</content>
+               </balloon>
+            </right>
+
+            <setting>courthouse</setting>
+         </panel>
+         <panel>
+            <left>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>accusing</pose>
+                  <facing>right</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>levelling accusations</content>
+               </balloon>
+            </left>
+            <right>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>bribing</pose>
+                  <facing>left</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>offering a bribe</content>
+               </balloon>
+            </right>
+
+            <setting>courthouse</setting>
+         </panel>
+         <panel>
+            <left>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>blaspheming</pose>
+                  <facing>right</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>filled with righteous fury</content>
+               </balloon>
+            </left>
+            <right>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>running away</pose>
+                  <facing>left</facing>
+               </figure>
+
+               <balloon status = "thought">
+                  <content>running away</content>
+               </balloon>
+            </right>
+
+            <setting>courthouse</setting>
+         </panel>
+      </scene>
+      <scene>
+         <panel>
+            <left>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>nine</pose>
+                  <facing>right</facing>
+                  <horizontal>more</horizontal>
+               </figure>
+            </left>
+            <right>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>six flipped</pose>
+                  <facing>left</facing>
+                  <horizontal>less</horizontal>
+               </figure>
+            </right>
+
+            <below>Scene 9</below>
+
+            <border>white</border>
+         </panel>
+         <panel>
+            <above>Paris</above>
+
+            <left>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>stepping over</pose>
+                  <facing>right</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>stepping over dog poop</content>
+               </balloon>
+            </left>
+            <right>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>walking a dog</pose>
+                  <facing>left</facing>
+               </figure>
+
+               <balloon status = "thought">
+                  <content>walking a dog</content>
+               </balloon>
+            </right>
+
+            <setting>paris</setting>
+         </panel>
+         <panel>
+            <above>Paris</above>
+
+            <left>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>scolding</pose>
+                  <facing>right</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>angrily pointing at dog poop</content>
+               </balloon>
+            </left>
+            <right>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>rewarding</pose>
+                  <facing>left</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>rewarding dog with a treat</content>
+               </balloon>
+            </right>
+
+            <setting>paris</setting>
+         </panel>
+         <panel>
+            <above>Paris</above>
+
+            <left>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>slinging mud</pose>
+                  <facing>right</facing>
+                  <horizontal>little more</horizontal>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>slinging poop</content>
+               </balloon>
+            </left>
+            <middle>
+               <figure>
+                  <appearance>default</appearance>
+                  <skin>default</skin>
+                  <hair>default</hair>
+                  <pose>running dog prop</pose>
+                  <facing>left</facing>
+               </figure>
+            </middle>
+            <right>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>angry</pose>
+                  <facing>left</facing>
+                  <horizontal>little less</horizontal>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>releasing the dog</content>
+               </balloon>
+            </right>
+
+            <below>In the middle is a dog running toward the passerby</below>
+
+            <setting>paris</setting>
+         </panel>
+         <panel>
+            <above>Paris</above>
+
+            <left>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>running off</pose>
+                  <facing>right</facing>
+               </figure>
+
+               <balloon status = "thought">
+                  <content>running off</content>
+               </balloon>
+            </left>
+            <right>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>swinging baguette</pose>
+                  <facing>left</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>angrily swinging baguette as a club</content>
+               </balloon>
+            </right>
+
+            <setting>frankfurt</setting>
+         </panel>
+         <panel>
+            <left>
+               <figure>
+                  <id>Alfie</id>
+                  <name>Alfie</name>
+                  <appearance>male</appearance>
+                  <skin>light brown</skin>
+                  <hair>dark brown</hair>
+                  <lips>red</lips>
+                  <pose>running away</pose>
+                  <facing>right</facing>
+               </figure>
+
+               <balloon status = "thought">
+                  <content>running away</content>
+               </balloon>
+            </left>
+            <right>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>decapitating</pose>
+                  <facing>left</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>chasing with an axe</content>
+               </balloon>
+            </right>
+
+            <setting>guillotine</setting>
+         </panel>
+         <panel>
+            <left>
+               <figure>
+                  <appearance>default</appearance>
+                  <skin>default</skin>
+                  <hair>default</hair>
+                  <pose>headless skeleton prop</pose>
+                  <facing>right</facing>
+                  <vertical>less</vertical>
+               </figure>
+            </left>
+            <right>
+               <figure>
+                  <id>Betty</id>
+                  <name>Betty</name>
+                  <appearance>female</appearance>
+                  <pose>philosophical</pose>
+                  <facing>left</facing>
+               </figure>
+
+               <balloon status = "speech">
+                  <content>holding skull as if Hamlet</content>
+               </balloon>
+            </right>
+
+            <below>On the left is a skeleton without a skull</below>
+
+            <setting>guillotine</setting>
+         </panel>
+      </scene>
+   </scenes>
+</comic>
+	
