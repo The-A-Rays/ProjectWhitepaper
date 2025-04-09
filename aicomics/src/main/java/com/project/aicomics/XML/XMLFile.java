@@ -207,9 +207,9 @@ private static List<Figure> parseFigures(Element elem){
       for (Panel panel : scene.getPanels()) {
         for(Position pos: panel.getPosition()){
           for(Bubble bubble : pos.getBubbles()) {
-            spokenText.add(bubble.getContent());
+            //spokenText.add(bubble.getContent());
             spokenText.add(translate.getTranslation(bubble.getContent()));
-        }
+          }
         }
       }
     }
@@ -247,12 +247,15 @@ private static List<Figure> parseFigures(Element elem){
      * and the setting, below, and border in panel
      * Everything else is formatting
      */
+    int i = 0;
     Element xmlScenes = doc.createElement("scenes");
     comic.appendChild(xmlScenes);
     for (Scene s : scenes) {
       Element scene = doc.createElement("scene");
       xmlScenes.appendChild(scene);
+      //each Panel object will have 2 panel elements(the oroginal one and the translatted one)
       for (Panel p : s.getPanels()) {
+        //english panel first, then insert translated one
         Element panel = doc.createElement("panel");
         scene.appendChild(panel);
         for (Position pos : p.getPosition()) {
@@ -270,6 +273,26 @@ private static List<Figure> parseFigures(Element elem){
             content.setTextContent(b.getContent().trim());
           }
         }
+        //add translated panel
+        Element translatedPanel = doc.createElement("panel");
+        scene.appendChild(translatedPanel);
+        for (Position pos : p.getPosition()) {
+          Element position = doc.createElement(pos.getName().trim());
+          translatedPanel.appendChild(position);
+          for (Figure f : pos.getFigures()) {
+            addFigure(f, position, doc);
+          }
+          for (Bubble b: pos.getBubbles()) {
+            Element balloon = doc.createElement("balloon");
+            position.appendChild(balloon);
+            balloon.setAttribute("status", b.getStatus().trim());
+            Element content = doc.createElement("content");
+            balloon.appendChild(content);
+            content.setTextContent(trans.get(i));
+            i = i+1;
+          }
+        }
+
         // Adding setting, below, and border
         if (p.getSetting() != null) {
           Element setting = doc.createElement("setting");
@@ -287,52 +310,12 @@ private static List<Figure> parseFigures(Element elem){
           border.setTextContent(p.getBorder());
         }
       }
-      int i = 1;
-      Element tScene = doc.createElement("scene");
-      xmlScenes.appendChild(tScene);
-      for (Panel p : s.getPanels()) {
-        Element panel = doc.createElement("panel");
-        tScene.appendChild(panel);
-        for (Position pos : p.getPosition()) {
-          Element position = doc.createElement(pos.getName());
-          panel.appendChild(position);
-          for (Figure f : pos.getFigures()) {
-            addFigure(f, position, doc);
-          }
-          for (Bubble b: pos.getBubbles()) {
-            Element balloon = doc.createElement("balloon");
-            position.appendChild(balloon);
-            balloon.setAttribute("status", b.getStatus());
-            Element content = doc.createElement("content");
-            balloon.appendChild(content);
-            content.setTextContent(trans.get(i));
-            i += 2;
-          }
+        try {writeXML(doc, "translatedSpecifications");}
+        catch (TransformerException te) {
+          DevController.error("Error writing to new XML file", te);
+          return;
         }
-        // Adding setting, below, and border
-        if (p.getSetting()!=null) {
-          Element setting = doc.createElement("setting");
-          panel.appendChild(setting);
-          setting.setTextContent(p.getSetting());
-        }
-        if (p.getTitleBelow()!=null) {
-          Element below = doc.createElement("below");
-          panel.appendChild(below);
-          below.setTextContent(p.getTitleBelow());
-        }
-        if (p.getBorder()!=null) {
-          Element border = doc.createElement("border");
-          panel.appendChild(border);
-          border.setTextContent(p.getBorder());
-        }
-      }
-      try {writeXML(doc, "translatedSpecifications");}
-      catch (TransformerException te) {
-        DevController.error("Error writing to new XML file", te);
-        return;
-      }
-    }
-    
+     }
   }
 
   /**

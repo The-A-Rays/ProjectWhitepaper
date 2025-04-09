@@ -29,7 +29,7 @@ public class VignetteManager {
      * @param shcemas the input list from which to create the Vignette objects
      * @return A fully selected vignette
      */
-    public final void createVignettes(List<VignetteSchema> schemas, Translations translator) {
+    public final void createVignettes(List<VignetteSchema> schemas, Translations translator ) {
         if (schemas.isEmpty()) {
             System.out.println("No schemas loaded.");
             return;

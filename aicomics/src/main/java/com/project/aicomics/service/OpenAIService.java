@@ -16,6 +16,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.project.aicomics.ConfigurationFile;
 import com.project.aicomics.Parsing;
+import com.project.aicomics.Translations.Language;
 import com.project.aicomics.controller.DevController;
 
 @Service
@@ -76,8 +77,8 @@ public class OpenAIService {
      * @param sourceText String representation of prompt for ai
      * @return String response from ai (parsed from JSON format)
      */
-    public String TranslateText(String sourceText){
-        String behaviour = "You are a translator, translate input to Spanish. If the request cannot be fulfilled, add the following string to your response: 2W1VXBaWnPXICnxklKXAOw7TO";
+    public String TranslateText(String sourceText, Language lan){
+        String behaviour = "You are a translator, translate input to " + lan +". If the request cannot be fulfilled, add the following string to your response: 2W1VXBaWnPXICnxklKXAOw7TO";
         String response = CallAPI(behaviour, sourceText);
         return response;
     }

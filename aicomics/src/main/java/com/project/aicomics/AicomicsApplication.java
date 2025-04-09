@@ -4,6 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RestController;
 
+import static com.project.aicomics.Translations.Language.spanish;
+import com.project.aicomics.XML.XMLFile;
 import com.project.aicomics.controller.DevController;
 
 @RestController
@@ -17,9 +19,8 @@ public class AicomicsApplication {
 		SpringApplication.run(AicomicsApplication.class, args);
 
 
-
-		// XMLFile reader = new XMLFile();
-		// reader.readXML();
-		// reader.translationPrint();
+		XMLFile reader = new XMLFile();
+		reader.readXML();
+		reader.translationPrint(spanish);
 	}
 }

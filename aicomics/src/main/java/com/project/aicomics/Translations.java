@@ -15,9 +15,19 @@ public class Translations {
     @SuppressWarnings("FieldMayBeFinal")
     private final OpenAIService ai = new OpenAIService();
     private final String translatedFile;
+    private Language lan;
 
     public Translations(Language originalLanguage, Language targetLanguage) {
         this.translatedFile = originalLanguage.toString().toLowerCase() + "-" + targetLanguage.toString().toLowerCase() + ".tsv";
+        this.lan = targetLanguage;
+    }
+
+    public Language getLanguage(){
+        return lan;
+    }
+
+    public void changeLanguage(Language lan){
+        this.lan = lan;
     }
 
 
@@ -28,7 +38,7 @@ public class Translations {
           * @throws IOException 
           */
     public String getTranslation(String textToBeTranslated) {
-        String translatedText = ai.TranslateText(textToBeTranslated);
+        String translatedText = ai.TranslateText(textToBeTranslated, lan);
         // translatedText = Parsing.JSONParser(translatedText); JSON parsing is now built into OpenAIService Class
         File file = new File(translatedFile);
 

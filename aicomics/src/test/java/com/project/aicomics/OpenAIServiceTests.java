@@ -1,12 +1,13 @@
 package com.project.aicomics;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import org.junit.jupiter.api.Test;
-// import com.fasterxml.jackson.databind.JsonNode;
-// import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import static org.junit.jupiter.api.Assertions.*;
 
+import static com.project.aicomics.Translations.Language.spanish;
 import com.project.aicomics.service.OpenAIService;
 
 @SpringBootTest
@@ -35,7 +36,7 @@ public class OpenAIServiceTests {
 
         String userPrompt = "Hello";
 
-        String response = openAIService.TranslateText(userPrompt);
+        String response = openAIService.TranslateText(userPrompt, spanish);
 
 
         assertNotNull(response, "Response should not be null");
