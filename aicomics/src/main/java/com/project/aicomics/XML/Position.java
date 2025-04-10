@@ -1,16 +1,16 @@
 package com.project.aicomics.XML;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Position {
   private String name;
-  private List<Figure> figures = new ArrayList<>();
-  private List<Bubble> bubbles = new ArrayList<>();
+  private Figure figure;
+  private Bubble bubble;
 
   @Override
   public String toString() {
-      return "Position{" +"name='" + getName() + ", figures=" + getFigures() +", bubbles=" + getBubbles() + "}";
+    String position = "";
+    position += name + ": \n";
+    
+      return "Position{" +"name='" + getName() + ", figures=" + getFigure() +", bubbles=" + getBubble() + "}";
   }
 
   public String getName(){
@@ -21,20 +21,20 @@ public class Position {
     this.name = name;
   }
 
-  public List<Figure> getFigures() {
-    return figures;
+  public Figure getFigure() {
+    return figure;
 }
 
-public void setFigures(List<Figure> figures) {
-    this.figures = figures;
+public void setFigure(Figure f) {
+    figure = f;
 }
 
-public List<Bubble> getBubbles() {
-    return bubbles;
+public Bubble getBubble() {
+    return bubble;
 }
 
-public void setBubbles(List<Bubble> bubbles) {
-    this.bubbles = bubbles;
+public void setBubble(Bubble b) {
+    bubble = b;
 }
   
 }

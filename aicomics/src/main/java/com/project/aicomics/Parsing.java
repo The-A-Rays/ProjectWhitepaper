@@ -1,6 +1,7 @@
 package com.project.aicomics;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -10,12 +11,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Parsing {
   
+    private Parsing() {}
+
     /**
      * Uses a regex to parse a numbered list string into a list
      * @param numberedList String containing list to be parsed
      * @return ArrayList<String> List object version of the string
      */
-    public static ArrayList<String> parseNumberedList(String numberedList){
+    public static List<String> parseNumberedList(String numberedList){
         ArrayList<String> parsedList = new ArrayList<>();             
                     
         Pattern p = Pattern.compile("(\\d{1,2}\\.\\s)([\\w\\W]+?)(?=\\d{1,2}\\.\\s|$)");

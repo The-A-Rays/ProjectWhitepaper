@@ -8,7 +8,12 @@ public class Scene {
 
     @Override
 public String toString() {
-    return "Scene{" + "panels=" + getPanels() +"}";
+    String representation = "";
+    for (int i = 0; i < panels.size(); i++) {
+        representation += ("Panel #" + i + ": \n");
+        representation += (panels.get(i).toString());
+    }
+    return representation;
 }
 
     public List<Panel> getPanels() {

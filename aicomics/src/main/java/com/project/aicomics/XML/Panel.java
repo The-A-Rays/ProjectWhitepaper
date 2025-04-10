@@ -12,7 +12,12 @@ public class Panel {
   
   @Override
     public String toString() {
-        return "Panel{" + "setting='" + getSetting() + ", titleBelow='" + getTitleBelow() +", border='" + getBorder() +", positions=" + getPosition() +"}";
+        String panel = "";
+        panel += "Setting: " + setting;
+        for (Position p : position) {
+            panel += p.toString() + "\n";
+        }
+        return panel;
     }
 
     public String getTitleBelow() {

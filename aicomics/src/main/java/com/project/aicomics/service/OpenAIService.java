@@ -90,7 +90,7 @@ public class OpenAIService {
      * @param sourceText String representation of prompt for ai
      * @return String response from ai (parsed from JSON format)
      */
-    public List<String> GenerateDialogue(){
+    public List<String> GenerateDialogue(XMLFile reader){
         String behaviour = """
         You will receive dialogue from a comic that simply describes the panel in a scene. 
         The format will be a concatenated string were each piece of dialogue has a scene number and then the current dialogue. 
@@ -99,8 +99,6 @@ public class OpenAIService {
         Each piece of dialogue should be separated by a comma. 
         The dialogue should be relevant to the panel and scene. 
         If the request cannot be fulfilled, add the following string to your response: 2W1VXBaWnPXICnxklKXAOw7TO""";
-        XMLFile reader = new XMLFile();
-        reader.readXML();
         
         List<String> text = reader.getAllText();
         String prompt = "";
@@ -116,5 +114,11 @@ public class OpenAIService {
         // String[] dialogue = response.split("(?=Scene)");
         // List<String> dialogues = Arrays.asList(dialogue);
         return strings;
+    }
+
+    public List<String> GenerateCaptions(XMLFile reader) {
+        List<String> captions = new ArrayList<>();
+        
+        return captions;
     }
 }

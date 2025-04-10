@@ -1,6 +1,5 @@
 package com.project.aicomics.XML;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -9,12 +8,6 @@ import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.OutputKeys;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -27,9 +20,13 @@ import com.project.aicomics.Translations.Language;
 import com.project.aicomics.controller.DevController;
 
 public class XMLFile {
-  private List<Scene> scenes;  
-  private List<Figure> figures;
-  private List<String> translatedText;
+  protected List<Scene> scenes;  
+  protected List<Figure> figures;
+  protected List<String> translatedText;
+
+  public XMLFile(String fileName) {
+    this.readXML(fileName);
+  }
 
   /**
    * gets content from a given tag in an element
@@ -46,31 +43,31 @@ public class XMLFile {
     return null;
 }
 
-public void readXML() {
-  try (InputStream inputStream = XMLFile.class.getClassLoader().getResourceAsStream("specification_10Scenes.xml")) {
-      if (inputStream == null) {
-          throw new IOException("File not found: specification.xml");
-      }
-      DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-      DocumentBuilder builder = factory.newDocumentBuilder();
-      Document doc = builder.parse(inputStream);
-      doc.getDocumentElement().normalize();
+  private final void readXML(String file) {
+    try (InputStream inputStream = XMLFile.class.getClassLoader().getResourceAsStream(file)) {
+        if (inputStream == null) {
+            throw new IOException("File not found: " + file);
+        }
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        Document doc = builder.parse(inputStream);
+        doc.getDocumentElement().normalize();
 
-      NodeList figuersNodes = doc.getElementsByTagName("figures");
-      for (int i = 0; i < figuersNodes.getLength(); i ++){
-        Node node = figuersNodes.item(i);
-        this.figures = parseFigures((Element)node);
-      }
-      this.scenes = parseScenes(doc);
+        NodeList figuersNodes = doc.getElementsByTagName("figures");
+        for (int i = 0; i < figuersNodes.getLength(); i ++){
+          Node node = figuersNodes.item(i);
+          this.figures = parseFigures((Element)node);
+        }
+        this.scenes = parseScenes(doc);
 
-  } catch (IOException e) {
-    DevController.error("Fatal error processing XML file", e);
-  } catch (ParserConfigurationException e) {
-    DevController.error("Fatal error creating document factory or builder", e);
-  } catch (SAXException e) {
-    DevController.error("Fatal error putting inputStream into document builder", e);
-  } 
-}
+    } catch (IOException e) {
+      DevController.error("Fatal error processing XML file", e);
+    } catch (ParserConfigurationException e) {
+      DevController.error("Fatal error creating document factory or builder", e);
+    } catch (SAXException e) {
+      DevController.error("Fatal error putting inputStream into document builder", e);
+    } 
+  }
 
 /**
  * 
@@ -228,9 +225,7 @@ private static List<Figure> parseFigures(Element elem){
     for (Scene scene : scenes) {
       for (Panel panel : scene.getPanels()) {
         for(Position pos: panel.getPosition()){
-          for(Bubble bubble : pos.getBubbles()) {
-            spokenText.add( "Scene " + i + " :" + bubble.getContent() + ", ");
-          }
+          spokenText.add( "Scene " + i + " :" + pos.getBubble().getContent() + ", ");
         }
       }
       i++;
@@ -238,153 +233,11 @@ private static List<Figure> parseFigures(Element elem){
     return spokenText;
   }
 
-  /**
-   * Prints the XMLFile object into a new XML file with the
-   * translated scenes next to the original.
-   */
-  public void translationPrint(Language language) {
-    DocumentBuilderFactory fac = DocumentBuilderFactory.newInstance();
-    DocumentBuilder builder;
-    try {builder = fac.newDocumentBuilder();}
-    catch (ParserConfigurationException e) {
-      DevController.error("Fatal error creating document builder", e);
-      return;
-    }
-    Document doc = builder.newDocument();
-    List<String> trans = getAllTranslatedText(language);
-    // Create base file formatting
-    Element comic = doc.createElement("comic");
-    doc.appendChild(comic);
-    // Insert Figures
-    Element xmlFigures = doc.createElement("figures");
-    comic.appendChild(xmlFigures);
-    for (Figure f : figures) {
-      addFigure(f, xmlFigures, doc);
-    }
-    // Insert Scenes
-    /* This code is hard to read, but to put it simply it addes the scene little by little
-     * Most of it is creating elements and appending them to their parents
-     * The only content is the figures and balloons in position
-     * and the setting, below, and border in panel
-     * Everything else is formatting
-     */
-    int i = 0;
-    Element xmlScenes = doc.createElement("scenes");
-    comic.appendChild(xmlScenes);
-    for (Scene s : scenes) {
-      Element scene = doc.createElement("scene");
-      xmlScenes.appendChild(scene);
-      //each Panel object will have 2 panel elements(the oroginal one and the translatted one)
-      for (Panel p : s.getPanels()) {
-        //english panel first, then insert translated one
-        Element panel = doc.createElement("panel");
-        scene.appendChild(panel);
-        for (Position pos : p.getPosition()) {
-          Element position = doc.createElement(pos.getName().trim());
-          panel.appendChild(position);
-          for (Figure f : pos.getFigures()) {
-            addFigure(f, position, doc);
-          }
-          for (Bubble b: pos.getBubbles()) {
-            Element balloon = doc.createElement("balloon");
-            position.appendChild(balloon);
-            balloon.setAttribute("status", b.getStatus().trim());
-            Element content = doc.createElement("content");
-            balloon.appendChild(content);
-            content.setTextContent(b.getContent().trim());
-          }
-        }
-        //add translated panel
-        Element translatedPanel = doc.createElement("panel");
-        scene.appendChild(translatedPanel);
-        for (Position pos : p.getPosition()) {
-          Element position = doc.createElement(pos.getName().trim());
-          translatedPanel.appendChild(position);
-          for (Figure f : pos.getFigures()) {
-            addFigure(f, position, doc);
-          }
-          for (Bubble b: pos.getBubbles()) {
-            Element balloon = doc.createElement("balloon");
-            position.appendChild(balloon);
-            balloon.setAttribute("status", b.getStatus().trim());
-            Element content = doc.createElement("content");
-            balloon.appendChild(content);
-            content.setTextContent(trans.get(i));
-            i = i+1;
-          }
-        }
-
-        // Adding setting, below, and border
-        if (p.getSetting() != null) {
-          Element setting = doc.createElement("setting");
-          panel.appendChild(setting);
-          setting.setTextContent(p.getSetting());
-        }
-        if (p.getTitleBelow() != null) {
-          Element below = doc.createElement("below");
-          panel.appendChild(below);
-          below.setTextContent(p.getTitleBelow());
-        }
-        if (p.getBorder() != null) {
-          Element border = doc.createElement("border");
-          panel.appendChild(border);
-          border.setTextContent(p.getBorder());
-        }
-      }
-        try {writeXML(doc, "translatedSpecifications");}
-        catch (TransformerException te) {
-          DevController.error("Error writing to new XML file", te);
-          return;
-        }
-     }
+  public List<Scene> getScenes() {
+    return scenes;
   }
 
-  /**
-   * Private method to abstract adding a figure to a parent element, as it is used repeatedly
-   * @param f Figure passed for basic information about the figure
-   * @param parent Parent element needs to be passed in order to append the child to it
-   * @param doc In order to create the figure element the document is needed
-   */
-  private void addFigure(Figure f, Element parent, Document doc) {
-    Element figure = doc.createElement("figure");
-    parent.appendChild(figure);
-    String[] attributeNames = {"id", "name", "appearance", "skin",
-                               "hair", "lips", "pose", "facing"};
-    String[] atrs = f.getAttributes();
-    for (int i = 0; i < atrs.length; i++) {
-      String atr = atrs[i];
-      if (atr == null) continue;             // Skip if the attribute is empty
-      Element child = doc.createElement(attributeNames[i]);
-      child.setTextContent(atr);
-      figure.appendChild(child);
-    }
-  }
-
-  /**
-   * Creates a new XML formatted file in src\main\resources
-   * @param doc Document containing the elements to be put in file
-   * @param fileName String filename or folder location ! MUST BE IN src\main\resources !
-   *  ! DO NOT INCLUDE '.xml' IT SHOULD JUST BE THE NAME OF THE FILE !
-   * @throws TransformerException
-   */
-  public static void writeXML(Document doc, String fileName) throws TransformerException {
-    TransformerFactory transformerFactory = TransformerFactory.newInstance();
-    Transformer transformer = transformerFactory.newTransformer();
-
-    // pretty print XML
-    transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-    DOMSource source = new DOMSource(doc);
-    StreamResult result = new StreamResult(new File(fileName + ".xml"));
-
-    transformer.transform(source, result);
-    // DOMSource source = new DOMSource();
-
-    // File f = new File(fileName + ".xml");
-    // try {
-    //   f.createNewFile();
-    //   StreamResult result = new StreamResult(f);
-
-    //   transformer.transform(source, result);
-    // } catch (IOException e) {System.out.println("Unable to create new file: " + e.toString());}
+  public List<Figure> getFigures() {
+    return figures;
   }
 }

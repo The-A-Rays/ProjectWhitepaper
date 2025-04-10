@@ -18,9 +18,8 @@ public class AicomicsApplication {
 		SpringApplication.run(AicomicsApplication.class, args);
 
 
-		XMLFile reader = new XMLFile();
-		reader.readXML();
-		ai.GenerateDialogue();
+		XMLFile generate = new XMLGenerator("specification_10Scenes.xml");
+		ai.GenerateDialogue(reader);
 		// System.out.println(ai.GenerateDialogue());
 		List<String> str = ai.GenerateDialogue();
 		System.out.println(str);
