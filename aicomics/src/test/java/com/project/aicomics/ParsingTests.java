@@ -1,6 +1,6 @@
 package com.project.aicomics;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -13,7 +13,7 @@ public class ParsingTests {
   void parseNumberedListTest1(){
     String initialResponse = "1. Why did the scarecrow win an award? 2. Because he was outstanding in his field!";
 
-    ArrayList <String> responseAfterParsing = Parsing.parseNumberedList(initialResponse);     
+    List <String> responseAfterParsing = Parsing.parseNumberedList(initialResponse);     
     
     assertEquals(2, responseAfterParsing.size());
     assertEquals("Why did the scarecrow win an award?", responseAfterParsing.get(0));
@@ -24,7 +24,7 @@ public class ParsingTests {
   void parseNumberedListTest2(){
     String initialResponse = "Why did the scarecrow win an award? 2. Because he was outstanding in his field!         ";
 
-    ArrayList <String> responseAfterParsing = Parsing.parseNumberedList(initialResponse);     
+    List <String> responseAfterParsing = Parsing.parseNumberedList(initialResponse);     
     
     assertEquals(1, responseAfterParsing.size());
     assertEquals("Because he was outstanding in his field!", responseAfterParsing.get(0));
@@ -34,7 +34,7 @@ public class ParsingTests {
   void parseNumberedListTest3(){
     String initialResponse = "Why did the scarecrow win an award? Because he was outstanding in his field!";
 
-    ArrayList <String> responseAfterParsing = Parsing.parseNumberedList(initialResponse);     
+    List <String> responseAfterParsing = Parsing.parseNumberedList(initialResponse);     
     
     assertEquals(0, responseAfterParsing.size());
   }
@@ -43,7 +43,7 @@ public class ParsingTests {
   void parseNumberedListTest4(){
     String initialResponse = "";
 
-    ArrayList <String> responseAfterParsing = Parsing.parseNumberedList(initialResponse);     
+    List <String> responseAfterParsing = Parsing.parseNumberedList(initialResponse);     
     
     assertEquals(0, responseAfterParsing.size());
   }

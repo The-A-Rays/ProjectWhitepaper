@@ -43,7 +43,7 @@ public class XMLFile {
     return null;
 }
 
-  private final void readXML(String file) {
+  private void readXML(String file) {
     try (InputStream inputStream = XMLFile.class.getClassLoader().getResourceAsStream(file)) {
         if (inputStream == null) {
             throw new IOException("File not found: " + file);
@@ -144,22 +144,22 @@ private static List<Figure> parseFigures(Element elem){
                     case "left" -> {
                       Position position = new Position();
                         position.setName("left");
-                        position.setFigures(parseFigures(positionElem));
-                        position.setBubbles(parseBubbles(positionElem));
+                        position.setFigure(parseFigures(positionElem).get(0));
+                        position.setBubble(parseBubbles(positionElem).get(0));
                         panel.addPosition(position);
                         }
                     case "right" -> {
                       Position position = new Position();
                         position.setName("right");
-                        position.setFigures(parseFigures(positionElem));
-                        position.setBubbles(parseBubbles(positionElem));
+                        position.setFigure(parseFigures(positionElem).get(0));
+                        position.setBubble(parseBubbles(positionElem).get(0));
                         panel.addPosition(position);
                         }
                     case "middle" -> {
                       Position position = new Position();
                         position.setName("middle");
-                        position.setFigures(parseFigures(positionElem));
-                        position.setBubbles(parseBubbles(positionElem));
+                        position.setFigure(parseFigures(positionElem).get(0));
+                        position.setBubble(parseBubbles(positionElem).get(0));
                         panel.addPosition(position);
                         }
                     case "border" ->{
@@ -203,10 +203,7 @@ private static List<Figure> parseFigures(Element elem){
     for (Scene scene : scenes) {
       for (Panel panel : scene.getPanels()) {
         for(Position pos: panel.getPosition()){
-          for(Bubble bubble : pos.getBubbles()) {
-            //spokenText.add(bubble.getContent());
-            spokenText.add(translate.getTranslation(bubble.getContent()));
-          }
+            spokenText.add(translate.getTranslation(pos.getBubble().getContent()));
         }
       }
     }

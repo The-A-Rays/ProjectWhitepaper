@@ -7,9 +7,6 @@ public class Position {
 
   @Override
   public String toString() {
-    String position = "";
-    position += name + ": \n";
-    
       return "Position{" +"name='" + getName() + ", figures=" + getFigure() +", bubbles=" + getBubble() + "}";
   }
 

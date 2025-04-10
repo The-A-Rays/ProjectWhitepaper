@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.aicomics.XML.XMLFile;
+import com.project.aicomics.XML.XMLGenerator;
 import com.project.aicomics.service.OpenAIService;
 
 @RestController
@@ -19,9 +20,8 @@ public class AicomicsApplication {
 
 
 		XMLFile generate = new XMLGenerator("specification_10Scenes.xml");
-		ai.GenerateDialogue(reader);
 		// System.out.println(ai.GenerateDialogue());
-		List<String> str = ai.GenerateDialogue();
+		List<String> str = ai.GenerateDialogue(generate);
 		System.out.println(str);
 	}
 }
