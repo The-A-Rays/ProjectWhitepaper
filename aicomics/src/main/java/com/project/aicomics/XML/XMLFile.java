@@ -47,7 +47,7 @@ public class XMLFile {
 }
 
 public void readXML() {
-  try (InputStream inputStream = XMLFile.class.getClassLoader().getResourceAsStream("specification.xml")) {
+  try (InputStream inputStream = XMLFile.class.getClassLoader().getResourceAsStream("specification_10Scenes.xml")) {
       if (inputStream == null) {
           throw new IOException("File not found: specification.xml");
       }
@@ -214,6 +214,27 @@ private static List<Figure> parseFigures(Element elem){
       }
     }
     translatedText = spokenText;
+    return spokenText;
+  }
+
+  public List<String> getAllText() {
+    List<String> spokenText = new ArrayList<>();
+
+    if (scenes == null) {
+        System.out.println("No scenes available.");
+        return spokenText;
+    }
+    int i = 0;
+    for (Scene scene : scenes) {
+      for (Panel panel : scene.getPanels()) {
+        for(Position pos: panel.getPosition()){
+          for(Bubble bubble : pos.getBubbles()) {
+            spokenText.add( "Scene " + i + " :" + bubble.getContent() + ", ");
+          }
+        }
+      }
+      i++;
+    }
     return spokenText;
   }
 
