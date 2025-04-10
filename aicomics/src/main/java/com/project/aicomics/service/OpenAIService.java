@@ -1,7 +1,6 @@
 package com.project.aicomics.service;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,12 +15,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
-import org.w3c.dom.Document;
 
 import com.project.aicomics.ConfigurationFile;
 import com.project.aicomics.Parsing;
 import com.project.aicomics.Translations.Language;
-import com.project.aicomics.XML.*;
+import com.project.aicomics.XML.XMLFile;
 import com.project.aicomics.controller.DevController;
 
 @Service
