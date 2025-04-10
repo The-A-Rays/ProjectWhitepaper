@@ -15,7 +15,7 @@ public class Translations {
     @SuppressWarnings("FieldMayBeFinal")
     private final OpenAIService ai = new OpenAIService();
     private final String translatedFile;
-    private Language lan;
+    private final Language lan;
 
     public Translations(Language originalLanguage, Language targetLanguage) {
         this.translatedFile = originalLanguage.toString().toLowerCase() + "-" + targetLanguage.toString().toLowerCase() + ".tsv";
@@ -24,10 +24,6 @@ public class Translations {
 
     public Language getLanguage(){
         return lan;
-    }
-
-    public void changeLanguage(Language lan){
-        this.lan = lan;
     }
 
 
