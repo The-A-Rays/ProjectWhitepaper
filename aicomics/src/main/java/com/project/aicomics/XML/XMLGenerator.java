@@ -27,13 +27,47 @@ public class XMLGenerator extends XMLFile{
         super(fileName);
     }
 
+    /**
+     *  - {@link #generateDialogue} generates and inserts dialogue into the corresponding xml file
+     */
     public void generateDialogue() {
         List<String> dialogue = ai.GenerateDialogue(this);
+        int bubbleIndex = 0;
+        for (Scene s : scenes) {
+            for (Panel p : s.getPanels()) {
+                for (Position pos : p.getPosition()) {
+                    if (pos.getBubble() != null) {
+                        pos.getBubble().setContent(dialogue.get(bubbleIndex));
+                        bubbleIndex++;
+                    }
+                }
+            }
+        }
 
     }
 
+    /**
+     * - {@link #generateCaptions()} generates and inserts captions into the corresponding xml file
+     */
     public void generateCaptions() {
-        ai.GenerateCaptions(this);
+        List<String> captions = ai.GenerateCaptions(this);
+        int captionIndex = 0;
+        for (Scene s : scenes) {
+            for (Panel p : s.getPanels()) {
+                p.setTitleBelow(captions.get(captionIndex));
+                captionIndex++;
+            }
+        }
+    }
+
+    /**
+     * - {@link #generatePrint()} Generates dialogue, captions, and translations and prints them to a new xml file
+     * @param language Language to be translated to when printed
+     */
+    public void generatePrint(Language language) {
+        generateDialogue();
+        generateCaptions();
+        translationPrint(language);
     }
 
 
@@ -128,12 +162,13 @@ public class XMLGenerator extends XMLFile{
             border.setTextContent(p.getBorder());
             }
         }
-            try {writeXML(doc, "translatedSpecifications");}
+            try {writeXML(doc, "translatedXMLFile");}
             catch (TransformerException te) {
             DevController.error("Error writing to new XML file", te);
             return;
-            }
+            } 
         }
+        DevController.status("Done creating XML file");
     }
 
     /**

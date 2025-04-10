@@ -1,0 +1,7 @@
+COMPLETIONS_URL https://api.openai.com/v1/chat/completions
+EMBEDDINGS_URL https://api.openai.com/v1/embeddings
+MODELS_URL https://api.openai.com/v1/models
+ORG_KEY Put org key here or leave this if you do not need to use an org key
+API_KEY Put API key here
+MODEL put model here
+LANGUAGE english

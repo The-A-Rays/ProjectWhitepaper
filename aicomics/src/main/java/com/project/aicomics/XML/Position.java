@@ -7,7 +7,11 @@ public class Position {
 
   @Override
   public String toString() {
-      return "Position{" +"name='" + getName() + ", figures=" + getFigure() +", bubbles=" + getBubble() + "}";
+    String pos = "";
+    pos += name + ": \n";
+    pos += "Figure: " + figure.toString();
+    if (bubble != null) pos += "Speech bubble:" + bubble.toString();
+    return pos;
   }
 
   public String getName(){

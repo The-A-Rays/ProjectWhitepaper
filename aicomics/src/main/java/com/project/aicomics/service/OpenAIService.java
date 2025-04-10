@@ -19,6 +19,7 @@ import org.springframework.web.client.RestTemplate;
 import com.project.aicomics.ConfigurationFile;
 import com.project.aicomics.Parsing;
 import com.project.aicomics.Translations.Language;
+import com.project.aicomics.XML.Scene;
 import com.project.aicomics.XML.XMLFile;
 import com.project.aicomics.controller.DevController;
 
@@ -87,7 +88,7 @@ public class OpenAIService {
     }
     /**
      * - {@link #GenerateDialogue()} generates dialogue for a given XML using OpenAI. Should 
-     * @param sourceText String representation of prompt for ai
+     * @param reader XML file to generate dialogue for
      * @return String response from ai (parsed from JSON format)
      */
     public List<String> GenerateDialogue(XMLFile reader){
@@ -116,9 +117,27 @@ public class OpenAIService {
         return strings;
     }
 
+    /**
+     *  - {@link #GenerateCaptions()}
+     * @param reader XML file to generate captions for
+     * @return List<String> containing captions in the same order as panels
+     */
     public List<String> GenerateCaptions(XMLFile reader) {
-        List<String> captions = new ArrayList<>();
-        
+        List<String> captions;
+        String message = "";
+        String behavior = """
+                You will be given a set of scenes from a comic that contain information regarding each panel,
+                 the characters in each panel and their position, along with any other available information.
+                 The information will be in chronological order.
+                 Using this information, please generate a very brief description that could be used by visually
+                 impared people to allow them to better understand the comic and story.
+                 You can ignore details like character appearance if it is irrellavent
+                 Please order the captions in a matching order to the information given, and as a numbered list with no other text.
+                 If the request cannot be fulfilled, add the following string to your response: 2W1VXBaWnPXICnxklKXAOw7TO""";
+        for (Scene s : reader.getScenes()) {
+            message += s.toString() + "\n";
+        }
+        captions = Parsing.parseNumberedList(this.CallAPI(behavior, message));
         return captions;
     }
 }

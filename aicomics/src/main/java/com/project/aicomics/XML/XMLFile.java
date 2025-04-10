@@ -93,21 +93,17 @@ private static List<Figure> parseFigures(Element elem){
      * @param elem the element from which we want to extract the speeches from
      * @return a list containing all the speech bubbles' content
      */ //extracts bubbles from different positions
-     private static List<Bubble> parseBubbles(Element elem){
-      List<Bubble> bubbles = new ArrayList<>();
-      NodeList bubbleNodes = elem.getElementsByTagName("balloon");   
-
-      for (int j = 0; j < bubbleNodes.getLength(); j++) { //get balloons
-        Node bubbleN = bubbleNodes.item(j);
-        if (bubbleN.getNodeType() == Node.ELEMENT_NODE) {
-          Bubble bubble = new Bubble();
-          Element bubbleElem = (Element) bubbleN;
-          bubble.setContent(getTagVal("content", bubbleElem)); //gets content
-          bubble.setStatus(bubbleElem.getAttribute("status")); //gets status
-          bubbles.add(bubble); 
-        }
+     private static Bubble parseBubbles(Element elem){
+      Bubble bubble = new Bubble();
+      NodeList bubbleNodes = elem.getElementsByTagName("balloon"); 
+      Node bubbleN = bubbleNodes.item(0);
+      if (bubbleN == null) return null;
+      if (bubbleN.getNodeType() == Node.ELEMENT_NODE) {
+        Element bubbleElem = (Element) bubbleN;
+        bubble.setContent(getTagVal("content", bubbleElem)); //gets content
+        bubble.setStatus(bubbleElem.getAttribute("status")); //gets status
       }
-        return bubbles;
+      return bubble;
    }
 
     /**
@@ -145,21 +141,21 @@ private static List<Figure> parseFigures(Element elem){
                       Position position = new Position();
                         position.setName("left");
                         position.setFigure(parseFigures(positionElem).get(0));
-                        position.setBubble(parseBubbles(positionElem).get(0));
+                        position.setBubble(parseBubbles(positionElem));
                         panel.addPosition(position);
                         }
                     case "right" -> {
                       Position position = new Position();
                         position.setName("right");
                         position.setFigure(parseFigures(positionElem).get(0));
-                        position.setBubble(parseBubbles(positionElem).get(0));
+                        position.setBubble(parseBubbles(positionElem));
                         panel.addPosition(position);
                         }
                     case "middle" -> {
                       Position position = new Position();
                         position.setName("middle");
                         position.setFigure(parseFigures(positionElem).get(0));
-                        position.setBubble(parseBubbles(positionElem).get(0));
+                        position.setBubble(parseBubbles(positionElem));
                         panel.addPosition(position);
                         }
                     case "border" ->{
@@ -222,6 +218,7 @@ private static List<Figure> parseFigures(Element elem){
     for (Scene scene : scenes) {
       for (Panel panel : scene.getPanels()) {
         for(Position pos: panel.getPosition()){
+          if (pos.getBubble() == null) continue;
           spokenText.add( "Scene " + i + " :" + pos.getBubble().getContent() + ", ");
         }
       }
