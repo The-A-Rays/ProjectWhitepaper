@@ -17,6 +17,7 @@ public class Panel {
         for (Position p : position) {
             panel += p.toString() + "\n";
         }
+        panel += "Below: " + titleBelow;
         return panel;
     }
 

@@ -13,12 +13,18 @@ public class DevController {
     
     private final static List<String> states = new ArrayList<>();
     private final static List<Exception> errors = new ArrayList<>();
+    private static String ls1 = "";
+    private static String ls2 = "";
+
+    private DevController() {}
 
     @ModelAttribute
     @GetMapping("/dev")
     public String devPages(Model model) {
         model.addAttribute("status", states);
         model.addAttribute("errors", errors);
+        model.addAttribute("longstatus1", ls1);
+        model.addAttribute("longstatus2", ls2);
         return "dev";
     }
 
@@ -38,6 +44,16 @@ public class DevController {
      */
     public static void status(String status) {
         states.add(status);
+    }
+
+    /**
+     * Sets up to two long statuses for comparing strings. Will work with first two then show an error at the third
+     * @param status Status to assign to a long status variable.
+     */
+    public static void setLongStatus(String status) {
+        if (ls1.equals("")) ls1 = status;
+        else if (ls2.equals("")) ls2 = status;
+        else error("Setting more than two long statuses", new IllegalArgumentException("Too many long statuses for dev page to handle"));
     }
 
 

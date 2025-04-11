@@ -63,11 +63,12 @@ public class XMLGenerator extends XMLFile{
     /**
      * - {@link #generatePrint()} Generates dialogue, captions, and translations and prints them to a new xml file
      * @param language Language to be translated to when printed
+     * @param fileName String to be used as the fileName
      */
-    public void generatePrint(Language language) {
+    public void generatePrint(Language language, String fileName) {
         generateDialogue();
         generateCaptions();
-        translationPrint(language);
+        translationPrint(language, fileName);
     }
 
 
@@ -75,7 +76,7 @@ public class XMLGenerator extends XMLFile{
    * Prints the XMLFile object into a new XML file with the
    * translated scenes next to the original.
    */
-    public void translationPrint(Language language) {
+    public void translationPrint(Language language, String fileName) {
         DocumentBuilderFactory fac = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder;
         try {builder = fac.newDocumentBuilder();}
@@ -162,7 +163,7 @@ public class XMLGenerator extends XMLFile{
             border.setTextContent(p.getBorder());
             }
         }
-            try {writeXML(doc, "translatedXMLFile");}
+            try {writeXML(doc, fileName);}
             catch (TransformerException te) {
             DevController.error("Error writing to new XML file", te);
             return;
@@ -202,6 +203,7 @@ public class XMLGenerator extends XMLFile{
     public static void writeXML(Document doc, String fileName) throws TransformerException {
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
         Transformer transformer = transformerFactory.newTransformer();
+        if (!fileName.endsWith(".xml")) fileName += ".xml";
 
         // pretty print XML
         transformer.setOutputProperty(OutputKeys.INDENT, "yes");

@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -97,7 +95,7 @@ public class OpenAIService {
         The format will be a concatenated string were each piece of dialogue has a scene number and then the current dialogue. 
         The dialogue will be in chronologcial order relevant to the scene. 
         You should generate simple and short but realistic human dialogue to replace it, use the context of all the dialogue in each scene to understand the scene's narrative arc. 
-        Each piece of dialogue should be separated by a comma. 
+        Please include only dialogue formatted as a numbered list in chronological order with no quotations. 
         The dialogue should be relevant to the panel and scene. 
         If the request cannot be fulfilled, add the following string to your response: 2W1VXBaWnPXICnxklKXAOw7TO""";
         
@@ -107,13 +105,8 @@ public class OpenAIService {
             prompt = prompt + str;
         }
         String response = CallAPI(behaviour, prompt);
-        List<String> strings = new ArrayList<>();
-        Matcher matcher = Pattern.compile("\\*(.*?)\\*").matcher(response); // LLM was returning dialogue between * symbols so i used this regex pattern
-        while (matcher.find()) {
-            strings.add(matcher.group(1));
-        }
-        // String[] dialogue = response.split("(?=Scene)");
-        // List<String> dialogues = Arrays.asList(dialogue);
+        List<String> strings;
+        strings = Parsing.parseNumberedList(response);
         return strings;
     }
 
@@ -131,7 +124,7 @@ public class OpenAIService {
                  The information will be in chronological order.
                  Using this information, please generate a very brief description that could be used by visually
                  impared people to allow them to better understand the comic and story.
-                 You can ignore details like character appearance if it is irrellavent
+                 You can ignore details like character appearance or location if it is irrellavent
                  Please order the captions in a matching order to the information given, and as a numbered list with no other text.
                  If the request cannot be fulfilled, add the following string to your response: 2W1VXBaWnPXICnxklKXAOw7TO""";
         for (Scene s : reader.getScenes()) {
