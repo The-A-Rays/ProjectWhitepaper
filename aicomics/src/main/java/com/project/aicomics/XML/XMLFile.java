@@ -199,7 +199,9 @@ private static List<Figure> parseFigures(Element elem){
     for (Scene scene : scenes) {
       for (Panel panel : scene.getPanels()) {
         for(Position pos: panel.getPosition()){
-            spokenText.add(translate.getTranslation(pos.getBubble().getContent()));
+            if(pos.getBubble() != null && pos.getBubble().getContent() != null){
+              spokenText.add(translate.getTranslation(pos.getBubble().getContent()));
+            }
         }
       }
     }

@@ -94,12 +94,14 @@ public class OpenAIService {
         You will receive dialogue from a comic that simply describes the panel in a scene. 
         The format will be a concatenated string were each piece of dialogue has a scene number and then the current dialogue. 
         The dialogue will be in chronologcial order relevant to the scene. 
-        You should generate simple and short but realistic human dialogue to replace it, use the context of all the dialogue in each scene to understand the scene's narrative arc. 
+        You should generate simple and short but realistic human dialogue to replace it, use the context of all the dialogue in each scene to understand the scene's narrative arc.
+        There should be exactly one piece of dialogue to replace each piece of dialogue given. 
         Please include only dialogue formatted as a numbered list in chronological order with no quotations. 
         The dialogue should be relevant to the panel and scene. 
         If the request cannot be fulfilled, add the following string to your response: 2W1VXBaWnPXICnxklKXAOw7TO""";
         
         List<String> text = reader.getAllText();
+        // System.out.println(text);
         String prompt = "";
         for(String str : text){
             prompt = prompt + str;

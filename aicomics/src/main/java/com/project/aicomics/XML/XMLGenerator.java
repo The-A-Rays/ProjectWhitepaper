@@ -36,7 +36,7 @@ public class XMLGenerator extends XMLFile{
         for (Scene s : scenes) {
             for (Panel p : s.getPanels()) {
                 for (Position pos : p.getPosition()) {
-                    if (pos.getBubble() != null) {
+                    if (pos.getBubble() != null && bubbleIndex < dialogue.size()) {
                         pos.getBubble().setContent(dialogue.get(bubbleIndex));
                         bubbleIndex++;
                     }
@@ -54,8 +54,10 @@ public class XMLGenerator extends XMLFile{
         int captionIndex = 0;
         for (Scene s : scenes) {
             for (Panel p : s.getPanels()) {
-                p.setTitleBelow(captions.get(captionIndex));
-                captionIndex++;
+                if(captionIndex < captions.size()){
+                    p.setTitleBelow(captions.get(captionIndex));
+                    captionIndex++;
+                }
             }
         }
     }
@@ -114,36 +116,41 @@ public class XMLGenerator extends XMLFile{
             Element panel = doc.createElement("panel");
             scene.appendChild(panel);
             for (Position pos : p.getPosition()) {
-            Element position = doc.createElement(pos.getName().trim());
-            panel.appendChild(position);
+                Element position = doc.createElement(pos.getName().trim());
+                panel.appendChild(position);
 
-            addFigure(pos.getFigure(), position, doc);
-
-            Bubble b = pos.getBubble();
-            Element balloon = doc.createElement("balloon");
-            position.appendChild(balloon);
-            balloon.setAttribute("status", b.getStatus().trim());
-            Element content = doc.createElement("content");
-            balloon.appendChild(content);
-            content.setTextContent(b.getContent().trim());
+                addFigure(pos.getFigure(), position, doc);
+                if(pos.getBubble() != null){
+                    Bubble b = pos.getBubble();
+                    Element balloon = doc.createElement("balloon");
+                    position.appendChild(balloon);
+                    balloon.setAttribute("status", b.getStatus().trim());
+                    Element content = doc.createElement("content");
+                    balloon.appendChild(content);
+                    content.setTextContent(b.getContent().trim());
+                }
+                
             }
             //add translated panel
             Element translatedPanel = doc.createElement("panel");
             scene.appendChild(translatedPanel);
             for (Position pos : p.getPosition()) {
-            Element position = doc.createElement(pos.getName().trim());
-            translatedPanel.appendChild(position);
-            
-            addFigure(pos.getFigure(), position, doc);
+                Element position = doc.createElement(pos.getName().trim());
+                translatedPanel.appendChild(position);
+                
+                addFigure(pos.getFigure(), position, doc);
 
-            Bubble b = pos.getBubble();
-            Element balloon = doc.createElement("balloon");
-            position.appendChild(balloon);
-            balloon.setAttribute("status", b.getStatus().trim());
-            Element content = doc.createElement("content");
-            balloon.appendChild(content);
-            content.setTextContent(trans.get(i));
-            i = i+1;
+                if(pos.getBubble() != null){
+                    Bubble b = pos.getBubble();
+                    Element balloon = doc.createElement("balloon");
+                    position.appendChild(balloon);
+                    balloon.setAttribute("status", b.getStatus().trim());
+                    Element content = doc.createElement("content");
+                    balloon.appendChild(content);
+                    content.setTextContent(trans.get(i));
+                    i = i+1;
+                }
+
             }
 
             // Adding setting, below, and border
