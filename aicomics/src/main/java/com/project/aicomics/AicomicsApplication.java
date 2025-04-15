@@ -25,13 +25,15 @@ public class AicomicsApplication {
 		OpenAIService ai = new OpenAIService();
 		SpringApplication.run(AicomicsApplication.class, args);
 
+		ai.generateAudioFile("Hola, ¿cómo estás?", "dialogue1.mp3");
 
-		XMLGenerator generate = new XMLGenerator("specification_10Scenes.xml");
-		DevController.status("Number of bubbles: " + generate.getAllText().size());
-		DevController.setLongStatus(generate.getAllText().toString());
-		List<String> dialogue = ai.GenerateDialogue(generate);
-		DevController.status("Generated dialogue size: " + dialogue.size());
-		DevController.setLongStatus(dialogue.toString());
-		generate.generatePrint(Language.spanish, "newSpecs.xml");
+
+		// XMLGenerator generate = new XMLGenerator("specification_10Scenes.xml");
+		// DevController.status("Number of bubbles: " + generate.getAllText().size());
+		// DevController.setLongStatus(generate.getAllText().toString());
+		// List<String> dialogue = ai.GenerateDialogue(generate);
+		// DevController.status("Generated dialogue size: " + dialogue.size());
+		// DevController.setLongStatus(dialogue.toString());
+		// generate.generatePrint(Language.spanish, "newSpecs.xml");
 	}
 }

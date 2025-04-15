@@ -1,5 +1,7 @@
 package com.project.aicomics.service;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -34,6 +36,40 @@ public class OpenAIService {
     public OpenAIService() {
         this.config = ConfigurationFile.getInstance();
         this.restTemplate = new RestTemplate();
+    }
+
+    /**
+     * - {@link #generateAudioFile(String, String)} sends a request with a specified AI behavior and user prompt.
+     * @param input text to get audio description of
+     * @param fileName name fo the file to store the audio
+     */
+    public void generateAudioFile(String input, String fileName){
+        String url = "https://api.openai.com/v1/audio/speech";
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        headers.setBearerAuth(config.getAPIKey());
+
+        Map<String, Object> body = new HashMap<>();
+        body.put("model", "tts-1");
+        body.put("input", input);
+        body.put("voice", "nova");
+        body.put("response_format", "mp3");
+
+        HttpEntity<Map<String, Object>> entity = new HttpEntity<>(body, headers);
+
+        ResponseEntity<byte[]> response = restTemplate.exchange(url, HttpMethod.POST, entity, byte[].class);
+
+        byte[] audioBytes = response.getBody();
+
+        if (audioBytes != null) {
+            try (FileOutputStream out = new FileOutputStream(fileName)) {
+                out.write(audioBytes);
+                System.out.println("Saved audio to " + fileName);
+            }
+            catch (IOException e){
+                System.out.println(e);
+            }
+        }
     }
 
     /**
