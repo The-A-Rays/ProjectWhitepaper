@@ -62,6 +62,10 @@ public class XMLGenerator extends XMLFile{
         }
     }
 
+    public void generateAudio() {
+
+    }
+
     /**
      * - {@link #generatePrint()} Generates dialogue, captions, and translations and prints them to a new xml file
      * @param language Language to be translated to when printed
@@ -70,7 +74,8 @@ public class XMLGenerator extends XMLFile{
     public void generatePrint(Language language, String fileName) {
         generateDialogue();
         generateCaptions();
-        translationPrint(language, fileName);
+        generateAudio();
+        Print(language, fileName);
     }
 
 
@@ -78,7 +83,7 @@ public class XMLGenerator extends XMLFile{
    * Prints the XMLFile object into a new XML file with the
    * translated scenes next to the original.
    */
-    public void translationPrint(Language language, String fileName) {
+    public void Print(Language language, String fileName) {
         DocumentBuilderFactory fac = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder;
         try {builder = fac.newDocumentBuilder();}
