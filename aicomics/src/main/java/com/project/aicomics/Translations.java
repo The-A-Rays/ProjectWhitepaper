@@ -50,7 +50,7 @@ public class Translations {
         try (Scanner sc = new Scanner(file)) {
             while (sc.hasNextLine()) {
                 String existingText = sc.nextLine();
-                if (sc.hasNextLine()) { //transaltion for existing text (if any)
+                if (sc.hasNextLine()) { //translation for existing text (if any)
                     String existingTranslation = sc.nextLine();
                     if (existingText.equals(textToBeTranslated) && existingTranslation.equals(translatedText)) {
                         return existingTranslation; 

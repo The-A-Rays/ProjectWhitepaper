@@ -62,6 +62,12 @@ public class XMLGenerator extends XMLFile{
         }
     }
 
+    /*
+     * call get all trans text
+     * call generateAudio from openaiservice and save to object (arraylist)
+     * store in json file (trans text)
+     * 
+     */
     public void generateAudio() {
 
     }
