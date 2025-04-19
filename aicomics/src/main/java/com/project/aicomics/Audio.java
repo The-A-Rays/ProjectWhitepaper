@@ -47,10 +47,13 @@ public class Audio {
         if (!audioFile.exists()){
           ai.generateAudioFile(t, audioFile.getPath().toString());
           textToAudio.put(t, audioFile.getPath().toString());
+        } else {
+          textToAudio.put(t, audioFile.getPath().toString());
         }
+        textToAudio.toString();
       }
     }
-    saveIndex(new File("src/main/resources/audio/audios.txt")); //??
+   // saveIndex(new File("src/main/resources/audio/audios.txt")); //??
   }
 
   public String getAudioFileName(String text){
@@ -58,7 +61,7 @@ public class Audio {
   }
 
 
-  public void saveIndex(File f) throws IOException{
+  private void saveIndex(File f) throws IOException{
     try(FileWriter wr = new FileWriter(f)){
       for(Map.Entry<String, String> entry : textToAudio.entrySet()){
         wr.write(entry.getKey() + "=" + entry.getValue() + "\n");
@@ -66,7 +69,7 @@ public class Audio {
     }
   }
 
-  public void loadIndex(File f) throws IOException{
+  private void loadIndex(File f) throws IOException{
     textToAudio = new HashMap<>();
     if (f.exists()){
       try(BufferedReader r = new BufferedReader(new FileReader(f))){
