@@ -1,6 +1,7 @@
 package com.project.aicomics.XML;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -16,12 +17,14 @@ import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
+import com.project.aicomics.Audio;
 import com.project.aicomics.Translations.Language;
 import com.project.aicomics.controller.DevController;
 import com.project.aicomics.service.OpenAIService;
 
 public class XMLGenerator extends XMLFile{
     OpenAIService ai = new OpenAIService();
+    Audio aud = new Audio(this);
     
     public XMLGenerator(String fileName) {
         super(fileName);
@@ -62,16 +65,6 @@ public class XMLGenerator extends XMLFile{
         }
     }
 
-    /*
-     * call get all trans text
-     * call generateAudio from openaiservice and save to object (arraylist)
-     * store in json file (trans text)
-     * 
-     */
-    public void generateAudio() {
-
-    }
-
     /**
      * - {@link #generatePrint()} Generates dialogue, captions, and translations and prints them to a new xml file
      * @param language Language to be translated to when printed
@@ -80,7 +73,12 @@ public class XMLGenerator extends XMLFile{
     public void generatePrint(Language language, String fileName) {
         generateDialogue();
         generateCaptions();
-        generateAudio();
+        try {
+            aud.generateAudioXML(language);
+        } catch (IOException e) {
+            DevController.error("Fatal Error: Unable to create audio files for the XML", e);
+            return;
+        }
         Print(language, fileName);
     }
 
@@ -89,7 +87,7 @@ public class XMLGenerator extends XMLFile{
    * Prints the XMLFile object into a new XML file with the
    * translated scenes next to the original.
    */
-    public void Print(Language language, String fileName) {
+    private void Print(Language language, String fileName) {
         DocumentBuilderFactory fac = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder;
         try {builder = fac.newDocumentBuilder();}
@@ -115,7 +113,7 @@ public class XMLGenerator extends XMLFile{
         * and the setting, below, and border in panel
         * Everything else is formatting
         */
-        int i = 0;
+        int i = 0;              // Used to keep track of which text we are on for trans.get(i)
         Element xmlScenes = doc.createElement("scenes");
         comic.appendChild(xmlScenes);
         for (Scene s : scenes) {
@@ -139,6 +137,9 @@ public class XMLGenerator extends XMLFile{
                     Element content = doc.createElement("content");
                     balloon.appendChild(content);
                     content.setTextContent(b.getContent().trim());
+                    Element audio = doc.createElement("audio");
+                    balloon.appendChild(audio);
+                    audio.setTextContent(aud.getAudioFileName(b.getContent()));
                 }
                 
             }
@@ -159,6 +160,9 @@ public class XMLGenerator extends XMLFile{
                     Element content = doc.createElement("content");
                     balloon.appendChild(content);
                     content.setTextContent(trans.get(i));
+                    Element audio = doc.createElement("audio");
+                    balloon.appendChild(audio);
+                    audio.setTextContent(aud.getAudioFileName(trans.get(i)));
                     i = i+1;
                 }
 
@@ -188,6 +192,7 @@ public class XMLGenerator extends XMLFile{
             } 
         }
         DevController.status("Done creating XML file");
+        System.out.println("Done creating XML file");
     }
 
     /**
@@ -226,7 +231,7 @@ public class XMLGenerator extends XMLFile{
         // pretty print XML
         transformer.setOutputProperty(OutputKeys.INDENT, "yes");
         DOMSource source = new DOMSource(doc);
-        StreamResult result = new StreamResult(new File(fileName + ".xml"));
+        StreamResult result = new StreamResult(new File(fileName));
 
         transformer.transform(source, result);
     }

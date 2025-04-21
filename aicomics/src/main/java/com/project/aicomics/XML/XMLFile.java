@@ -23,6 +23,7 @@ public class XMLFile {
   protected List<Scene> scenes;  
   protected List<Figure> figures;
   protected List<String> translatedText;
+  protected List<String> allText;
 
   public XMLFile(String fileName) {
     this.readXML(fileName);
@@ -209,8 +210,30 @@ private static List<Figure> parseFigures(Element elem){
     return spokenText;
   }
 
-  public List<String> getAllText() {
+  public List<String> getSourceText() {
+    List<String> sourceText = new ArrayList<>();
+
+    if (scenes == null) {
+      System.out.println("No scenes available.");
+      return sourceText;
+    }
+    int i = 0;
+    for (Scene scene : scenes) {
+      for (Panel panel : scene.getPanels()) {
+        for(Position pos: panel.getPosition()){
+          if (pos.getBubble() == null) continue;
+          sourceText.add(pos.getBubble().getContent());
+        }
+      }
+      i++;
+    }
+    return sourceText;
+  }
+
+  public List<String> getAllText(Language lan) {
     List<String> spokenText = new ArrayList<>();
+    Translations translate = new Translations(Language.english, lan);
+    if (allText != null) return allText;
 
     if (scenes == null) {
         System.out.println("No scenes available.");
@@ -221,11 +244,13 @@ private static List<Figure> parseFigures(Element elem){
       for (Panel panel : scene.getPanels()) {
         for(Position pos: panel.getPosition()){
           if (pos.getBubble() == null) continue;
-          spokenText.add( "Scene " + i + " :" + pos.getBubble().getContent() + ", ");
+          spokenText.add(pos.getBubble().getContent());
+          spokenText.add(translate.getTranslation(pos.getBubble().getContent()));
         }
       }
       i++;
     }
+    allText = spokenText;
     return spokenText;
   }
 

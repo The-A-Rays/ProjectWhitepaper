@@ -17,7 +17,7 @@ public class Audio {
 
   private final OpenAIService ai = new OpenAIService();
   private Map<String, String> textToAudio;
-  private final File directory = new File("src/main/resources/audio");
+  private final File directory = new File("aicomics/src/main/resources/audio");
   private final XMLFile xml;
 
   public Audio(XMLFile xml){
@@ -29,11 +29,9 @@ public class Audio {
 
 
   public void generateAudioXML(Language lan) throws IOException{
-    List<String> allText = xml.getAllTranslatedText(lan);
+    List<String> allText = xml.getAllText(lan);
     
     //cretae new directory for each language audios
-    File languageDir = new File(directory, lan.toString().toLowerCase());
-    if (!languageDir.exists()) languageDir.mkdirs();
 
     for(String t : allText){
       if (t != null && !t.isBlank()){
@@ -41,8 +39,8 @@ public class Audio {
         if (textToAudio.containsKey(t)) continue;
         //else create audio file and add it and the text to the map
         String safeText = t.replaceAll("[^a-zA-Z0-9]", "_"); //for saftey in case the name contains a special char
-        String audioFileName = "audio_" + safeText + "_" + lan + ".mp3";
-        File audioFile = new File (languageDir, audioFileName);
+        String audioFileName = "audio_" + safeText + ".mp3";
+        File audioFile = new File (directory, audioFileName);
 
         if (!audioFile.exists()){
           ai.generateAudioFile(t, audioFile.getPath());

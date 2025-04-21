@@ -136,7 +136,7 @@ public class OpenAIService {
         The dialogue should be relevant to the panel and scene. 
         If the request cannot be fulfilled, add the following string to your response: 2W1VXBaWnPXICnxklKXAOw7TO""";
         
-        List<String> text = reader.getAllText();
+        List<String> text = reader.getSourceText();
         // System.out.println(text);
         String prompt = "";
         for(String str : text){
