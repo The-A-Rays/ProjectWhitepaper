@@ -15,10 +15,10 @@ import com.project.aicomics.service.OpenAIService;
 
 public class Audio {
 
-  private OpenAIService ai = new OpenAIService();
+  private final OpenAIService ai = new OpenAIService();
   private Map<String, String> textToAudio;
   private final File directory = new File("src/main/resources/audio");
-  private XMLFile xml;
+  private final XMLFile xml;
 
   public Audio(XMLFile xml){
     if (!directory.exists())
@@ -45,10 +45,10 @@ public class Audio {
         File audioFile = new File (languageDir, audioFileName);
 
         if (!audioFile.exists()){
-          ai.generateAudioFile(t, audioFile.getPath().toString());
-          textToAudio.put(t, audioFile.getPath().toString());
+          ai.generateAudioFile(t, audioFile.getPath());
+          textToAudio.put(t, audioFile.getPath());
         } else {
-          textToAudio.put(t, audioFile.getPath().toString());
+          textToAudio.put(t, audioFile.getPath());
         }
         textToAudio.toString();
       }
