@@ -6,7 +6,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.project.aicomics.Translations.Language;
 import com.project.aicomics.XML.XMLGenerator;
 import com.project.aicomics.controller.DevController;
 import com.project.aicomics.service.OpenAIService;
@@ -23,7 +22,8 @@ public class AicomicsApplication {
 
 	public static void main(String[] args) throws IOException {
 		OpenAIService ai = new OpenAIService();
-		SpringApplication.run(AicomicsApplication.class, args);   
+		SpringApplication.run(AicomicsApplication.class, args);
+		ConfigurationFile config = ConfigurationFile.getInstance(); 
 
     	// XMLFile xml = new XMLFile("specification_10Scenes.xml");
 		// Audio audio = new Audio(xml);
@@ -33,6 +33,6 @@ public class AicomicsApplication {
 
 
 		XMLGenerator generate = new XMLGenerator("specification_10Scenes.xml");
-		generate.generatePrint(Language.spanish, "newSpecs");
+		generate.generatePrint(config.getLanguage(), "newSpecs");
 	}
 }
