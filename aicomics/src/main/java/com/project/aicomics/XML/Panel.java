@@ -13,11 +13,12 @@ public class Panel {
   @Override
     public String toString() {
         String panel = "";
-        panel += "Setting: " + setting;
+        panel += "Setting: " + setting + "\n";
         for (Position p : position) {
             panel += p.toString() + "\n";
         }
-        panel += "Below: " + titleBelow;
+        panel += "Below: " + titleBelow +"\n";
+        panel += "Border: " + border + "\n";
         return panel;
     }
 

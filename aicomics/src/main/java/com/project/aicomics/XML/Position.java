@@ -9,7 +9,7 @@ public class Position {
   public String toString() {
     String pos = "";
     pos += name + ": \n";
-    pos += "Figure: " + figure.toString();
+    pos += "Figure: " + figure.toString() + "\n";
     if (bubble != null) pos += "Speech bubble:" + bubble.toString();
     return pos;
   }

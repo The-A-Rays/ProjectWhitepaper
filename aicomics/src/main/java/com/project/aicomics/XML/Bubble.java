@@ -7,7 +7,7 @@ public class Bubble {
 
   @Override
     public String toString() {
-        return "Bubble{" + "state=" + getStatus() +", content=" + getContent() +"}";
+        return "Bubble{" + "state= " + getStatus() +", content= " + getContent() +"}";
     }
   
     public String getContent() {

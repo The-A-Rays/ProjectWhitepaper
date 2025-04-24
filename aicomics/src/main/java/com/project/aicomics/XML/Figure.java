@@ -18,7 +18,7 @@ public class Figure {
 
   @Override
     public String toString() {
-        return "Figure{" + "id='" + getId() + ", name='" + getName() + ", appearance='" + getAppearance() + ", pose='" + getPose() + ", facing='" + getFacing() + ", skin='" + getSkin() + ", hair='" + getHair() + ", lips='" + getLips() + "}";
+        return "Figure{" + "id= " + getId() + ", name= " + getName() + ", appearance= " + getAppearance() + ", pose= " + getPose() + ", facing= " + getFacing() + ", skin= " + getSkin() + ", hair= " + getHair() + ", lips= " + getLips() + "}";
     }
 
 

@@ -6,6 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.project.aicomics.XML.XMLFile;
 import com.project.aicomics.XML.XMLGenerator;
 import com.project.aicomics.controller.DevController;
 import com.project.aicomics.service.OpenAIService;
@@ -26,6 +27,10 @@ public class AicomicsApplication {
 		ConfigurationFile config = ConfigurationFile.getInstance(); 
 
     	// XMLFile xml = new XMLFile("specification_10Scenes.xml");
+
+    XMLFile xml = new XMLFile("specification.xml");
+		xml.readXML("specification.xml");
+		xml.getRandScene();
 		// Audio audio = new Audio(xml);
 		// audio.generateAudioXML(Language.romanian);
 

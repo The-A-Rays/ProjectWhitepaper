@@ -10,7 +10,7 @@ public class Scene {
 public String toString() {
     String representation = "";
     for (int i = 0; i < panels.size(); i++) {
-        representation += ("Panel #" + i + ": \n");
+        representation += ("Panel # " + i + ": \n");
         representation += (panels.get(i).toString());
     }
     return representation;

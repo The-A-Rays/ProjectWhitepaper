@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -44,7 +45,7 @@ public class XMLFile {
     return null;
 }
 
-  private void readXML(String file) {
+  public void readXML(String file) {
     try (InputStream inputStream = XMLFile.class.getClassLoader().getResourceAsStream(file)) {
         if (inputStream == null) {
             throw new IOException("File not found: " + file);
@@ -260,5 +261,19 @@ private static List<Figure> parseFigures(Element elem){
 
   public List<Figure> getFigures() {
     return figures;
+  }
+
+  public Scene getRandScene(){
+    Scene randScene = null;
+    Random rand = new Random();
+    int val = rand.nextInt(scenes.size());
+    for (int i = 0; i < scenes.size(); i++){
+      if (i == val){
+        randScene = this.scenes.get(i);
+      }
+    }
+    System.out.println("random = " + val);
+    System.out.println(randScene.toString());
+    return randScene;
   }
 }
