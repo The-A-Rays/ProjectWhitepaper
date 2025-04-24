@@ -19,6 +19,9 @@ import org.xml.sax.SAXException;
 import com.project.aicomics.Translations;
 import com.project.aicomics.Translations.Language;
 import com.project.aicomics.controller.DevController;
+import com.project.aicomics.vignette.Vignette;
+import com.project.aicomics.vignette.VignetteFileReader;
+import com.project.aicomics.vignette.VignetteManager;
 
 public class XMLFile {
   protected List<Scene> scenes;  
@@ -275,5 +278,96 @@ private static List<Figure> parseFigures(Element elem){
     System.out.println("random = " + val);
     System.out.println(randScene.toString());
     return randScene;
+  }
+
+  public Scene getLeftScene() throws IOException{
+    Translations translator = new Translations(Language.english, Language.spanish);
+    VignetteManager vm = new VignetteManager(VignetteFileReader.readSchemas("English.tsv", 20), translator);
+		Vignette vignette = vm.getVignette(1);
+    Scene scene = new Scene();
+		Panel panel = new Panel();
+    Panel panelTwo = new Panel();
+
+		List<Figure> figures = this.getFigures();
+
+    Bubble leftBubble = new Bubble();
+		leftBubble.setContent(vignette.getLeftText());
+		leftBubble.setStatus("speech");
+
+    panel.setSetting(vignette.getBackground());
+		Figure figOne = figures.get(0);
+		Figure figTwo = figures.get(1);
+		Position left = new Position();
+		Position right = new Position();
+		left.setName("left");
+		right.setName("right");
+		left.setFigure(figOne);
+		right.setFigure(figTwo);
+		left.setBubble(leftBubble);
+		panel.addPosition(left);
+		panel.addPosition(right);
+
+		scene.addPanel(panel);
+
+    // add a second identical panel except with the dialogue trnaslated then abstract these two methods
+
+    panelTwo.setSetting(vignette.getBackground());
+    leftBubble.setContent(vignette.getTranslatedText());
+
+    left.setBubble(leftBubble);
+
+    panelTwo.addPosition(left);
+		panelTwo.addPosition(right);
+    scene.addPanel(panelTwo);
+    return scene;
+
+  }
+  public Scene getWholeScene() throws IOException{
+    Translations translator = new Translations(Language.english, Language.spanish);
+    VignetteManager vm = new VignetteManager(VignetteFileReader.readSchemas("English.tsv", 20), translator);
+		Vignette vignette = vm.getVignette(1);
+    Scene scene = new Scene();
+		Panel panel = new Panel();
+    Panel panelTwo = new Panel();
+
+		List<Figure> figures = this.getFigures();
+
+    Bubble leftBubble = new Bubble();
+		leftBubble.setContent(vignette.getLeftText());
+		leftBubble.setStatus("speech");
+
+		Bubble rightBubble = new Bubble();
+		rightBubble.setContent(vignette.getCombinedText());
+		rightBubble.setStatus("speech");
+
+    panel.setSetting(vignette.getBackground());
+		Figure figOne = figures.get(0);
+		Figure figTwo = figures.get(1);
+		Position left = new Position();
+		Position right = new Position();
+		left.setName("left");
+		right.setName("right");
+		left.setFigure(figOne);
+		right.setFigure(figTwo);
+		left.setBubble(leftBubble);
+		right.setBubble(rightBubble);
+		panel.addPosition(left);
+		panel.addPosition(right);
+
+		scene.addPanel(panel);
+
+    // add a second identical pattern except with the dialogue trnaslated
+
+    panelTwo.setSetting(vignette.getBackground());
+    leftBubble.setContent(vignette.getTranslatedText());
+    rightBubble.setContent(vignette.getTranslatedText());
+    left.setBubble(leftBubble);
+		right.setBubble(rightBubble);
+    panelTwo.addPosition(left);
+		panelTwo.addPosition(right);
+    scene.addPanel(panelTwo);
+
+    return scene;
+
   }
 }
