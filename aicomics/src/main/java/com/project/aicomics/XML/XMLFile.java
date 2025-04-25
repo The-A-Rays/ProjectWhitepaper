@@ -275,35 +275,105 @@ private static List<Figure> parseFigures(Element elem){
         randScene = this.scenes.get(i);
       }
     }
-    System.out.println("random = " + val);
-    System.out.println(randScene.toString());
+    // System.out.println("random = " + val);
+    // System.out.println(randScene.toString());
     return randScene;
   }
 
+  /**
+     *
+     * @return a scene containing two panels with only one speech bubble in each. "left" is for when there is one figure in the panel.
+     */
   public Scene getLeftScene() throws IOException{
     Translations translator = new Translations(Language.english, Language.spanish);
-    VignetteManager vm = new VignetteManager(VignetteFileReader.readSchemas("English.tsv", 20), translator);
-		Vignette vignette = vm.getVignette(1);
+    VignetteManager vm = new VignetteManager(VignetteFileReader.readSchemas("English.tsv", 40), translator);
+    Random rand = new Random();
+		Vignette vignette = vm.getVignette(rand.nextInt(39)); 
+
     Scene scene = new Scene();
-		Panel panel = new Panel();
-    Panel panelTwo = new Panel();
+    Panel panel = new Panel();
 
 		List<Figure> figures = this.getFigures();
 
     Bubble leftBubble = new Bubble();
+    
 		leftBubble.setContent(vignette.getLeftText());
+    
 		leftBubble.setStatus("speech");
 
     panel.setSetting(vignette.getBackground());
 		Figure figOne = figures.get(0);
-		Figure figTwo = figures.get(1);
+		
+    figOne.setPose(vignette.getLeftPose());
+    
 		Position left = new Position();
+		
+		left.setName("left");
+		
+		left.setFigure(figOne);
+
+		left.setBubble(leftBubble);
+		panel.addPosition(left);
+
+		scene.addPanel(panel);
+
+    // add a second identical panel except with the dialogue trnaslated then abstract these two methods
+
+    Panel panelTwo = new Panel();
+    Bubble leftBubbleTranslated = new Bubble();
+
+    leftBubbleTranslated.setContent(vignette.getTranslatedText());
+    panelTwo.setSetting(vignette.getBackground());
+    System.out.println(vignette.getTranslatedText());
+    Position leftTwo = new Position();
+
+    leftTwo.setName("left");
+		leftTwo.setFigure(figOne);
+    leftTwo.setBubble(leftBubbleTranslated);
+
+    panelTwo.addPosition(leftTwo);
+
+    scene.addPanel(panelTwo);
+    
+    System.out.println(scene.toString());
+    return scene;
+
+  }
+
+  /**
+     *
+     * @return a scene containing two panels with only one speech bubble in each. "whole" is for when there is two figures in the panel.
+     */
+  public Scene getWholeScene() throws IOException{
+    Translations translator = new Translations(Language.english, Language.spanish);
+    VignetteManager vm = new VignetteManager(VignetteFileReader.readSchemas("English.tsv", 40), translator);
+    Random rand = new Random();
+		Vignette vignette = vm.getVignette(rand.nextInt(39)); 
+
+    Scene scene = new Scene();
+    Panel panel = new Panel();
+
+		List<Figure> figures = this.getFigures();
+
+    Bubble bubble = new Bubble();
+    
+		bubble.setContent(vignette.getCombinedText());
+
+		bubble.setStatus("speech");
+
+    panel.setSetting(vignette.getBackground());
+		Figure figOne = figures.get(0);
+		Figure figTwo = figures.get(1);
+    figOne.setPose(vignette.getLeftPose());
+    figTwo.setPose(vignette.getRightPose());
+		Position left = new Position();
+    
 		Position right = new Position();
 		left.setName("left");
 		right.setName("right");
 		left.setFigure(figOne);
 		right.setFigure(figTwo);
-		left.setBubble(leftBubble);
+    left.setBubble(bubble);
 		panel.addPosition(left);
 		panel.addPosition(right);
 
@@ -311,62 +381,25 @@ private static List<Figure> parseFigures(Element elem){
 
     // add a second identical panel except with the dialogue trnaslated then abstract these two methods
 
-    panelTwo.setSetting(vignette.getBackground());
-    leftBubble.setContent(vignette.getTranslatedText());
-
-    left.setBubble(leftBubble);
-
-    panelTwo.addPosition(left);
-		panelTwo.addPosition(right);
-    scene.addPanel(panelTwo);
-    return scene;
-
-  }
-  public Scene getWholeScene() throws IOException{
-    Translations translator = new Translations(Language.english, Language.spanish);
-    VignetteManager vm = new VignetteManager(VignetteFileReader.readSchemas("English.tsv", 20), translator);
-		Vignette vignette = vm.getVignette(1);
-    Scene scene = new Scene();
-		Panel panel = new Panel();
     Panel panelTwo = new Panel();
-
-		List<Figure> figures = this.getFigures();
-
-    Bubble leftBubble = new Bubble();
-		leftBubble.setContent(vignette.getLeftText());
-		leftBubble.setStatus("speech");
-
-		Bubble rightBubble = new Bubble();
-		rightBubble.setContent(vignette.getCombinedText());
-		rightBubble.setStatus("speech");
-
     panel.setSetting(vignette.getBackground());
-		Figure figOne = figures.get(0);
-		Figure figTwo = figures.get(1);
-		Position left = new Position();
-		Position right = new Position();
-		left.setName("left");
-		right.setName("right");
-		left.setFigure(figOne);
-		right.setFigure(figTwo);
-		left.setBubble(leftBubble);
-		right.setBubble(rightBubble);
-		panel.addPosition(left);
-		panel.addPosition(right);
+    Bubble bubbleTranslated = new Bubble();
 
-		scene.addPanel(panel);
+    bubbleTranslated.setContent(vignette.getTranslatedText());
+    Position leftTwo = new Position();
+    Position rightTwo = new Position();
+    rightTwo.setName("right");
+    rightTwo.setFigure(figTwo);
 
-    // add a second identical pattern except with the dialogue trnaslated
+    leftTwo.setName("left");
+		leftTwo.setFigure(figOne);
+    leftTwo.setBubble(bubbleTranslated);
 
-    panelTwo.setSetting(vignette.getBackground());
-    leftBubble.setContent(vignette.getTranslatedText());
-    rightBubble.setContent(vignette.getTranslatedText());
-    left.setBubble(leftBubble);
-		right.setBubble(rightBubble);
-    panelTwo.addPosition(left);
-		panelTwo.addPosition(right);
+    panelTwo.addPosition(leftTwo);
+		panelTwo.addPosition(rightTwo);
     scene.addPanel(panelTwo);
 
+    System.out.println(scene.toString());
     return scene;
 
   }
