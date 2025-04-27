@@ -23,5 +23,17 @@ public String toString() {
     public void addPanel(Panel panel) {
       this.panels.add(panel);
     }
+
+    public List<String> getText() {
+        List<String> text = new ArrayList<>();
+        for (Panel p : panels) {
+            for (Position pos : p.getPosition()) {
+                if (pos.getBubble() != null) {
+                    text.add(pos.getBubble().getContent());
+                }
+            }
+        }
+        return text;
+    }
   
 }

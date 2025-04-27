@@ -65,7 +65,9 @@ public class AicomicsApplication {
 		for (String instruction : config.getLessonSchema()) {
 			switch(instruction) {
 				case "story" -> {
-							scenes.appendChild(XMLFile.convertScene(doc, story.getRandScene()));
+							Scene s = story.getRandScene();
+							XMLGenerator.generateDialogue(s);
+							scenes.appendChild(XMLFile.convertScene(doc, s));
                         }
 				case "conjugation" -> {
 							scenes.appendChild(XMLFile.convertScene(doc, conjugation.getRandScene()));
@@ -104,6 +106,11 @@ public class AicomicsApplication {
 		catch (TransformerException e) {
 			System.out.println("Unable to print document: " + e);
 		}
+		// There is a race condition happening between writeXML writing the file and XMLGenerator<init>
+		// reading the file. I have tried other solutions but am now attempting to just make XMLGenerator wait its turn manually.
+		try {
+			Thread.sleep(10);
+		} catch (InterruptedException e) {System.out.println("Failure making program wait");}
 		finalXML = new XMLGenerator("temp.xml", config.getLanguage());
 		finalXML.Print(config.getLanguage(), "final.xml");
 	}

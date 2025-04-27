@@ -20,7 +20,6 @@ public final class XMLGenerator extends XMLFile{
     
     public XMLGenerator(String fileName, Language language) {
         super(fileName);
-        generateDialogue();
         generateCaptions();
         try {
             aud.generateAudioXML(language);
@@ -32,20 +31,18 @@ public final class XMLGenerator extends XMLFile{
     /**
      *  - {@link #generateDialogue} generates and inserts dialogue into the corresponding xml file
      */
-    public void generateDialogue() {
-        List<String> dialogue = ai.GenerateDialogue(this);
+    public static void generateDialogue(Scene s) {
+        OpenAIService ai = new OpenAIService();
+        List<String> dialogue = ai.GenerateDialogue(s);
         int bubbleIndex = 0;
-        for (Scene s : scenes) {
-            for (Panel p : s.getPanels()) {
-                for (Position pos : p.getPosition()) {
-                    if (pos.getBubble() != null && bubbleIndex < dialogue.size()) {
-                        pos.getBubble().setContent(dialogue.get(bubbleIndex));
-                        bubbleIndex++;
-                    }
+        for (Panel p : s.getPanels()) {
+            for (Position pos : p.getPosition()) {
+                if (pos.getBubble() != null && bubbleIndex < dialogue.size()) {
+                    pos.getBubble().setContent(dialogue.get(bubbleIndex));
+                    bubbleIndex++;
                 }
             }
         }
-
     }
 
     /**

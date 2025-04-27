@@ -1,6 +1,7 @@
 package com.project.aicomics.XML;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -291,9 +292,12 @@ private static List<Figure> parseFigures(Element elem){
     // pretty print XML
     transformer.setOutputProperty(OutputKeys.INDENT, "yes");
     DOMSource source = new DOMSource(doc);
-    StreamResult result = new StreamResult(new File(fileName));
-
-    transformer.transform(source, result);
+    // Use a FileOutputStream to control flushing
+    try (FileOutputStream fos = new FileOutputStream(new File(fileName))) {
+        StreamResult result = new StreamResult(fos);
+        transformer.transform(source, result);
+        fos.getFD().sync();  // force sync to disk
+    } catch (IOException e) {System.out.println("Unable to write to disk: " + e);}
   }
 
   public static Document createDocument() throws ParserConfigurationException{
