@@ -30,6 +30,7 @@ public class XMLFile {
   protected List<String> allText;
 
   public XMLFile(String fileName) {
+    if (!fileName.endsWith(".xml")) fileName += ".xml";
     this.readXML(fileName);
   }
 
@@ -48,7 +49,7 @@ public class XMLFile {
     return null;
 }
 
-  public void readXML(String file) {
+  public final void readXML(String file) {
     try (InputStream inputStream = XMLFile.class.getClassLoader().getResourceAsStream(file)) {
         if (inputStream == null) {
             throw new IOException("File not found: " + file);
@@ -221,7 +222,6 @@ private static List<Figure> parseFigures(Element elem){
       System.out.println("No scenes available.");
       return sourceText;
     }
-    int i = 0;
     for (Scene scene : scenes) {
       for (Panel panel : scene.getPanels()) {
         for(Position pos: panel.getPosition()){
@@ -229,7 +229,6 @@ private static List<Figure> parseFigures(Element elem){
           sourceText.add(pos.getBubble().getContent());
         }
       }
-      i++;
     }
     return sourceText;
   }
@@ -243,7 +242,6 @@ private static List<Figure> parseFigures(Element elem){
         System.out.println("No scenes available.");
         return spokenText;
     }
-    int i = 0;
     for (Scene scene : scenes) {
       for (Panel panel : scene.getPanels()) {
         for(Position pos: panel.getPosition()){
@@ -252,7 +250,6 @@ private static List<Figure> parseFigures(Element elem){
           spokenText.add(translate.getTranslation(pos.getBubble().getContent()));
         }
       }
-      i++;
     }
     allText = spokenText;
     return spokenText;

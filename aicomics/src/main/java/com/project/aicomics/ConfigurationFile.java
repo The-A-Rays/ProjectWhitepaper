@@ -3,6 +3,8 @@ package com.project.aicomics;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 
@@ -15,9 +17,9 @@ public class ConfigurationFile {
     private static ConfigurationFile INSTANCE = null;
     private File apiconfig;
     // Using an array as the number of String variables has gotten rather large.
-    // Comp URL, Embed URL, Model URL, Org key, API key, Model, Status
+    // Comp URL, Embed URL, Model URL, Org key, API key, Model, Status, Lesson schema
     private String[] fileInfo = {"https://api.openai.com/v1/chat/completions", "https://api.openai.com/v1/embeddings",
-                                "https://api.openai.com/v1/models", "", "", "", "Config File Error: File not Initialized"};
+                                "https://api.openai.com/v1/models", "", "", "", "Config File Error: File not Initialized", "story"};
     private Translations.Language language = Translations.Language.english; 
 
     /**
@@ -26,7 +28,7 @@ public class ConfigurationFile {
      */
     private ConfigurationFile() {
         try {
-            apiconfig = new File("apikey.txt");
+            apiconfig = new File("config.txt");
             if (apiconfig.createNewFile()) {
                 this.changeAPIConfig("Put org key here or leave this if you do not need to use an org key", "Put API key here", "put model here", Translations.Language.english);
                 fileInfo[6] = ("API Configuration File not found. Program will not function normally. \n Please configure file and re-run program.");
@@ -39,9 +41,10 @@ public class ConfigurationFile {
                 fileInfo[4] = read.nextLine().substring(8);
                 fileInfo[5] = read.nextLine().substring(6);
                 language = Translations.Language.valueOf(Translations.Language.class, read.nextLine().substring(9));
+                fileInfo[7] = read.nextLine().substring(14);    // fileInfo[6] is used for status message
             }
         } catch (IOException e) {
-            fileInfo[6] = ("apikey file not generated. Please contact developer " + e);
+            fileInfo[6] = ("config file not generated. Please contact developer " + e);
             }
         catch (IllegalArgumentException e) {
             fileInfo[6] = ("Language read in is not a valid option. Please enter a valid language and restart.");
@@ -57,10 +60,13 @@ public class ConfigurationFile {
             wr.write("COMPLETIONS_URL " + fileInfo[0] + "\n");
             wr.write("EMBEDDINGS_URL "  + fileInfo[1] + "\n");
             wr.write("MODELS_URL "      + fileInfo[2] + "\n");
-            wr.write("ORG_KEY "         + newOrgKey + "\n");
-            wr.write("API_KEY "         + newAPIKey + "\n");
-            wr.write("MODEL "           + newModel + "\n");
-            wr.write("LANGUAGE "        + language + "\n");
+            wr.write("ORG_KEY "         + newOrgKey   + "\n");
+            wr.write("API_KEY "         + newAPIKey   + "\n");
+            wr.write("MODEL "           + newModel    + "\n");
+            wr.write("LANGUAGE "        + language    + "\n");
+            wr.write("LESSON SCHEMA "   + fileInfo[7] + "\n");
+            wr.write("\nPLEASE WRITE LESSON SCHEMA AS A SERIOUS OF COMMANDS SEPERATED BY A SPACE \n");
+            wr.write("EX: \'conjugation left whole story\' EXLUDING \' COMPRISING OF ONE OF THOSE FOUR COMMANDS.");
             fileInfo[3] = newOrgKey;
             fileInfo[4] = newAPIKey;
             fileInfo[5] = newModel;
@@ -108,5 +114,9 @@ public class ConfigurationFile {
 
     public Translations.Language getLanguage() {
         return language;
+    }
+
+    public List<String> getLessonSchema() {
+        return Arrays.asList(fileInfo[7].split(" "));
     }
 }

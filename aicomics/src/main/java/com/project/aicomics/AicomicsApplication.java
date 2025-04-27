@@ -26,18 +26,22 @@ public class AicomicsApplication {
 		SpringApplication.run(AicomicsApplication.class, args);
 		ConfigurationFile config = ConfigurationFile.getInstance(); 
 
+		XMLGenerator story = new XMLGenerator("specification_10Scenes.xml", config.getLanguage());
+		XMLFile conjugation = new XMLFile("specification.xml");
+		
+
     	// XMLFile xml = new XMLFile("specification_10Scenes.xml");
 
-    XMLFile xml = new XMLFile("specification.xml");
-		xml.readXML("specification.xml");
-		xml.getRandScene();
-		// Audio audio = new Audio(xml);
-		// audio.generateAudioXML(Language.romanian);
+    	// XMLFile xml = new XMLFile("specification.xml");
+		// xml.readXML("specification.xml");
+		// xml.getRandScene();
+		// // Audio audio = new Audio(xml);
+		// // audio.generateAudioXML(Language.romanian);
 
-		// ai.generateAudioFile("Hola, ¿cómo estás?", "dialogue1.mp3");
+		// // ai.generateAudioFile("Hola, ¿cómo estás?", "dialogue1.mp3");
 
 
-		XMLGenerator generate = new XMLGenerator("specification_10Scenes.xml");
-		generate.generatePrint(config.getLanguage(), "newSpecs");
+		// XMLGenerator generate = new XMLGenerator("specification_10Scenes.xml");
+		// generate.generatePrint(config.getLanguage(), "newSpecs");
 	}
 }
