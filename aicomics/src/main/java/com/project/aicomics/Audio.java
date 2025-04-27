@@ -13,12 +13,9 @@ public class Audio {
 
   private final OpenAIService ai = new OpenAIService();
   private final Map<String, String> textToAudio;
-  private final File directory = new File("aicomics/src/main/resources/audio");
   private final XMLFile xml;
 
   public Audio(XMLFile xml){
-    if (!directory.exists())
-      directory.mkdirs();
     this.xml = xml;
     this.textToAudio = new HashMap<>();
   }
