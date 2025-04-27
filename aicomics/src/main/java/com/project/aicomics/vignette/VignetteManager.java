@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Random;
 
 import com.project.aicomics.Translations;
-import com.project.aicomics.Translations.Language;
 import com.project.aicomics.XML.Bubble;
 import com.project.aicomics.XML.Figure;
 import com.project.aicomics.XML.Panel;
@@ -132,7 +131,6 @@ public class VignetteManager {
 
         scene.addPanel(panelTwo);
         
-        System.out.println(scene.toString());
         return scene;
     }
 
@@ -194,8 +192,6 @@ public class VignetteManager {
         panelTwo.addPosition(leftTwo);
         panelTwo.addPosition(rightTwo);
         scene.addPanel(panelTwo);
-
-        System.out.println(scene.toString());
         return scene;
   }
 }

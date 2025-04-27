@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<comic>
+    <figures>
+        <figure>
+            <id>Alfie</id>
+            <name>Alfie</name>
+            <appearance>male</appearance>
+            <skin>light brown</skin>
+            <hair>dark brown</hair>
+            <lips>red</lips>
+        </figure>
+        <figure>
+            <id>Betty</id>
+            <name>Betty</name>
+            <appearance>female</appearance>
+        </figure>
+        <figure>
+            <id>Alfie</id>
+            <name>Alfie</name>
+            <appearance>female</appearance>
+            <skin>light brown</skin>
+            <hair>dark brown</hair>
+            <lips>red</lips>
+        </figure>
+        <figure>
+            <id>Gemma</id>
+            <name>Gemma</name>
+            <appearance>female</appearance>
+            <skin>olive</skin>
+            <hair>black</hair>
+        </figure>
+    </figures>
+    <scenes>
+        <scene>
+            <panel>
+                <middle>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>male</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>one</pose>
+                        <facing>right</facing>
+                    </figure>
+                </middle>
+            </panel>
+            <panel>
+                <middle>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>breakfasting</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>I eat</content>
+                    </balloon>
+                </middle>
+            </panel>
+            <panel>
+                <left>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>serving dinner</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>You eat</content>
+                    </balloon>
+                </left>
+                <right>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>male</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>snacking</pose>
+                        <facing>left</facing>
+                    </figure>
+                </right>
+            </panel>
+            <panel>
+                <left>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>gossiping about</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>He eats</content>
+                    </balloon>
+                </left>
+                <right>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>male</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>eating</pose>
+                        <facing>left</facing>
+                    </figure>
+                </right>
+            </panel>
+            <panel>
+                <left>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>watering</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>She eats</content>
+                    </balloon>
+                </left>
+                <right>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>female</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>chewing carrots</pose>
+                        <facing>left</facing>
+                    </figure>
+                </right>
+            </panel>
+            <panel>
+                <left>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>sweet</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>We eat</content>
+                    </balloon>
+                </left>
+                <right>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>male</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>enticing</pose>
+                        <facing>left</facing>
+                    </figure>
+                </right>
+            </panel>
+            <panel>
+                <left>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>greeting</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>You eat (plural)</content>
+                    </balloon>
+                </left>
+                <middle>
+                    <figure>
+                        <id>Gemma</id>
+                        <name>Gemma</name>
+                        <appearance>female</appearance>
+                        <skin>olive</skin>
+                        <hair>black</hair>
+                        <pose>munching</pose>
+                        <facing>left</facing>
+                    </figure>
+                </middle>
+                <right>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>male</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>swallowing</pose>
+                        <facing>left</facing>
+                    </figure>
+                </right>
+            </panel>
+            <panel>
+                <left>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>cutting the cheese</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>They eat</content>
+                    </balloon>
+                </left>
+                <middle>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>male</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>eating</pose>
+                        <facing>left</facing>
+                    </figure>
+                </middle>
+                <right>
+                    <figure>
+                        <id>Gemma</id>
+                        <name>Gemma</name>
+                        <appearance>female</appearance>
+                        <skin>olive</skin>
+                        <hair>black</hair>
+                        <pose>snacking</pose>
+                        <facing>left</facing>
+                    </figure>
+                </right>
+            </panel>
+        </scene>
+        <scene>
+            <panel>
+                <left>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>freeing</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>chains</content>
+                    </balloon>
+                </left>
+            </panel>
+            <panel>
+                <left>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>freeing</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="">
+                        <content>lanțuri</content>
+                    </balloon>
+                </left>
+            </panel>
+        </scene>
+        <scene>
+            <panel>
+                <left>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>feeding</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>to feed a baby</content>
+                    </balloon>
+                </left>
+                <right>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>male</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>regaining consciousness</pose>
+                        <facing>right</facing>
+                    </figure>
+                </right>
+            </panel>
+            <panel>
+                <left>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>feeding</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="">
+                        <content>o sticlă pentru bebeluși</content>
+                    </balloon>
+                </left>
+                <right>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>male</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>regaining consciousness</pose>
+                        <facing>right</facing>
+                    </figure>
+                </right>
+            </panel>
+        </scene>
+        <scene>
+            <panel>
+                <left>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>one</pose>
+                        <facing>right</facing>
+                    </figure>
+                </left>
+                <right>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>male</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>seven flipped</pose>
+                        <facing>left</facing>
+                    </figure>
+                </right>
+            </panel>
+            <panel>
+                <left>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>male</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>massaging</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>waiting with anticipation</content>
+                    </balloon>
+                </left>
+                <right>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>serving</pose>
+                        <facing>left</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>serving a hamburger</content>
+                    </balloon>
+                </right>
+            </panel>
+            <panel>
+                <left>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>male</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>eating</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>eating the hamburger</content>
+                    </balloon>
+                </left>
+                <right>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>smirking</pose>
+                        <facing>left</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>looking on with amusement</content>
+                    </balloon>
+                </right>
+            </panel>
+            <panel>
+                <left>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>male</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>spitting</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>spitting out the food</content>
+                    </balloon>
+                </left>
+                <right>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>sulking</pose>
+                        <facing>left</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>not impressed</content>
+                    </balloon>
+                </right>
+            </panel>
+            <panel>
+                <left>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>male</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>vomiting</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>being sick on floor</content>
+                    </balloon>
+                </left>
+                <right>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>holding mop</pose>
+                        <facing>left</facing>
+                    </figure>
+                    <balloon status="thought">
+                        <content>holding mop</content>
+                    </balloon>
+                </right>
+            </panel>
+            <panel>
+                <left>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>male</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>paying sadly</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="thought">
+                        <content>paying sadly</content>
+                    </balloon>
+                </left>
+                <right>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>holding mop as weapon</pose>
+                        <facing>left</facing>
+                    </figure>
+                    <balloon status="thought">
+                        <content>holding mop as weapon</content>
+                    </balloon>
+                </right>
+            </panel>
+        </scene>
+    </scenes>
+</comic>

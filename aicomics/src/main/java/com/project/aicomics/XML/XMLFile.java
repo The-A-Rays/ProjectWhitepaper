@@ -1,5 +1,6 @@
 package com.project.aicomics.XML;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -9,6 +10,12 @@ import java.util.Random;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -19,9 +26,6 @@ import org.xml.sax.SAXException;
 import com.project.aicomics.Translations;
 import com.project.aicomics.Translations.Language;
 import com.project.aicomics.controller.DevController;
-import com.project.aicomics.vignette.Vignette;
-import com.project.aicomics.vignette.VignetteFileReader;
-import com.project.aicomics.vignette.VignetteManager;
 
 public class XMLFile {
   protected List<Scene> scenes;  
@@ -60,10 +64,7 @@ public class XMLFile {
         doc.getDocumentElement().normalize();
 
         NodeList figuersNodes = doc.getElementsByTagName("figures");
-        for (int i = 0; i < figuersNodes.getLength(); i ++){
-          Node node = figuersNodes.item(i);
-          this.figures = parseFigures((Element)node);
-        }
+        this.figures = parseFigures((Element)figuersNodes.item(0));
         this.scenes = parseScenes(doc);
 
     } catch (IOException e) {
@@ -87,8 +88,7 @@ private static List<Figure> parseFigures(Element elem){
   for (int i = 0; i < figureNodes.getLength(); i++) {
      Node node = figureNodes.item(i);
       if (node.getNodeType() == Node.ELEMENT_NODE) {
-        Figure figure = new Figure((Element) node);
-        figures.add(figure); 
+        figures.add(new Figure((Element) node)); 
       }
   }
   return figures;
@@ -126,7 +126,6 @@ private static List<Figure> parseFigures(Element elem){
         Node sceneN = sceneNodes.item(i);
         if (sceneN.getNodeType() == Node.ELEMENT_NODE){
           NodeList panelNodes = ((Element)sceneN).getElementsByTagName("panel");//list containing all panles from one scene
-          
           //goes trhough each panel of a specific scene and creates a panel object with the retrieved values from the .xml file
           for (int j = 0; j < panelNodes.getLength(); j++){
             Node panelN = panelNodes.item(j);
@@ -275,5 +274,110 @@ private static List<Figure> parseFigures(Element elem){
     // System.out.println("random = " + val);
     // System.out.println(randScene.toString());
     return randScene;
+  }
+
+  /**
+   * Creates a new XML formatted file in src\main\resources
+   * @param doc Document containing the elements to be put in file
+   * @param fileName String filename or folder location ! MUST BE IN src\main\resources !
+   *  ! DO NOT INCLUDE '.xml' IT SHOULD JUST BE THE NAME OF THE FILE !
+   * @throws TransformerException
+   */
+  public static void writeXML(Document doc, String fileName) throws TransformerException {
+    TransformerFactory transformerFactory = TransformerFactory.newInstance();
+    Transformer transformer = transformerFactory.newTransformer();
+    if (!fileName.endsWith(".xml")) fileName += ".xml";
+
+    // pretty print XML
+    transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+    DOMSource source = new DOMSource(doc);
+    StreamResult result = new StreamResult(new File(fileName));
+
+    transformer.transform(source, result);
+  }
+
+  public static Document createDocument() throws ParserConfigurationException{
+    DocumentBuilderFactory fac = DocumentBuilderFactory.newInstance();
+    DocumentBuilder builder;
+    builder = fac.newDocumentBuilder();
+		return builder.newDocument();
+  }
+
+  /**
+     * Converts a Scene object into an Element to be added to a document
+     * @param doc Document to create the Element with
+     * @param s Scene to be converted to Element
+     */
+    public static Element convertScene(Document doc, Scene s) {
+      Element scene = doc.createElement("scene");
+      for (Panel p : s.getPanels()) {
+        //english panel first, then insert translated one
+        Element panel = doc.createElement("panel");
+        scene.appendChild(panel);
+        for (Position pos : p.getPosition()) {
+            Element position = doc.createElement(pos.getName().trim());
+            panel.appendChild(position);
+            addFigure(pos.getFigure(), position, doc);
+            if(pos.getBubble() != null){
+                Bubble b = pos.getBubble();
+                Element balloon = doc.createElement("balloon");
+                position.appendChild(balloon);
+                balloon.setAttribute("status", b.getStatus());
+                Element content = doc.createElement("content");
+                balloon.appendChild(content);
+                content.setTextContent(b.getContent().trim());
+            }
+            
+        }
+      }
+      return scene;
+  }
+
+  
+
+  /**
+     * Method to abstract adding a figure to a parent element, as it is used repeatedly
+     * @param f Figure passed for basic information about the figure
+     * @param parent Parent element needs to be passed in order to append the child to it
+     * @param doc In order to create the figure element the document is needed
+     */
+    public static void addFigure(Figure f, Element parent, Document doc) {
+      Element figure = doc.createElement("figure");
+      parent.appendChild(figure);
+      String[] attributeNames = {"id", "name", "appearance", "skin",
+                              "hair", "lips", "pose", "facing"};
+      String[] atrs = f.getAttributes();
+      for (int i = 0; i < atrs.length; i++) {
+      String atr = atrs[i];
+      if (atr == null) continue;             // Skip if the attribute is empty
+      Element child = doc.createElement(attributeNames[i]);
+      child.setTextContent(atr);
+      figure.appendChild(child);
+      }
+  }
+
+    /**
+     * Method to abstract adding a figure to a parent element, as it is used repeatedly
+     * @param f Figure passed for basic information about the figure
+     * @param parent Parent element needs to be passed in order to append the child to it
+     * @param doc In order to create the figure element the document is needed
+     * @param excludeExtras If true, the method will exclude the "pose" and "facing" attributes
+     */
+    public static void addFigure(Figure f, Element parent, Document doc, Boolean excludeExtras) {
+      Element figure = doc.createElement("figure");
+      parent.appendChild(figure);
+      String[] attributeNames = {"id", "name", "appearance", "skin",
+                              "hair", "lips", "pose", "facing"};
+      String[] atrs = f.getAttributes();
+      int size;
+      if (excludeExtras) size = atrs.length - 2;
+      else size = atrs.length;
+      for (int i = 0; i < size; i++) {
+          String atr = atrs[i];
+          if (atr == null) continue;             // Skip if the attribute is empty
+          Element child = doc.createElement(attributeNames[i]);
+          child.setTextContent(atr);
+          figure.appendChild(child);
+      }
   }
 }

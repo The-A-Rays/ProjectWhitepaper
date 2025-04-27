@@ -1,18 +1,10 @@
 package com.project.aicomics.XML;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.OutputKeys;
-import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -77,14 +69,12 @@ public final class XMLGenerator extends XMLFile{
    * translated scenes next to the original.
    */
     public void Print(Language language, String fileName) {
-        DocumentBuilderFactory fac = DocumentBuilderFactory.newInstance();
-        DocumentBuilder builder;
-        try {builder = fac.newDocumentBuilder();}
+        Document doc;
+        try {doc = createDocument();}
         catch (ParserConfigurationException e) {
-        DevController.error("Fatal error creating document builder", e);
-        return;
+            DevController.error("Fatal error creating document builder", e);
+            return;
         }
-        Document doc = builder.newDocument();
         List<String> trans = getAllTranslatedText(language);
         // Create base file formatting
         Element comic = doc.createElement("comic");
@@ -182,47 +172,6 @@ public final class XMLGenerator extends XMLFile{
         }
         DevController.status("Done creating XML file");
         System.out.println("Done creating XML file");
-    }
-
-    /**
-     * Private method to abstract adding a figure to a parent element, as it is used repeatedly
-     * @param f Figure passed for basic information about the figure
-     * @param parent Parent element needs to be passed in order to append the child to it
-     * @param doc In order to create the figure element the document is needed
-     */
-    private void addFigure(Figure f, Element parent, Document doc) {
-        Element figure = doc.createElement("figure");
-        parent.appendChild(figure);
-        String[] attributeNames = {"id", "name", "appearance", "skin",
-                                "hair", "lips", "pose", "facing"};
-        String[] atrs = f.getAttributes();
-        for (int i = 0; i < atrs.length; i++) {
-        String atr = atrs[i];
-        if (atr == null) continue;             // Skip if the attribute is empty
-        Element child = doc.createElement(attributeNames[i]);
-        child.setTextContent(atr);
-        figure.appendChild(child);
-        }
-    }
-
-    /**
-     * Creates a new XML formatted file in src\main\resources
-     * @param doc Document containing the elements to be put in file
-     * @param fileName String filename or folder location ! MUST BE IN src\main\resources !
-     *  ! DO NOT INCLUDE '.xml' IT SHOULD JUST BE THE NAME OF THE FILE !
-     * @throws TransformerException
-     */
-    public static void writeXML(Document doc, String fileName) throws TransformerException {
-        TransformerFactory transformerFactory = TransformerFactory.newInstance();
-        Transformer transformer = transformerFactory.newTransformer();
-        if (!fileName.endsWith(".xml")) fileName += ".xml";
-
-        // pretty print XML
-        transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-        DOMSource source = new DOMSource(doc);
-        StreamResult result = new StreamResult(new File(fileName));
-
-        transformer.transform(source, result);
     }
 
 }

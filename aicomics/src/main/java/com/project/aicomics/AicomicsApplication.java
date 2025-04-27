@@ -1,16 +1,26 @@
 package com.project.aicomics;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RestController;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 import com.project.aicomics.Translations.Language;
+import com.project.aicomics.XML.Figure;
+import com.project.aicomics.XML.Scene;
 import com.project.aicomics.XML.XMLFile;
 import com.project.aicomics.XML.XMLGenerator;
 import com.project.aicomics.controller.DevController;
-import com.project.aicomics.service.OpenAIService;
 import com.project.aicomics.vignette.VignetteFileReader;
 import com.project.aicomics.vignette.VignetteManager;
 
@@ -24,30 +34,77 @@ public class AicomicsApplication {
         this.devController = devController;
     }
 
+	// Main method, this is the method that linkes it all together and is able to interpret the instructions in config
 	public static void main(String[] args) throws IOException {
-		OpenAIService ai = new OpenAIService();
+		// Base objects needed for program running
 		SpringApplication.run(AicomicsApplication.class, args);
 		ConfigurationFile config = ConfigurationFile.getInstance(); 
 
-		XMLGenerator story = new XMLGenerator("specification_10Scenes.xml", config.getLanguage());
+		// Objects for main functionality
+		XMLFile story = new XMLFile("specification_10Scenes.xml");
 		XMLFile conjugation = new XMLFile("specification.xml");
-		
+		XMLGenerator finalXML;
+		Translations translator = new Translations(Language.english, config.getLanguage());
+		VignetteManager vocab = new VignetteManager(VignetteFileReader.readSchemas("English.tsv", 50), translator);
 
-    	// XMLFile xml = new XMLFile("specification_10Scenes.xml");
+		// XML Objects
+		Document doc;
+		try {doc = XMLFile.createDocument();}
+		catch (ParserConfigurationException e) {
+			DevController.error("Fatal error creating document builder", e);
+            return;
+		}
+		Element comic = doc.createElement("comic");
+		doc.appendChild(comic);
+		Element figures = doc.createElement("figures");
+		comic.appendChild(figures);
+		Element scenes = doc.createElement("scenes");
+		comic.appendChild(scenes);
 
+		// Functionality
+		for (String instruction : config.getLessonSchema()) {
+			switch(instruction) {
+				case "story" -> {
+							scenes.appendChild(XMLFile.convertScene(doc, story.getRandScene()));
+                        }
+				case "conjugation" -> {
+							scenes.appendChild(XMLFile.convertScene(doc, conjugation.getRandScene()));
+                        }
+				case "left" -> {
+							scenes.appendChild(XMLFile.convertScene(doc, vocab.getLeftScene()));
+                        }
+				case "whole" -> {
+							scenes.appendChild(XMLFile.convertScene(doc, vocab.getWholeScene()));
+                        }
+				default -> {
+							System.out.println("Incorrect command, please check config file");
+							throw new IllegalArgumentException("Command not understood");
+                        }
+			}
+		}
 
-		Translations translator = new Translations(Language.english, Language.spanish);
-        VignetteManager vm = new VignetteManager(VignetteFileReader.readSchemas("English.tsv", 50), translator);
-		// xml.getRandScene();
-		// Audio audio = new Audio(xml);
-		// audio.generateAudioXML(Language.romanian);
+		// Get figures from the elements already added and add them to the xml doc
+		ArrayList<Figure> figureList = new ArrayList<>();
+		NodeList newFigures = doc.getElementsByTagName("figure");
+		for (int i = 0; i < newFigures.getLength(); i++) {
+			Node node = newFigures.item(i);
+			if (node.getNodeType() == Node.ELEMENT_NODE) {
+				Figure figure = new Figure((Element) node);
+				if (!figureList.contains(figure)) {
+					figureList.add(figure);
+				}
+			}
+		}
 
-		// // ai.generateAudioFile("Hola, ¿cómo estás?", "dialogue1.mp3");
+		for (Figure f : figureList) {
+			XMLGenerator.addFigure(f, figures, doc, true);
+		}
 
-
-		// XMLGenerator generate = new XMLGenerator("specification_10Scenes.xml");
-		// generate.generatePrint(config.getLanguage(), "newSpecs");
-		vm.getLeftScene();
-		vm.getWholeScene();
+		try {XMLFile.writeXML(doc, "aicomics/src/main/resources/temp.xml");}
+		catch (TransformerException e) {
+			System.out.println("Unable to print document: " + e);
+		}
+		finalXML = new XMLGenerator("temp.xml", config.getLanguage());
+		finalXML.Print(config.getLanguage(), "final.xml");
 	}
 }

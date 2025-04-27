@@ -4,7 +4,7 @@ MODELS_URL https://api.openai.com/v1/models
 ORG_KEY Put org key here or leave this if you do not need to use an org key
 API_KEY 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
 MODEL gpt-4o-mini
-LANGUAGE spanish
+LANGUAGE romanian
 LESSON SCHEMA conjugation left whole story
 
 PLEASE WRITE LESSON SCHEMA AS A SERIOUS OF COMMANDS SEPERATED BY A SPACE 
