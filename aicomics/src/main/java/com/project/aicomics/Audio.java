@@ -1,9 +1,5 @@
 package com.project.aicomics;
-
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
@@ -16,7 +12,7 @@ import com.project.aicomics.service.OpenAIService;
 public class Audio {
 
   private final OpenAIService ai = new OpenAIService();
-  private Map<String, String> textToAudio;
+  private final Map<String, String> textToAudio;
   private final File directory = new File("aicomics/src/main/resources/audio");
   private final XMLFile xml;
 
@@ -30,8 +26,6 @@ public class Audio {
 
   public void generateAudioXML(Language lan) throws IOException{
     List<String> allText = xml.getAllText(lan);
-    
-    //cretae new directory for each language audios
 
     for(String t : allText){
       if (t != null && !t.isBlank()){
@@ -40,7 +34,7 @@ public class Audio {
         //else create audio file and add it and the text to the map
         String safeText = t.replaceAll("[^a-zA-Z0-9]", "_"); //for saftey in case the name contains a special char
         String audioFileName = "audio_" + safeText + ".mp3";
-        File audioFile = new File (directory, audioFileName);
+        File audioFile = new File (audioFileName);
 
         if (!audioFile.exists()){
           ai.generateAudioFile(t, audioFile.getPath());
@@ -51,34 +45,10 @@ public class Audio {
         textToAudio.toString();
       }
     }
-   // saveIndex(new File("src/main/resources/audio/audios.txt")); //??
   }
 
   public String getAudioFileName(String text){
     return textToAudio.get(text);
   }
 
-  
-  private void saveIndex(File f) throws IOException{
-    try(FileWriter wr = new FileWriter(f)){
-      for(Map.Entry<String, String> entry : textToAudio.entrySet()){
-        wr.write(entry.getKey() + "=" + entry.getValue() + "\n");
-      }
-    }
-  }
-
-  private void loadIndex(File f) throws IOException{
-    textToAudio = new HashMap<>();
-    if (f.exists()){
-      try(BufferedReader r = new BufferedReader(new FileReader(f))){
-        String line;
-        while ((line = r.readLine()) != null){
-          if (line.isEmpty() || line.isBlank() || !line.contains("=")) continue;
-          String key = line.split("=", 2)[0];
-          String val = line.split("=", 2)[1];
-          textToAudio.put(key,val);
-        }
-      }
-    } else return;
-  }
 }
