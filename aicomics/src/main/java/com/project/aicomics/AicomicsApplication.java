@@ -29,7 +29,12 @@ public class AicomicsApplication {
 		SpringApplication.run(AicomicsApplication.class, args);
 		ConfigurationFile config = ConfigurationFile.getInstance(); 
 
+		XMLGenerator story = new XMLGenerator("specification_10Scenes.xml", config.getLanguage());
+		XMLFile conjugation = new XMLFile("specification.xml");
+		
+
     	// XMLFile xml = new XMLFile("specification_10Scenes.xml");
+
 
 		Translations translator = new Translations(Language.english, Language.spanish);
         VignetteManager vm = new VignetteManager(VignetteFileReader.readSchemas("English.tsv", 50), translator);
@@ -37,7 +42,7 @@ public class AicomicsApplication {
 		// Audio audio = new Audio(xml);
 		// audio.generateAudioXML(Language.romanian);
 
-		// ai.generateAudioFile("Hola, ¿cómo estás?", "dialogue1.mp3");
+		// // ai.generateAudioFile("Hola, ¿cómo estás?", "dialogue1.mp3");
 
 
 		// XMLGenerator generate = new XMLGenerator("specification_10Scenes.xml");

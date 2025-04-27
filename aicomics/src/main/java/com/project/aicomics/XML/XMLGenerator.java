@@ -22,12 +22,19 @@ import com.project.aicomics.Translations.Language;
 import com.project.aicomics.controller.DevController;
 import com.project.aicomics.service.OpenAIService;
 
-public class XMLGenerator extends XMLFile{
+public final class XMLGenerator extends XMLFile{
     OpenAIService ai = new OpenAIService();
     Audio aud = new Audio(this);
     
-    public XMLGenerator(String fileName) {
+    public XMLGenerator(String fileName, Language language) {
         super(fileName);
+        generateDialogue();
+        generateCaptions();
+        try {
+            aud.generateAudioXML(language);
+        } catch (IOException e) {
+            DevController.error("Fatal Error: Unable to create audio files for the XML", e);
+        }
     }
 
     /**
@@ -66,28 +73,10 @@ public class XMLGenerator extends XMLFile{
     }
 
     /**
-     * - {@link #generatePrint()} Generates dialogue, captions, and translations and prints them to a new xml file
-     * @param language Language to be translated to when printed
-     * @param fileName String to be used as the fileName
-     */
-    public void generatePrint(Language language, String fileName) {
-        generateDialogue();
-        generateCaptions();
-        try {
-            aud.generateAudioXML(language);
-        } catch (IOException e) {
-            DevController.error("Fatal Error: Unable to create audio files for the XML", e);
-            return;
-        }
-        Print(language, fileName);
-    }
-
-
-    /**
    * Prints the XMLFile object into a new XML file with the
    * translated scenes next to the original.
    */
-    private void Print(Language language, String fileName) {
+    public void Print(Language language, String fileName) {
         DocumentBuilderFactory fac = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder;
         try {builder = fac.newDocumentBuilder();}
