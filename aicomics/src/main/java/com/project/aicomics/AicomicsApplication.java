@@ -109,7 +109,7 @@ public class AicomicsApplication {
 		// There is a race condition happening between writeXML writing the file and XMLGenerator<init>
 		// reading the file. I have tried other solutions but am now attempting to just make XMLGenerator wait its turn manually.
 		try {
-			Thread.sleep(10);
+			Thread.sleep(5000);
 		} catch (InterruptedException e) {System.out.println("Failure making program wait");}
 		finalXML = new XMLGenerator("temp.xml", config.getLanguage());
 		finalXML.Print(config.getLanguage(), "final.xml");
