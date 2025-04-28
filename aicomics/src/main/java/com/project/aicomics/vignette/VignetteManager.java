@@ -114,22 +114,22 @@ public class VignetteManager {
         scene.addPanel(panel);
 
         // add a second identical panel except with the dialogue trnaslated then abstract these two methods
+        // Commented out as the main function automatically translates everything for simplicity - Ryan
+        // Panel panelTwo = new Panel();
+        // Bubble leftBubbleTranslated = new Bubble();
 
-        Panel panelTwo = new Panel();
-        Bubble leftBubbleTranslated = new Bubble();
+        // leftBubbleTranslated.setContent(vignette.getTranslatedText());
+        // panelTwo.setSetting(vignette.getBackground());
+        // System.out.println(vignette.getTranslatedText());
+        // Position leftTwo = new Position();
 
-        leftBubbleTranslated.setContent(vignette.getTranslatedText());
-        panelTwo.setSetting(vignette.getBackground());
-        System.out.println(vignette.getTranslatedText());
-        Position leftTwo = new Position();
+        // leftTwo.setName("left");
+        // leftTwo.setFigure(figOne);
+        // leftTwo.setBubble(leftBubbleTranslated);
 
-        leftTwo.setName("left");
-        leftTwo.setFigure(figOne);
-        leftTwo.setBubble(leftBubbleTranslated);
+        // panelTwo.addPosition(leftTwo);
 
-        panelTwo.addPosition(leftTwo);
-
-        scene.addPanel(panelTwo);
+        // scene.addPanel(panelTwo);
         
         return scene;
     }
@@ -174,24 +174,24 @@ public class VignetteManager {
         scene.addPanel(panel);
 
         // add a second identical panel except with the dialogue trnaslated then abstract these two methods
+        // Commented out as the main function automatically translates everything for simplicity - Ryan
+        // Panel panelTwo = new Panel();
+        // panelTwo.setSetting(vignette.getBackground());
+        // Bubble bubbleTranslated = new Bubble();
 
-        Panel panelTwo = new Panel();
-        panelTwo.setSetting(vignette.getBackground());
-        Bubble bubbleTranslated = new Bubble();
+        // bubbleTranslated.setContent(vignette.getTranslatedText());
+        // Position leftTwo = new Position();
+        // Position rightTwo = new Position();
+        // rightTwo.setName("right");
+        // rightTwo.setFigure(figTwo);
 
-        bubbleTranslated.setContent(vignette.getTranslatedText());
-        Position leftTwo = new Position();
-        Position rightTwo = new Position();
-        rightTwo.setName("right");
-        rightTwo.setFigure(figTwo);
+        // leftTwo.setName("left");
+        // leftTwo.setFigure(figOne);
+        // leftTwo.setBubble(bubbleTranslated);
 
-        leftTwo.setName("left");
-        leftTwo.setFigure(figOne);
-        leftTwo.setBubble(bubbleTranslated);
-
-        panelTwo.addPosition(leftTwo);
-        panelTwo.addPosition(rightTwo);
-        scene.addPanel(panelTwo);
+        // panelTwo.addPosition(leftTwo);
+        // panelTwo.addPosition(rightTwo);
+        // scene.addPanel(panelTwo);
         return scene;
   }
 }

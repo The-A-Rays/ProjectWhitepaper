@@ -352,11 +352,11 @@ private static List<Figure> parseFigures(Element elem){
                               "hair", "lips", "pose", "facing"};
       String[] atrs = f.getAttributes();
       for (int i = 0; i < atrs.length; i++) {
-      String atr = atrs[i];
-      if (atr == null) continue;             // Skip if the attribute is empty
-      Element child = doc.createElement(attributeNames[i]);
-      child.setTextContent(atr);
-      figure.appendChild(child);
+        String atr = atrs[i];
+        if (atr == null) continue;             // Skip if the attribute is empty
+        Element child = doc.createElement(attributeNames[i]);
+        child.setTextContent(atr);
+        figure.appendChild(child);
       }
   }
 

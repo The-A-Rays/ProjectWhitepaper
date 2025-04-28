@@ -2,17 +2,17 @@
 <comic>
     <figures>
         <figure>
+            <id>Betty</id>
+            <name>Betty</name>
+            <appearance>female</appearance>
+        </figure>
+        <figure>
             <id>Alfie</id>
             <name>Alfie</name>
             <appearance>male</appearance>
             <skin>light brown</skin>
             <hair>dark brown</hair>
             <lips>red</lips>
-        </figure>
-        <figure>
-            <id>Betty</id>
-            <name>Betty</name>
-            <appearance>female</appearance>
         </figure>
         <figure>
             <id>Alfie</id>
@@ -35,31 +35,14 @@
             <panel>
                 <middle>
                     <figure>
-                        <id>Alfie</id>
-                        <name>Alfie</name>
-                        <appearance>male</appearance>
-                        <skin>light brown</skin>
-                        <hair>dark brown</hair>
-                        <lips>red</lips>
-                        <pose>three</pose>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>zero</pose>
                         <facing>right</facing>
                     </figure>
                 </middle>
-                <below>Alfie is positioned to the right, displaying a thoughtful pose.</below>
-            </panel>
-            <panel>
-                <middle>
-                    <figure>
-                        <id>Alfie</id>
-                        <name>Alfie</name>
-                        <appearance>male</appearance>
-                        <skin>light brown</skin>
-                        <hair>dark brown</hair>
-                        <lips>red</lips>
-                        <pose>three</pose>
-                        <facing>right</facing>
-                    </figure>
-                </middle>
+                <below>Betty announces she is going somewhere.</below>
             </panel>
             <panel>
                 <middle>
@@ -67,29 +50,9 @@
                         <id>Betty</id>
                         <name>Betty</name>
                         <appearance>female</appearance>
-                        <pose>reading</pose>
+                        <pose>zero</pose>
                         <facing>right</facing>
                     </figure>
-                    <balloon status="speech">
-                        <content>I read</content>
-                        <audio>audio_I_read.mp3</audio>
-                    </balloon>
-                </middle>
-                <below>Betty, also facing right, is reading and states "I read."</below>
-            </panel>
-            <panel>
-                <middle>
-                    <figure>
-                        <id>Betty</id>
-                        <name>Betty</name>
-                        <appearance>female</appearance>
-                        <pose>reading</pose>
-                        <facing>right</facing>
-                    </figure>
-                    <balloon status="speech">
-                        <content>Am citit.</content>
-                        <audio>audio_Am_citit_.mp3</audio>
-                    </balloon>
                 </middle>
             </panel>
             <panel>
@@ -98,12 +61,12 @@
                         <id>Betty</id>
                         <name>Betty</name>
                         <appearance>female</appearance>
-                        <pose>discarding book</pose>
+                        <pose>arriving</pose>
                         <facing>right</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>You read</content>
-                        <audio>audio_You_read.mp3</audio>
+                        <content>I am going</content>
+                        <audio>audio_I_am_going.mp3</audio>
                     </balloon>
                 </left>
                 <right>
@@ -114,11 +77,11 @@
                         <skin>light brown</skin>
                         <hair>dark brown</hair>
                         <lips>red</lips>
-                        <pose>reading comics</pose>
+                        <pose>examining document</pose>
                         <facing>left</facing>
                     </figure>
                 </right>
-                <below>Betty discards a book, addressing Alfie, who is reading comics, and says "You read."</below>
+                <below>Alfie responds, saying "You are going" as he introduces himself.</below>
             </panel>
             <panel>
                 <left>
@@ -126,11 +89,11 @@
                         <id>Betty</id>
                         <name>Betty</name>
                         <appearance>female</appearance>
-                        <pose>discarding book</pose>
+                        <pose>arriving</pose>
                         <facing>right</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>Tu citești</content>
+                        <content>Eu plec.</content>
                         <audio/>
                     </balloon>
                 </left>
@@ -142,7 +105,7 @@
                         <skin>light brown</skin>
                         <hair>dark brown</hair>
                         <lips>red</lips>
-                        <pose>reading comics</pose>
+                        <pose>examining document</pose>
                         <facing>left</facing>
                     </figure>
                 </right>
@@ -153,12 +116,67 @@
                         <id>Betty</id>
                         <name>Betty</name>
                         <appearance>female</appearance>
-                        <pose>tweeting</pose>
+                        <pose>arriving with passport</pose>
+                        <facing>right</facing>
+                    </figure>
+                </left>
+                <right>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>male</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>introducing</pose>
+                        <facing>left</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>You are going</content>
+                        <audio>audio_You_are_going.mp3</audio>
+                    </balloon>
+                </right>
+                <below>Betty expresses surprise, saying "He is going" while observing Alfie escape.</below>
+            </panel>
+            <panel>
+                <left>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>arriving with passport</pose>
+                        <facing>right</facing>
+                    </figure>
+                </left>
+                <right>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>male</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>introducing</pose>
+                        <facing>left</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>Vei merge</content>
+                        <audio/>
+                    </balloon>
+                </right>
+            </panel>
+            <panel>
+                <left>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>surprised</pose>
                         <facing>right</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>He reads</content>
-                        <audio>audio_He_reads.mp3</audio>
+                        <content>He is going</content>
+                        <audio>audio_He_is_going.mp3</audio>
                     </balloon>
                 </left>
                 <right>
@@ -169,11 +187,11 @@
                         <skin>light brown</skin>
                         <hair>dark brown</hair>
                         <lips>red</lips>
-                        <pose>reading newspaper</pose>
+                        <pose>escaping</pose>
                         <facing>left</facing>
                     </figure>
                 </right>
-                <below>Betty tweets about Alfie, who is now reading a newspaper, and exclaims "He reads."</below>
+                <below>Betty banishes Alfie, stating "She is going" as he speeds away.</below>
             </panel>
             <panel>
                 <left>
@@ -181,12 +199,12 @@
                         <id>Betty</id>
                         <name>Betty</name>
                         <appearance>female</appearance>
-                        <pose>tweeting</pose>
+                        <pose>surprised</pose>
                         <facing>right</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>El citește.</content>
-                        <audio>audio_El_cite_te_.mp3</audio>
+                        <content>El pleacă.</content>
+                        <audio>audio_El_pleac__.mp3</audio>
                     </balloon>
                 </left>
                 <right>
@@ -197,7 +215,7 @@
                         <skin>light brown</skin>
                         <hair>dark brown</hair>
                         <lips>red</lips>
-                        <pose>reading newspaper</pose>
+                        <pose>escaping</pose>
                         <facing>left</facing>
                     </figure>
                 </right>
@@ -208,12 +226,12 @@
                         <id>Betty</id>
                         <name>Betty</name>
                         <appearance>female</appearance>
-                        <pose>applying makeup</pose>
+                        <pose>banishing</pose>
                         <facing>right</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>She reads</content>
-                        <audio>audio_She_reads.mp3</audio>
+                        <content>She is going</content>
+                        <audio>audio_She_is_going.mp3</audio>
                     </balloon>
                 </left>
                 <right>
@@ -224,11 +242,11 @@
                         <skin>light brown</skin>
                         <hair>dark brown</hair>
                         <lips>red</lips>
-                        <pose>reading magazine</pose>
+                        <pose>speeding</pose>
                         <facing>left</facing>
                     </figure>
                 </right>
-                <below>Betty applies makeup while mentioning that "She reads" as Alfie reads a magazine.</below>
+                <below>Betty joyfully declares "We are going" while roller skating next to Alfie, who is cycling.</below>
             </panel>
             <panel>
                 <left>
@@ -236,155 +254,23 @@
                         <id>Betty</id>
                         <name>Betty</name>
                         <appearance>female</appearance>
-                        <pose>applying makeup</pose>
+                        <pose>banishing</pose>
                         <facing>right</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>Ea citește.</content>
-                        <audio>audio_Ea_cite_te_.mp3</audio>
-                    </balloon>
-                </left>
-                <right>
-                    <figure>
-                        <id>Alfie</id>
-                        <name>Alfie</name>
-                        <appearance>female</appearance>
-                        <skin>light brown</skin>
-                        <hair>dark brown</hair>
-                        <lips>red</lips>
-                        <pose>reading magazine</pose>
-                        <facing>left</facing>
-                    </figure>
-                </right>
-            </panel>
-            <panel>
-                <left>
-                    <figure>
-                        <id>Betty</id>
-                        <name>Betty</name>
-                        <appearance>female</appearance>
-                        <pose>reading map</pose>
-                        <facing>right</facing>
-                    </figure>
-                    <balloon status="speech">
-                        <content>We read</content>
-                        <audio>audio_We_read.mp3</audio>
-                    </balloon>
-                </left>
-                <right>
-                    <figure>
-                        <id>Alfie</id>
-                        <name>Alfie</name>
-                        <appearance>male</appearance>
-                        <skin>light brown</skin>
-                        <hair>dark brown</hair>
-                        <lips>red</lips>
-                        <pose>reading in headphones</pose>
-                        <facing>left</facing>
-                    </figure>
-                </right>
-                <below>Betty reads a map and shares "We read" while Alfie listens to music with headphones.</below>
-            </panel>
-            <panel>
-                <left>
-                    <figure>
-                        <id>Betty</id>
-                        <name>Betty</name>
-                        <appearance>female</appearance>
-                        <pose>reading map</pose>
-                        <facing>right</facing>
-                    </figure>
-                    <balloon status="speech">
-                        <content>Noi citim</content>
-                        <audio>audio_Noi_citim.mp3</audio>
-                    </balloon>
-                </left>
-                <right>
-                    <figure>
-                        <id>Alfie</id>
-                        <name>Alfie</name>
-                        <appearance>male</appearance>
-                        <skin>light brown</skin>
-                        <hair>dark brown</hair>
-                        <lips>red</lips>
-                        <pose>reading in headphones</pose>
-                        <facing>left</facing>
-                    </figure>
-                </right>
-            </panel>
-            <panel>
-                <left>
-                    <figure>
-                        <id>Betty</id>
-                        <name>Betty</name>
-                        <appearance>female</appearance>
-                        <pose>lecturing</pose>
-                        <facing>right</facing>
-                    </figure>
-                    <balloon status="speech">
-                        <content>You read (plural)</content>
-                        <audio>audio_You_read__plural_.mp3</audio>
-                    </balloon>
-                </left>
-                <middle>
-                    <figure>
-                        <id>Alfie</id>
-                        <name>Alfie</name>
-                        <appearance>male</appearance>
-                        <skin>light brown</skin>
-                        <hair>dark brown</hair>
-                        <lips>red</lips>
-                        <pose>reading</pose>
-                        <facing>left</facing>
-                    </figure>
-                </middle>
-                <right>
-                    <figure>
-                        <id>Gemma</id>
-                        <name>Gemma</name>
-                        <appearance>female</appearance>
-                        <skin>olive</skin>
-                        <hair>black</hair>
-                        <pose>whistling while reading</pose>
-                        <facing>left</facing>
-                    </figure>
-                </right>
-                <below>Betty lectures and tells Alfie and Gemma that "You read (plural)."</below>
-            </panel>
-            <panel>
-                <left>
-                    <figure>
-                        <id>Betty</id>
-                        <name>Betty</name>
-                        <appearance>female</appearance>
-                        <pose>lecturing</pose>
-                        <facing>right</facing>
-                    </figure>
-                    <balloon status="speech">
-                        <content>Voi citiți.</content>
+                        <content>Ea se duce.</content>
                         <audio/>
                     </balloon>
                 </left>
-                <middle>
+                <right>
                     <figure>
                         <id>Alfie</id>
                         <name>Alfie</name>
-                        <appearance>male</appearance>
+                        <appearance>female</appearance>
                         <skin>light brown</skin>
                         <hair>dark brown</hair>
                         <lips>red</lips>
-                        <pose>reading</pose>
-                        <facing>left</facing>
-                    </figure>
-                </middle>
-                <right>
-                    <figure>
-                        <id>Gemma</id>
-                        <name>Gemma</name>
-                        <appearance>female</appearance>
-                        <skin>olive</skin>
-                        <hair>black</hair>
-                        <pose>whistling while reading</pose>
+                        <pose>speeding</pose>
                         <facing>left</facing>
                     </figure>
                 </right>
@@ -395,15 +281,15 @@
                         <id>Betty</id>
                         <name>Betty</name>
                         <appearance>female</appearance>
-                        <pose>campaigning</pose>
+                        <pose>rollerskating</pose>
                         <facing>right</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>They read</content>
-                        <audio>audio_They_read.mp3</audio>
+                        <content>We are going</content>
+                        <audio>audio_We_are_going.mp3</audio>
                     </balloon>
                 </left>
-                <middle>
+                <right>
                     <figure>
                         <id>Alfie</id>
                         <name>Alfie</name>
@@ -411,22 +297,11 @@
                         <skin>light brown</skin>
                         <hair>dark brown</hair>
                         <lips>red</lips>
-                        <pose>whistling while reading</pose>
-                        <facing>left</facing>
-                    </figure>
-                </middle>
-                <right>
-                    <figure>
-                        <id>Gemma</id>
-                        <name>Gemma</name>
-                        <appearance>female</appearance>
-                        <skin>olive</skin>
-                        <hair>black</hair>
-                        <pose>reading on bicycle</pose>
-                        <facing>left</facing>
+                        <pose>cycling</pose>
+                        <facing>right</facing>
                     </figure>
                 </right>
-                <below>Betty campaigns, stating "They read," with Alfie and Gemma engaged in reading activities.</below>
+                <below>Betty rewards Alfie with encouragement, saying "You are going (plural)" while he walks a dog.</below>
             </panel>
             <panel>
                 <left>
@@ -434,15 +309,70 @@
                         <id>Betty</id>
                         <name>Betty</name>
                         <appearance>female</appearance>
-                        <pose>campaigning</pose>
+                        <pose>rollerskating</pose>
                         <facing>right</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>Ei citesc</content>
+                        <content>Mergem.</content>
+                        <audio>audio_Mergem_.mp3</audio>
+                    </balloon>
+                </left>
+                <right>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>male</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>cycling</pose>
+                        <facing>right</facing>
+                    </figure>
+                </right>
+            </panel>
+            <panel>
+                <left>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>rewarding</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>You are going (plural)</content>
+                        <audio>audio_You_are_going__plural_.mp3</audio>
+                    </balloon>
+                </left>
+                <right>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>male</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>walking a dog</pose>
+                        <facing>left</facing>
+                    </figure>
+                </right>
+                <below>Betty, in a spacesuit, notes "They are going" in reaction to something.</below>
+            </panel>
+            <panel>
+                <left>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>rewarding</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>Mergeți.</content>
                         <audio/>
                     </balloon>
                 </left>
-                <middle>
+                <right>
                     <figure>
                         <id>Alfie</id>
                         <name>Alfie</name>
@@ -450,21 +380,41 @@
                         <skin>light brown</skin>
                         <hair>dark brown</hair>
                         <lips>red</lips>
-                        <pose>whistling while reading</pose>
-                        <facing>left</facing>
-                    </figure>
-                </middle>
-                <right>
-                    <figure>
-                        <id>Gemma</id>
-                        <name>Gemma</name>
-                        <appearance>female</appearance>
-                        <skin>olive</skin>
-                        <hair>black</hair>
-                        <pose>reading on bicycle</pose>
+                        <pose>walking a dog</pose>
                         <facing>left</facing>
                     </figure>
                 </right>
+            </panel>
+            <panel>
+                <left>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>surprised in spacesuit</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>They are going</content>
+                        <audio>audio_They_are_going.mp3</audio>
+                    </balloon>
+                </left>
+                <below>Betty offers dinner, asking "What would you like to eat?"</below>
+            </panel>
+            <panel>
+                <left>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>surprised in spacesuit</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>Ei pleacă.</content>
+                        <audio>audio_Ei_pleac__.mp3</audio>
+                    </balloon>
+                </left>
             </panel>
         </scene>
         <scene>
@@ -474,15 +424,15 @@
                         <id>Betty</id>
                         <name>Betty</name>
                         <appearance>female</appearance>
-                        <pose>photographing</pose>
+                        <pose>serving dinner</pose>
                         <facing>right</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>a photographer</content>
-                        <audio>audio_a_photographer.mp3</audio>
+                        <content>What would you like to eat?</content>
+                        <audio>audio_What_would_you_like_to_eat_.mp3</audio>
                     </balloon>
                 </left>
-                <below>Betty photographs while saying "a photographer."</below>
+                <below>Betty promotes the idea of getting "a helping hand" as Alfie steps up.</below>
             </panel>
             <panel>
                 <left>
@@ -490,42 +440,11 @@
                         <id>Betty</id>
                         <name>Betty</name>
                         <appearance>female</appearance>
-                        <pose>photographing</pose>
+                        <pose>serving dinner</pose>
                         <facing>right</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>un fotograf</content>
-                        <audio>audio_un_fotograf.mp3</audio>
-                    </balloon>
-                </left>
-            </panel>
-            <panel>
-                <left>
-                    <figure>
-                        <id>Betty</id>
-                        <name>Betty</name>
-                        <appearance>female</appearance>
-                        <pose>photographing</pose>
-                        <facing>right</facing>
-                    </figure>
-                    <balloon status="">
-                        <content>un fotograf</content>
-                        <audio>audio_un_fotograf.mp3</audio>
-                    </balloon>
-                </left>
-                <below>Betty repeats in another language that she is a photographer.</below>
-            </panel>
-            <panel>
-                <left>
-                    <figure>
-                        <id>Betty</id>
-                        <name>Betty</name>
-                        <appearance>female</appearance>
-                        <pose>photographing</pose>
-                        <facing>right</facing>
-                    </figure>
-                    <balloon status="">
-                        <content>A photographer</content>
+                        <content>Ce ai dori să mănânci?</content>
                         <audio/>
                     </balloon>
                 </left>
@@ -538,12 +457,12 @@
                         <id>Betty</id>
                         <name>Betty</name>
                         <appearance>female</appearance>
-                        <pose>charming</pose>
+                        <pose>promoting</pose>
                         <facing>right</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>That's true!</content>
-                        <audio>audio_That_s_true_.mp3</audio>
+                        <content>a helping hand</content>
+                        <audio>audio_a_helping_hand.mp3</audio>
                     </balloon>
                 </left>
                 <right>
@@ -554,11 +473,11 @@
                         <skin>light brown</skin>
                         <hair>dark brown</hair>
                         <lips>red</lips>
-                        <pose> high fiving</pose>
+                        <pose>stepping up</pose>
                         <facing>right</facing>
                     </figure>
                 </right>
-                <below>Betty cheerfully confirms with Alfie about something being true, and they high-five.</below>
+                <below>Alfie, feeling tired, thinks about needing to eat.</below>
             </panel>
             <panel>
                 <left>
@@ -566,11 +485,338 @@
                         <id>Betty</id>
                         <name>Betty</name>
                         <appearance>female</appearance>
-                        <pose>charming</pose>
+                        <pose>promoting</pose>
                         <facing>right</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>Asta e adevărat!</content>
+                        <content>o mână de ajutor</content>
+                        <audio>audio_o_m_n__de_ajutor.mp3</audio>
+                    </balloon>
+                </left>
+                <right>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>male</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>stepping up</pose>
+                        <facing>right</facing>
+                    </figure>
+                </right>
+            </panel>
+        </scene>
+        <scene>
+            <panel>
+                <middle>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>male</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>zero</pose>
+                        <facing>right</facing>
+                    </figure>
+                </middle>
+                <below>Alfie enjoys his favorite cereal for breakfast.</below>
+            </panel>
+            <panel>
+                <middle>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>male</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>zero</pose>
+                        <facing>right</facing>
+                    </figure>
+                </middle>
+            </panel>
+            <panel>
+                <middle>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>male</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>yawning</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="thought">
+                        <content>I'm so tired, but I need to eat something.</content>
+                        <audio>audio_I_m_so_tired__but_I_need_to_eat_something_.mp3</audio>
+                    </balloon>
+                </middle>
+                <below>After breakfast, Alfie feels optimistic about the day ahead.</below>
+            </panel>
+            <panel>
+                <middle>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>male</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>yawning</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="thought">
+                        <content>Sunt atât de obosit, dar trebuie să mănânc ceva.</content>
+                        <audio>audio_Sunt_at_t_de_obosit__dar_trebuie_s__m_n_nc_ceva_.mp3</audio>
+                    </balloon>
+                </middle>
+            </panel>
+            <panel>
+                <middle>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>male</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>breakfasting</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>Mmm, this is my favorite cereal!</content>
+                        <audio>audio_Mmm__this_is_my_favorite_cereal_.mp3</audio>
+                    </balloon>
+                </middle>
+                <below>Alfie bids farewell, saying "See you later, have a great day!"</below>
+            </panel>
+            <panel>
+                <middle>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>male</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>breakfasting</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>Mmm, acesta este cerealele mele preferate!</content>
+                        <audio>audio_Mmm__acesta_este_cerealele_mele_preferate_.mp3</audio>
+                    </balloon>
+                </middle>
+            </panel>
+            <panel>
+                <middle>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>male</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>munching</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="thought">
+                        <content>Alright, I’m feeling good about today.</content>
+                        <audio>audio_Alright__I_m_feeling_good_about_today_.mp3</audio>
+                    </balloon>
+                </middle>
+                <below>Alfie waves goodbye while high-fiving someone.</below>
+            </panel>
+            <panel>
+                <middle>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>male</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>munching</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="thought">
+                        <content>Bine, mă simt bine în legătură cu astăzi.</content>
+                        <audio>audio_Bine__m__simt_bine__n_leg_tur__cu_ast_zi_.mp3</audio>
+                    </balloon>
+                </middle>
+            </panel>
+            <panel>
+                <middle>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>male</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>strong</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>See you later, have a great day!</content>
+                        <audio>audio_See_you_later__have_a_great_day_.mp3</audio>
+                    </balloon>
+                </middle>
+                <below>Betty rides while whistling, declaring "I ride."</below>
+            </panel>
+            <panel>
+                <middle>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>male</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>strong</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>Pe curând, să ai o zi minunată!</content>
+                        <audio>audio_Pe_cur_nd__s__ai_o_zi_minunat__.mp3</audio>
+                    </balloon>
+                </middle>
+            </panel>
+            <panel>
+                <left>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>male</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>high fiving</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>waving goodbye</content>
+                        <audio>audio_waving_goodbye.mp3</audio>
+                    </balloon>
+                </left>
+                <below>Betty tells Alfie "You ride" as he appears lost while riding.</below>
+            </panel>
+            <panel>
+                <left>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>male</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>high fiving</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>ură de rămas bun</content>
+                        <audio/>
+                    </balloon>
+                </left>
+            </panel>
+        </scene>
+        <scene>
+            <panel>
+                <middle>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>four</pose>
+                        <facing>right</facing>
+                    </figure>
+                </middle>
+                <below>Betty mentions "He rides" while observing Alfie blocking the sun riding.</below>
+            </panel>
+            <panel>
+                <middle>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>four</pose>
+                        <facing>right</facing>
+                    </figure>
+                </middle>
+            </panel>
+            <panel>
+                <left>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>riding while whistling</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>I ride</content>
+                        <audio>audio_I_ride.mp3</audio>
+                    </balloon>
+                </left>
+                <below>Betty holds a lamb and says, "She rides," pointing out another ride.</below>
+            </panel>
+            <panel>
+                <left>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>riding while whistling</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>Eu merg cu bicicleta.</content>
+                        <audio/>
+                    </balloon>
+                </left>
+            </panel>
+            <panel>
+                <left>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>banishing</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>You ride</content>
+                        <audio>audio_You_ride.mp3</audio>
+                    </balloon>
+                </left>
+                <right>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>male</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>riding while lost</pose>
+                        <facing>left</facing>
+                    </figure>
+                </right>
+                <below>Betty enthusiastically states, "We ride" while Alfie falls off his horse.</below>
+            </panel>
+            <panel>
+                <left>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>banishing</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>Tu conduci.</content>
                         <audio/>
                     </balloon>
                 </left>
@@ -582,8 +828,8 @@
                         <skin>light brown</skin>
                         <hair>dark brown</hair>
                         <lips>red</lips>
-                        <pose> high fiving</pose>
-                        <facing>right</facing>
+                        <pose>riding while lost</pose>
+                        <facing>left</facing>
                     </figure>
                 </right>
             </panel>
@@ -593,12 +839,12 @@
                         <id>Betty</id>
                         <name>Betty</name>
                         <appearance>female</appearance>
-                        <pose>charming</pose>
+                        <pose>sweating</pose>
                         <facing>right</facing>
                     </figure>
-                    <balloon status="">
-                        <content>un fermecător</content>
-                        <audio>audio_un_fermec_tor.mp3</audio>
+                    <balloon status="speech">
+                        <content>He rides</content>
+                        <audio>audio_He_rides.mp3</audio>
                     </balloon>
                 </left>
                 <right>
@@ -609,11 +855,11 @@
                         <skin>light brown</skin>
                         <hair>dark brown</hair>
                         <lips>red</lips>
-                        <pose> high fiving</pose>
-                        <facing>right</facing>
+                        <pose>riding while blocking sun</pose>
+                        <facing>left</facing>
                     </figure>
                 </right>
-                <below>Again, they exchange the statement in another language, while high-fiving.</below>
+                <below>Betty encourages riding in plural terms, engaging Gemma, who rides determinedly.</below>
             </panel>
             <panel>
                 <left>
@@ -621,12 +867,12 @@
                         <id>Betty</id>
                         <name>Betty</name>
                         <appearance>female</appearance>
-                        <pose>charming</pose>
+                        <pose>sweating</pose>
                         <facing>right</facing>
                     </figure>
-                    <balloon status="">
-                        <content>a charming one</content>
-                        <audio>audio_a_charming_one.mp3</audio>
+                    <balloon status="speech">
+                        <content>El călărește.</content>
+                        <audio>audio_El_c_l_re_te_.mp3</audio>
                     </balloon>
                 </left>
                 <right>
@@ -637,7 +883,361 @@
                         <skin>light brown</skin>
                         <hair>dark brown</hair>
                         <lips>red</lips>
-                        <pose> high fiving</pose>
+                        <pose>riding while blocking sun</pose>
+                        <facing>left</facing>
+                    </figure>
+                </right>
+            </panel>
+            <panel>
+                <left>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>holding lamb</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>She rides</content>
+                        <audio>audio_She_rides.mp3</audio>
+                    </balloon>
+                </left>
+                <right>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>female</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>droving</pose>
+                        <facing>left</facing>
+                    </figure>
+                </right>
+                <below>Betty walks a horse, stating "They ride" as she sees Alfie and Gemma confused while riding.</below>
+            </panel>
+            <panel>
+                <left>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>holding lamb</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>Ea călărește.</content>
+                        <audio>audio_Ea_c_l_re_te_.mp3</audio>
+                    </balloon>
+                </left>
+                <right>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>female</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>droving</pose>
+                        <facing>left</facing>
+                    </figure>
+                </right>
+            </panel>
+            <panel>
+                <left>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>riding</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>We ride</content>
+                        <audio>audio_We_ride.mp3</audio>
+                    </balloon>
+                </left>
+                <right>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>male</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>falling off horse</pose>
+                        <facing>left</facing>
+                    </figure>
+                </right>
+                <below>Betty toasts to "a beverage."</below>
+            </panel>
+            <panel>
+                <left>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>riding</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>Noi călărim.</content>
+                        <audio>audio_Noi_c_l_rim_.mp3</audio>
+                    </balloon>
+                </left>
+                <right>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>male</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>falling off horse</pose>
+                        <facing>left</facing>
+                    </figure>
+                </right>
+            </panel>
+            <panel>
+                <left>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>treating</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>You ride (plural)</content>
+                        <audio>audio_You_ride__plural_.mp3</audio>
+                    </balloon>
+                </left>
+                <middle>
+                    <figure>
+                        <id>Gemma</id>
+                        <name>Gemma</name>
+                        <appearance>female</appearance>
+                        <skin>olive</skin>
+                        <hair>black</hair>
+                        <pose>riding with determination</pose>
+                        <facing>left</facing>
+                    </figure>
+                </middle>
+                <right>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>male</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>riding with injuries</pose>
+                        <facing>left</facing>
+                    </figure>
+                </right>
+                <below>Betty caters, expressing her eagerness "to serve" while Alfie sips.</below>
+            </panel>
+            <panel>
+                <left>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>treating</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>Voi călăriți</content>
+                        <audio/>
+                    </balloon>
+                </left>
+                <middle>
+                    <figure>
+                        <id>Gemma</id>
+                        <name>Gemma</name>
+                        <appearance>female</appearance>
+                        <skin>olive</skin>
+                        <hair>black</hair>
+                        <pose>riding with determination</pose>
+                        <facing>left</facing>
+                    </figure>
+                </middle>
+                <right>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>male</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>riding with injuries</pose>
+                        <facing>left</facing>
+                    </figure>
+                </right>
+            </panel>
+            <panel>
+                <left>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>walking a horse</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>They ride</content>
+                        <audio>audio_They_ride.mp3</audio>
+                    </balloon>
+                </left>
+                <middle>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>male</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>riding with gun drawn</pose>
+                        <facing>left</facing>
+                    </figure>
+                </middle>
+                <right>
+                    <figure>
+                        <id>Gemma</id>
+                        <name>Gemma</name>
+                        <appearance>female</appearance>
+                        <skin>olive</skin>
+                        <hair>black</hair>
+                        <pose>riding while confused</pose>
+                        <facing>left</facing>
+                    </figure>
+                </right>
+                <below>Alfie contemplates the need to remain discreet while working on a deal.</below>
+            </panel>
+            <panel>
+                <left>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>walking a horse</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>Ei călătoresc.</content>
+                        <audio>audio_Ei_c_l_toresc_.mp3</audio>
+                    </balloon>
+                </left>
+                <middle>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>male</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>riding with gun drawn</pose>
+                        <facing>left</facing>
+                    </figure>
+                </middle>
+                <right>
+                    <figure>
+                        <id>Gemma</id>
+                        <name>Gemma</name>
+                        <appearance>female</appearance>
+                        <skin>olive</skin>
+                        <hair>black</hair>
+                        <pose>riding while confused</pose>
+                        <facing>left</facing>
+                    </figure>
+                </right>
+            </panel>
+        </scene>
+        <scene>
+            <panel>
+                <left>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>toasting</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>a beverage</content>
+                        <audio>audio_a_beverage.mp3</audio>
+                    </balloon>
+                </left>
+                <below>Betty urges to get moving and implement their plan.</below>
+            </panel>
+            <panel>
+                <left>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>toasting</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>o băutură</content>
+                        <audio>audio_o_b_utur_.mp3</audio>
+                    </balloon>
+                </left>
+            </panel>
+        </scene>
+        <scene>
+            <panel>
+                <left>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>catering</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>to serve</content>
+                        <audio>audio_to_serve.mp3</audio>
+                    </balloon>
+                </left>
+                <right>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>male</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose> sipping</pose>
+                        <facing>right</facing>
+                    </figure>
+                </right>
+                <below>Alfie claims a law could significantly change their situation.</below>
+            </panel>
+            <panel>
+                <left>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>catering</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>a servi</content>
+                        <audio>audio_a_servi.mp3</audio>
+                    </balloon>
+                </left>
+                <right>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>male</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose> sipping</pose>
                         <facing>right</facing>
                     </figure>
                 </right>
@@ -666,7 +1266,7 @@
                         <facing>left</facing>
                     </figure>
                 </right>
-                <below>Alfie is facing right as Betty is positioned to the left, both in engaging positions.</below>
+                <below>Betty offers an advantage for support in a deal.</below>
             </panel>
             <panel>
                 <left>
@@ -704,8 +1304,8 @@
                         <facing>right</facing>
                     </figure>
                     <balloon status="thought">
-                        <content>We need to stick to the plan.</content>
-                        <audio>audio_We_need_to_stick_to_the_plan_.mp3</audio>
+                        <content>We need to stay under the radar while we work on this deal.</content>
+                        <audio>audio_We_need_to_stay_under_the_radar_while_we_work_on_this_deal_.mp3</audio>
                     </balloon>
                 </left>
                 <right>
@@ -717,11 +1317,11 @@
                         <facing>left</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>Just keep your voice down; they're listening.</content>
-                        <audio>audio_Just_keep_your_voice_down__they_re_listening_.mp3</audio>
+                        <content>Let's get things moving; it's time to put our plan into action.</content>
+                        <audio>audio_Let_s_get_things_moving__it_s_time_to_put_our_plan_into_action_.mp3</audio>
                     </balloon>
                 </right>
-                <below>Alfie thinks about sticking to the plan while Betty suggests keeping quiet about being listened to.</below>
+                <below>Alfie insists on making their demands clear, while Betty downplays the situation.</below>
             </panel>
             <panel>
                 <left>
@@ -736,8 +1336,8 @@
                         <facing>right</facing>
                     </figure>
                     <balloon status="thought">
-                        <content>Trebuie să ne ținem de plan.</content>
-                        <audio>audio_Trebuie_s__ne__inem_de_plan_.mp3</audio>
+                        <content>Trebuie să rămânem neobservați în timp ce lucrăm la această afacere.</content>
+                        <audio/>
                     </balloon>
                 </left>
                 <right>
@@ -749,7 +1349,7 @@
                         <facing>left</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>Îți rog să-ți ții vocea joasă; te ascultă.</content>
+                        <content>Să punem lucrurile în mișcare; este timpul să punem planul nostru în aplicare.</content>
                         <audio/>
                     </balloon>
                 </right>
@@ -767,8 +1367,8 @@
                         <facing>right</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>This law could change everything if we get it passed.</content>
-                        <audio>audio_This_law_could_change_everything_if_we_get_it_passed_.mp3</audio>
+                        <content>This law could change everything for us.</content>
+                        <audio>audio_This_law_could_change_everything_for_us_.mp3</audio>
                     </balloon>
                 </left>
                 <right>
@@ -780,11 +1380,11 @@
                         <facing>left</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>I can set you up nicely, just consider my proposal.</content>
-                        <audio>audio_I_can_set_you_up_nicely__just_consider_my_proposal_.mp3</audio>
+                        <content>I'm willing to offer you an advantage in exchange for your support.</content>
+                        <audio>audio_I_m_willing_to_offer_you_an_advantage_in_exchange_for_your_support_.mp3</audio>
                     </balloon>
                 </right>
-                <below>Alfie asserts the importance of a law, while Betty offers a proposal.</below>
+                <below>Alfie believes in mutual benefits from an agreement.</below>
             </panel>
             <panel>
                 <left>
@@ -799,8 +1399,8 @@
                         <facing>right</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>Această lege ar putea schimba totul dacă reușim să o adoptăm.</content>
-                        <audio>audio_Aceast__lege_ar_putea_schimba_totul_dac__reu_im_s__o_adopt_m_.mp3</audio>
+                        <content>Această lege ar putea schimba totul pentru noi.</content>
+                        <audio>audio_Aceast__lege_ar_putea_schimba_totul_pentru_noi_.mp3</audio>
                     </balloon>
                 </left>
                 <right>
@@ -812,7 +1412,7 @@
                         <facing>left</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>Te pot ajuta să te așezi bine, doar ia în considerare propunerea mea.</content>
+                        <content>Sunt dispus să îți ofer un avantaj în schimbul sprijinului tău.</content>
                         <audio/>
                     </balloon>
                 </right>
@@ -830,8 +1430,8 @@
                         <facing>right</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>You know you can't ignore the consequences of rejecting this.</content>
-                        <audio>audio_You_know_you_can_t_ignore_the_consequences_of_rejecting_this_.mp3</audio>
+                        <content>We need to make our demands clear; we won't back down.</content>
+                        <audio>audio_We_need_to_make_our_demands_clear__we_won_t_back_down_.mp3</audio>
                     </balloon>
                 </left>
                 <right>
@@ -843,11 +1443,11 @@
                         <facing>left</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>I have evidence that you've been bending the rules.</content>
-                        <audio>audio_I_have_evidence_that_you_ve_been_bending_the_rules_.mp3</audio>
+                        <content>You know this is all part of the game, right?</content>
+                        <audio>audio_You_know_this_is_all_part_of_the_game__right_.mp3</audio>
                     </balloon>
                 </right>
-                <below>Alfie insists on the consequences of ignoring the situation, while Betty threatens with evidence.</below>
+                <below>Betty accuses him of unfairness, threatening with evidence.</below>
             </panel>
             <panel>
                 <left>
@@ -862,8 +1462,8 @@
                         <facing>right</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>Știi că nu poți ignora consecințele respingerii acestuia.</content>
-                        <audio>audio__tii_c__nu_po_i_ignora_consecin_ele_respingerii_acestuia_.mp3</audio>
+                        <content>Trebuie să ne facem clar cerințele; nu ne vom da înapoi.</content>
+                        <audio/>
                     </balloon>
                 </left>
                 <right>
@@ -875,7 +1475,7 @@
                         <facing>left</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>Am dovezi că ai încălcat regulile.</content>
+                        <content>Știi că toate acestea fac parte din joc, nu-i așa?</content>
                         <audio/>
                     </balloon>
                 </right>
@@ -893,8 +1493,8 @@
                         <facing>right</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>This money can keep your operation running smoothly.</content>
-                        <audio>audio_This_money_can_keep_your_operation_running_smoothly_.mp3</audio>
+                        <content>I believe we can reach an agreement that benefits us both.</content>
+                        <audio>audio_I_believe_we_can_reach_an_agreement_that_benefits_us_both_.mp3</audio>
                     </balloon>
                 </left>
                 <right>
@@ -906,11 +1506,11 @@
                         <facing>left</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>I won't let you get away with this injustice!</content>
-                        <audio>audio_I_won_t_let_you_get_away_with_this_injustice_.mp3</audio>
+                        <content>You're not being fair; I've got evidence against you!</content>
+                        <audio>audio_You_re_not_being_fair__I_ve_got_evidence_against_you_.mp3</audio>
                     </balloon>
                 </right>
-                <below>Alfie accuses Betty, discussing money's role in operations, while she protests against injustice.</below>
+                <below>Alfie denies involvement as she runs away, thinking to disappear.</below>
             </panel>
             <panel>
                 <left>
@@ -925,8 +1525,8 @@
                         <facing>right</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>Acești bani pot menține funcționarea operațiunii tale fără probleme.</content>
-                        <audio/>
+                        <content>Cred că putem ajunge la un acord care să ne avantajeze pe amândoi.</content>
+                        <audio>audio_Cred_c__putem_ajunge_la_un_acord_care_s__ne_avantajeze_pe_am_ndoi_.mp3</audio>
                     </balloon>
                 </left>
                 <right>
@@ -938,7 +1538,7 @@
                         <facing>left</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>Nu te voi lăsa să scapi cu această nedreptate!</content>
+                        <content>Nu ești corect; am dovezi împotriva ta!</content>
                         <audio/>
                     </balloon>
                 </right>
@@ -956,8 +1556,8 @@
                         <facing>right</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>We need to move now, before they catch on!</content>
-                        <audio>audio_We_need_to_move_now__before_they_catch_on_.mp3</audio>
+                        <content>I'm not involved in any of this; don't try to pin this on me!</content>
+                        <audio>audio_I_m_not_involved_in_any_of_this__don_t_try_to_pin_this_on_me_.mp3</audio>
                     </balloon>
                 </left>
                 <right>
@@ -969,11 +1569,10 @@
                         <facing>left</facing>
                     </figure>
                     <balloon status="thought">
-                        <content>running away</content>
-                        <audio>audio_running_away.mp3</audio>
+                        <content>We need to disappear before they realize what's happening.</content>
+                        <audio>audio_We_need_to_disappear_before_they_realize_what_s_happening_.mp3</audio>
                     </balloon>
                 </right>
-                <below>Alfie urges immediate action before being discovered, as Betty is running away, thinking about escaping.</below>
             </panel>
             <panel>
                 <left>
@@ -988,7 +1587,7 @@
                         <facing>right</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>Trebuie să ne mișcăm acum, înainte să-și dea seama!</content>
+                        <content>Nu sunt implicat în nimic din toate acestea; nu încerca să-mi pui mie vina!</content>
                         <audio/>
                     </balloon>
                 </left>
@@ -1001,8 +1600,8 @@
                         <facing>left</facing>
                     </figure>
                     <balloon status="thought">
-                        <content>fugind de acasă</content>
-                        <audio/>
+                        <content>Trebuie să dispărem înainte să-și dea seama ce se întâmplă.</content>
+                        <audio>audio_Trebuie_s__disp_rem__nainte_s___i_dea_seama_ce_se__nt_mpl__.mp3</audio>
                     </balloon>
                 </right>
             </panel>
