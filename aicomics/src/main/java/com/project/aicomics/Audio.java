@@ -23,7 +23,6 @@ public class Audio {
 
   public void generateAudioXML(Language lan) throws IOException{
     List<String> allText = xml.getAllText(lan);
-
     for(String t : allText){
       if (t != null && !t.isBlank()){
         //if text is already in the file, dont do anything
@@ -35,17 +34,20 @@ public class Audio {
 
         if (!audioFile.exists()){
           ai.generateAudioFile(t, audioFile.getPath());
-          textToAudio.put(t, audioFile.getPath());
+          textToAudio.put(safeText, audioFile.getPath());
         } else {
-          textToAudio.put(t, audioFile.getPath());
+          textToAudio.put(safeText, audioFile.getPath());
         }
         textToAudio.toString();
       }
     }
+
+    System.out.println(textToAudio.toString() + " ");
   }
 
   public String getAudioFileName(String text){
-    return textToAudio.get(text);
+    String safeText = text.replaceAll("[^a-zA-Z0-9]", "_");
+    return textToAudio.get(safeText);
   }
 
 }

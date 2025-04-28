@@ -2,7 +2,6 @@ package com.project.aicomics;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;

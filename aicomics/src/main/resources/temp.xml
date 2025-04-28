@@ -2,17 +2,17 @@
 <comic>
     <figures>
         <figure>
-            <id>Betty</id>
-            <name>Betty</name>
-            <appearance>female</appearance>
-        </figure>
-        <figure>
             <id>Alfie</id>
             <name>Alfie</name>
             <appearance>male</appearance>
             <skin>light brown</skin>
             <hair>dark brown</hair>
             <lips>red</lips>
+        </figure>
+        <figure>
+            <id>Betty</id>
+            <name>Betty</name>
+            <appearance>female</appearance>
         </figure>
         <figure>
             <id>Alfie</id>
@@ -29,192 +29,42 @@
             <skin>olive</skin>
             <hair>black</hair>
         </figure>
+        <figure>
+            <appearance>default</appearance>
+            <skin>default</skin>
+            <hair>default</hair>
+        </figure>
     </figures>
     <scenes>
         <scene>
             <panel>
                 <middle>
                     <figure>
-                        <id>Betty</id>
-                        <name>Betty</name>
-                        <appearance>female</appearance>
-                        <pose>zero</pose>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>male</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>one</pose>
                         <facing>right</facing>
                     </figure>
                 </middle>
             </panel>
             <panel>
-                <left>
+                <middle>
                     <figure>
                         <id>Betty</id>
                         <name>Betty</name>
                         <appearance>female</appearance>
-                        <pose>arriving</pose>
+                        <pose>breakfasting</pose>
                         <facing>right</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>I am going</content>
+                        <content>I eat</content>
                     </balloon>
-                </left>
-                <right>
-                    <figure>
-                        <id>Alfie</id>
-                        <name>Alfie</name>
-                        <appearance>male</appearance>
-                        <skin>light brown</skin>
-                        <hair>dark brown</hair>
-                        <lips>red</lips>
-                        <pose>examining document</pose>
-                        <facing>left</facing>
-                    </figure>
-                </right>
+                </middle>
             </panel>
-            <panel>
-                <left>
-                    <figure>
-                        <id>Betty</id>
-                        <name>Betty</name>
-                        <appearance>female</appearance>
-                        <pose>arriving with passport</pose>
-                        <facing>right</facing>
-                    </figure>
-                </left>
-                <right>
-                    <figure>
-                        <id>Alfie</id>
-                        <name>Alfie</name>
-                        <appearance>male</appearance>
-                        <skin>light brown</skin>
-                        <hair>dark brown</hair>
-                        <lips>red</lips>
-                        <pose>introducing</pose>
-                        <facing>left</facing>
-                    </figure>
-                    <balloon status="speech">
-                        <content>You are going</content>
-                    </balloon>
-                </right>
-            </panel>
-            <panel>
-                <left>
-                    <figure>
-                        <id>Betty</id>
-                        <name>Betty</name>
-                        <appearance>female</appearance>
-                        <pose>surprised</pose>
-                        <facing>right</facing>
-                    </figure>
-                    <balloon status="speech">
-                        <content>He is going</content>
-                    </balloon>
-                </left>
-                <right>
-                    <figure>
-                        <id>Alfie</id>
-                        <name>Alfie</name>
-                        <appearance>male</appearance>
-                        <skin>light brown</skin>
-                        <hair>dark brown</hair>
-                        <lips>red</lips>
-                        <pose>escaping</pose>
-                        <facing>left</facing>
-                    </figure>
-                </right>
-            </panel>
-            <panel>
-                <left>
-                    <figure>
-                        <id>Betty</id>
-                        <name>Betty</name>
-                        <appearance>female</appearance>
-                        <pose>banishing</pose>
-                        <facing>right</facing>
-                    </figure>
-                    <balloon status="speech">
-                        <content>She is going</content>
-                    </balloon>
-                </left>
-                <right>
-                    <figure>
-                        <id>Alfie</id>
-                        <name>Alfie</name>
-                        <appearance>female</appearance>
-                        <skin>light brown</skin>
-                        <hair>dark brown</hair>
-                        <lips>red</lips>
-                        <pose>speeding</pose>
-                        <facing>left</facing>
-                    </figure>
-                </right>
-            </panel>
-            <panel>
-                <left>
-                    <figure>
-                        <id>Betty</id>
-                        <name>Betty</name>
-                        <appearance>female</appearance>
-                        <pose>rollerskating</pose>
-                        <facing>right</facing>
-                    </figure>
-                    <balloon status="speech">
-                        <content>We are going</content>
-                    </balloon>
-                </left>
-                <right>
-                    <figure>
-                        <id>Alfie</id>
-                        <name>Alfie</name>
-                        <appearance>male</appearance>
-                        <skin>light brown</skin>
-                        <hair>dark brown</hair>
-                        <lips>red</lips>
-                        <pose>cycling</pose>
-                        <facing>right</facing>
-                    </figure>
-                </right>
-            </panel>
-            <panel>
-                <left>
-                    <figure>
-                        <id>Betty</id>
-                        <name>Betty</name>
-                        <appearance>female</appearance>
-                        <pose>rewarding</pose>
-                        <facing>right</facing>
-                    </figure>
-                    <balloon status="speech">
-                        <content>You are going (plural)</content>
-                    </balloon>
-                </left>
-                <right>
-                    <figure>
-                        <id>Alfie</id>
-                        <name>Alfie</name>
-                        <appearance>male</appearance>
-                        <skin>light brown</skin>
-                        <hair>dark brown</hair>
-                        <lips>red</lips>
-                        <pose>walking a dog</pose>
-                        <facing>left</facing>
-                    </figure>
-                </right>
-            </panel>
-            <panel>
-                <left>
-                    <figure>
-                        <id>Betty</id>
-                        <name>Betty</name>
-                        <appearance>female</appearance>
-                        <pose>surprised in spacesuit</pose>
-                        <facing>right</facing>
-                    </figure>
-                    <balloon status="speech">
-                        <content>They are going</content>
-                    </balloon>
-                </left>
-            </panel>
-        </scene>
-        <scene>
             <panel>
                 <left>
                     <figure>
@@ -225,23 +75,7 @@
                         <facing>right</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>What would you like to eat?</content>
-                    </balloon>
-                </left>
-            </panel>
-        </scene>
-        <scene>
-            <panel>
-                <left>
-                    <figure>
-                        <id>Betty</id>
-                        <name>Betty</name>
-                        <appearance>female</appearance>
-                        <pose>promoting</pose>
-                        <facing>right</facing>
-                    </figure>
-                    <balloon status="speech">
-                        <content>a helping hand</content>
+                        <content>You eat</content>
                     </balloon>
                 </left>
                 <right>
@@ -252,63 +86,25 @@
                         <skin>light brown</skin>
                         <hair>dark brown</hair>
                         <lips>red</lips>
-                        <pose>stepping up</pose>
-                        <facing>right</facing>
+                        <pose>snacking</pose>
+                        <facing>left</facing>
                     </figure>
                 </right>
             </panel>
-        </scene>
-        <scene>
             <panel>
-                <middle>
+                <left>
                     <figure>
-                        <id>Alfie</id>
-                        <name>Alfie</name>
-                        <appearance>male</appearance>
-                        <skin>light brown</skin>
-                        <hair>dark brown</hair>
-                        <lips>red</lips>
-                        <pose>zero</pose>
-                        <facing>right</facing>
-                    </figure>
-                </middle>
-            </panel>
-            <panel>
-                <middle>
-                    <figure>
-                        <id>Alfie</id>
-                        <name>Alfie</name>
-                        <appearance>male</appearance>
-                        <skin>light brown</skin>
-                        <hair>dark brown</hair>
-                        <lips>red</lips>
-                        <pose>yawning</pose>
-                        <facing>right</facing>
-                    </figure>
-                    <balloon status="thought">
-                        <content>I'm so tired, but I need to eat something.</content>
-                    </balloon>
-                </middle>
-            </panel>
-            <panel>
-                <middle>
-                    <figure>
-                        <id>Alfie</id>
-                        <name>Alfie</name>
-                        <appearance>male</appearance>
-                        <skin>light brown</skin>
-                        <hair>dark brown</hair>
-                        <lips>red</lips>
-                        <pose>breakfasting</pose>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>gossiping about</pose>
                         <facing>right</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>Mmm, this is my favorite cereal!</content>
+                        <content>He eats</content>
                     </balloon>
-                </middle>
-            </panel>
-            <panel>
-                <middle>
+                </left>
+                <right>
                     <figure>
                         <id>Alfie</id>
                         <name>Alfie</name>
@@ -316,15 +112,113 @@
                         <skin>light brown</skin>
                         <hair>dark brown</hair>
                         <lips>red</lips>
+                        <pose>eating</pose>
+                        <facing>left</facing>
+                    </figure>
+                </right>
+            </panel>
+            <panel>
+                <left>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>watering</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>She eats</content>
+                    </balloon>
+                </left>
+                <right>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>female</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>chewing carrots</pose>
+                        <facing>left</facing>
+                    </figure>
+                </right>
+            </panel>
+            <panel>
+                <left>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>sweet</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>We eat</content>
+                    </balloon>
+                </left>
+                <right>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>male</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>enticing</pose>
+                        <facing>left</facing>
+                    </figure>
+                </right>
+            </panel>
+            <panel>
+                <left>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>greeting</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>You eat (plural)</content>
+                    </balloon>
+                </left>
+                <middle>
+                    <figure>
+                        <id>Gemma</id>
+                        <name>Gemma</name>
+                        <appearance>female</appearance>
+                        <skin>olive</skin>
+                        <hair>black</hair>
                         <pose>munching</pose>
-                        <facing>right</facing>
+                        <facing>left</facing>
                     </figure>
-                    <balloon status="thought">
-                        <content>Alright, I’m feeling good about today.</content>
-                    </balloon>
                 </middle>
+                <right>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>male</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>swallowing</pose>
+                        <facing>left</facing>
+                    </figure>
+                </right>
             </panel>
             <panel>
+                <left>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>cutting the cheese</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>They eat</content>
+                    </balloon>
+                </left>
                 <middle>
                     <figure>
                         <id>Alfie</id>
@@ -333,235 +227,53 @@
                         <skin>light brown</skin>
                         <hair>dark brown</hair>
                         <lips>red</lips>
-                        <pose>strong</pose>
-                        <facing>right</facing>
+                        <pose>eating</pose>
+                        <facing>left</facing>
                     </figure>
-                    <balloon status="speech">
-                        <content>See you later, have a great day!</content>
-                    </balloon>
                 </middle>
+                <right>
+                    <figure>
+                        <id>Gemma</id>
+                        <name>Gemma</name>
+                        <appearance>female</appearance>
+                        <skin>olive</skin>
+                        <hair>black</hair>
+                        <pose>snacking</pose>
+                        <facing>left</facing>
+                    </figure>
+                </right>
             </panel>
+        </scene>
+        <scene>
             <panel>
                 <left>
                     <figure>
-                        <id>Alfie</id>
-                        <name>Alfie</name>
-                        <appearance>male</appearance>
-                        <skin>light brown</skin>
-                        <hair>dark brown</hair>
-                        <lips>red</lips>
-                        <pose>high fiving</pose>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>tweeting</pose>
                         <facing>right</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>waving goodbye</content>
+                        <content>a text message</content>
                     </balloon>
                 </left>
             </panel>
         </scene>
         <scene>
             <panel>
-                <middle>
-                    <figure>
-                        <id>Betty</id>
-                        <name>Betty</name>
-                        <appearance>female</appearance>
-                        <pose>four</pose>
-                        <facing>right</facing>
-                    </figure>
-                </middle>
-            </panel>
-            <panel>
                 <left>
                     <figure>
                         <id>Betty</id>
                         <name>Betty</name>
                         <appearance>female</appearance>
-                        <pose>riding while whistling</pose>
+                        <pose>listening</pose>
                         <facing>right</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>I ride</content>
+                        <content>an ear</content>
                     </balloon>
                 </left>
-            </panel>
-            <panel>
-                <left>
-                    <figure>
-                        <id>Betty</id>
-                        <name>Betty</name>
-                        <appearance>female</appearance>
-                        <pose>banishing</pose>
-                        <facing>right</facing>
-                    </figure>
-                    <balloon status="speech">
-                        <content>You ride</content>
-                    </balloon>
-                </left>
-                <right>
-                    <figure>
-                        <id>Alfie</id>
-                        <name>Alfie</name>
-                        <appearance>male</appearance>
-                        <skin>light brown</skin>
-                        <hair>dark brown</hair>
-                        <lips>red</lips>
-                        <pose>riding while lost</pose>
-                        <facing>left</facing>
-                    </figure>
-                </right>
-            </panel>
-            <panel>
-                <left>
-                    <figure>
-                        <id>Betty</id>
-                        <name>Betty</name>
-                        <appearance>female</appearance>
-                        <pose>sweating</pose>
-                        <facing>right</facing>
-                    </figure>
-                    <balloon status="speech">
-                        <content>He rides</content>
-                    </balloon>
-                </left>
-                <right>
-                    <figure>
-                        <id>Alfie</id>
-                        <name>Alfie</name>
-                        <appearance>male</appearance>
-                        <skin>light brown</skin>
-                        <hair>dark brown</hair>
-                        <lips>red</lips>
-                        <pose>riding while blocking sun</pose>
-                        <facing>left</facing>
-                    </figure>
-                </right>
-            </panel>
-            <panel>
-                <left>
-                    <figure>
-                        <id>Betty</id>
-                        <name>Betty</name>
-                        <appearance>female</appearance>
-                        <pose>holding lamb</pose>
-                        <facing>right</facing>
-                    </figure>
-                    <balloon status="speech">
-                        <content>She rides</content>
-                    </balloon>
-                </left>
-                <right>
-                    <figure>
-                        <id>Alfie</id>
-                        <name>Alfie</name>
-                        <appearance>female</appearance>
-                        <skin>light brown</skin>
-                        <hair>dark brown</hair>
-                        <lips>red</lips>
-                        <pose>droving</pose>
-                        <facing>left</facing>
-                    </figure>
-                </right>
-            </panel>
-            <panel>
-                <left>
-                    <figure>
-                        <id>Betty</id>
-                        <name>Betty</name>
-                        <appearance>female</appearance>
-                        <pose>riding</pose>
-                        <facing>right</facing>
-                    </figure>
-                    <balloon status="speech">
-                        <content>We ride</content>
-                    </balloon>
-                </left>
-                <right>
-                    <figure>
-                        <id>Alfie</id>
-                        <name>Alfie</name>
-                        <appearance>male</appearance>
-                        <skin>light brown</skin>
-                        <hair>dark brown</hair>
-                        <lips>red</lips>
-                        <pose>falling off horse</pose>
-                        <facing>left</facing>
-                    </figure>
-                </right>
-            </panel>
-            <panel>
-                <left>
-                    <figure>
-                        <id>Betty</id>
-                        <name>Betty</name>
-                        <appearance>female</appearance>
-                        <pose>treating</pose>
-                        <facing>right</facing>
-                    </figure>
-                    <balloon status="speech">
-                        <content>You ride (plural)</content>
-                    </balloon>
-                </left>
-                <middle>
-                    <figure>
-                        <id>Gemma</id>
-                        <name>Gemma</name>
-                        <appearance>female</appearance>
-                        <skin>olive</skin>
-                        <hair>black</hair>
-                        <pose>riding with determination</pose>
-                        <facing>left</facing>
-                    </figure>
-                </middle>
-                <right>
-                    <figure>
-                        <id>Alfie</id>
-                        <name>Alfie</name>
-                        <appearance>male</appearance>
-                        <skin>light brown</skin>
-                        <hair>dark brown</hair>
-                        <lips>red</lips>
-                        <pose>riding with injuries</pose>
-                        <facing>left</facing>
-                    </figure>
-                </right>
-            </panel>
-            <panel>
-                <left>
-                    <figure>
-                        <id>Betty</id>
-                        <name>Betty</name>
-                        <appearance>female</appearance>
-                        <pose>walking a horse</pose>
-                        <facing>right</facing>
-                    </figure>
-                    <balloon status="speech">
-                        <content>They ride</content>
-                    </balloon>
-                </left>
-                <middle>
-                    <figure>
-                        <id>Alfie</id>
-                        <name>Alfie</name>
-                        <appearance>male</appearance>
-                        <skin>light brown</skin>
-                        <hair>dark brown</hair>
-                        <lips>red</lips>
-                        <pose>riding with gun drawn</pose>
-                        <facing>left</facing>
-                    </figure>
-                </middle>
-                <right>
-                    <figure>
-                        <id>Gemma</id>
-                        <name>Gemma</name>
-                        <appearance>female</appearance>
-                        <skin>olive</skin>
-                        <hair>black</hair>
-                        <pose>riding while confused</pose>
-                        <facing>left</facing>
-                    </figure>
-                </right>
             </panel>
         </scene>
         <scene>
@@ -575,23 +287,7 @@
                         <facing>right</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>a beverage</content>
-                    </balloon>
-                </left>
-            </panel>
-        </scene>
-        <scene>
-            <panel>
-                <left>
-                    <figure>
-                        <id>Betty</id>
-                        <name>Betty</name>
-                        <appearance>female</appearance>
-                        <pose>catering</pose>
-                        <facing>right</facing>
-                    </figure>
-                    <balloon status="speech">
-                        <content>to serve</content>
+                        <content>making a toast</content>
                     </balloon>
                 </left>
                 <right>
@@ -612,13 +308,41 @@
             <panel>
                 <left>
                     <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>composing</pose>
+                        <facing>right</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>a keyboard</content>
+                    </balloon>
+                </left>
+                <right>
+                    <figure>
                         <id>Alfie</id>
                         <name>Alfie</name>
                         <appearance>male</appearance>
                         <skin>light brown</skin>
                         <hair>dark brown</hair>
                         <lips>red</lips>
-                        <pose>four</pose>
+                        <pose> listening</pose>
+                        <facing>right</facing>
+                    </figure>
+                </right>
+            </panel>
+        </scene>
+        <scene>
+            <panel>
+                <left>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>male</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>two</pose>
                         <facing>right</facing>
                     </figure>
                 </left>
@@ -627,7 +351,7 @@
                         <id>Betty</id>
                         <name>Betty</name>
                         <appearance>female</appearance>
-                        <pose>zero flipped</pose>
+                        <pose>six flipped</pose>
                         <facing>left</facing>
                     </figure>
                 </right>
@@ -641,23 +365,23 @@
                         <skin>light brown</skin>
                         <hair>dark brown</hair>
                         <lips>red</lips>
-                        <pose>walking with briefcase</pose>
+                        <pose>purposeful</pose>
                         <facing>right</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>Let's go, buddy!</content>
+                    </balloon>
+                </left>
+                <right>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>walking a dog</pose>
+                        <facing>left</facing>
                     </figure>
                     <balloon status="thought">
-                        <content>We need to stay under the radar while we work on this deal.</content>
-                    </balloon>
-                </left>
-                <right>
-                    <figure>
-                        <id>Betty</id>
-                        <name>Betty</name>
-                        <appearance>female</appearance>
-                        <pose>sneaky</pose>
-                        <facing>left</facing>
-                    </figure>
-                    <balloon status="speech">
-                        <content>Let's get things moving; it's time to put our plan into action.</content>
+                        <content>C'mon, slow down!</content>
                     </balloon>
                 </right>
             </panel>
@@ -670,23 +394,32 @@
                         <skin>light brown</skin>
                         <hair>dark brown</hair>
                         <lips>red</lips>
-                        <pose>lawyer</pose>
+                        <pose>hindering</pose>
                         <facing>right</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>This law could change everything for us.</content>
+                        <content>Wait up!</content>
                     </balloon>
                 </left>
+                <middle>
+                    <figure>
+                        <appearance>default</appearance>
+                        <skin>default</skin>
+                        <hair>default</hair>
+                        <pose>running dog prop</pose>
+                        <facing>left</facing>
+                    </figure>
+                </middle>
                 <right>
                     <figure>
                         <id>Betty</id>
                         <name>Betty</name>
                         <appearance>female</appearance>
-                        <pose>paying</pose>
+                        <pose>surprised</pose>
                         <facing>left</facing>
                     </figure>
                     <balloon status="speech">
-                        <content>I'm willing to offer you an advantage in exchange for your support.</content>
+                        <content>Where do you think you're going?</content>
                     </balloon>
                 </right>
             </panel>
@@ -699,81 +432,70 @@
                         <skin>light brown</skin>
                         <hair>dark brown</hair>
                         <lips>red</lips>
-                        <pose>insisting</pose>
-                        <facing>right</facing>
-                    </figure>
-                    <balloon status="speech">
-                        <content>We need to make our demands clear; we won't back down.</content>
-                    </balloon>
-                </left>
-                <right>
-                    <figure>
-                        <id>Betty</id>
-                        <name>Betty</name>
-                        <appearance>female</appearance>
-                        <pose>corrupting</pose>
-                        <facing>left</facing>
-                    </figure>
-                    <balloon status="speech">
-                        <content>You know this is all part of the game, right?</content>
-                    </balloon>
-                </right>
-            </panel>
-            <panel>
-                <left>
-                    <figure>
-                        <id>Alfie</id>
-                        <name>Alfie</name>
-                        <appearance>male</appearance>
-                        <skin>light brown</skin>
-                        <hair>dark brown</hair>
-                        <lips>red</lips>
-                        <pose>accusing</pose>
-                        <facing>right</facing>
-                    </figure>
-                    <balloon status="speech">
-                        <content>I believe we can reach an agreement that benefits us both.</content>
-                    </balloon>
-                </left>
-                <right>
-                    <figure>
-                        <id>Betty</id>
-                        <name>Betty</name>
-                        <appearance>female</appearance>
-                        <pose>bribing</pose>
-                        <facing>left</facing>
-                    </figure>
-                    <balloon status="speech">
-                        <content>You're not being fair; I've got evidence against you!</content>
-                    </balloon>
-                </right>
-            </panel>
-            <panel>
-                <left>
-                    <figure>
-                        <id>Alfie</id>
-                        <name>Alfie</name>
-                        <appearance>male</appearance>
-                        <skin>light brown</skin>
-                        <hair>dark brown</hair>
-                        <lips>red</lips>
-                        <pose>blaspheming</pose>
-                        <facing>right</facing>
-                    </figure>
-                    <balloon status="speech">
-                        <content>I'm not involved in any of this; don't try to pin this on me!</content>
-                    </balloon>
-                </left>
-                <right>
-                    <figure>
-                        <id>Betty</id>
-                        <name>Betty</name>
-                        <appearance>female</appearance>
                         <pose>running away</pose>
                         <facing>left</facing>
                     </figure>
+                    <balloon status="speech">
+                        <content>Oh no, not again!</content>
+                    </balloon>
+                </left>
+                <middle>
+                    <figure>
+                        <appearance>default</appearance>
+                        <skin>default</skin>
+                        <hair>default</hair>
+                        <pose>running dog prop</pose>
+                        <facing>left</facing>
+                    </figure>
+                </middle>
+                <right>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>running</pose>
+                        <facing>left</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>I need to catch you!</content>
+                    </balloon>
+                </right>
+            </panel>
+            <panel>
+                <left>
+                    <figure>
+                        <id>Betty</id>
+                        <name>Betty</name>
+                        <appearance>female</appearance>
+                        <pose>offering a tissue</pose>
+                        <facing>right</facing>
+                    </figure>
                     <balloon status="thought">
-                        <content>We need to disappear before they realize what's happening.</content>
+                        <content>Please stay!</content>
+                    </balloon>
+                </left>
+                <middle>
+                    <figure>
+                        <appearance>default</appearance>
+                        <skin>default</skin>
+                        <hair>default</hair>
+                        <pose>dog prop</pose>
+                        <facing>left</facing>
+                    </figure>
+                </middle>
+                <right>
+                    <figure>
+                        <id>Alfie</id>
+                        <name>Alfie</name>
+                        <appearance>male</appearance>
+                        <skin>light brown</skin>
+                        <hair>dark brown</hair>
+                        <lips>red</lips>
+                        <pose>slogging</pose>
+                        <facing>left</facing>
+                    </figure>
+                    <balloon status="speech">
+                        <content>Here, take this!</content>
                     </balloon>
                 </right>
             </panel>

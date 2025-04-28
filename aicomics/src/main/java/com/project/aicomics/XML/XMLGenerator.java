@@ -21,11 +21,7 @@ public final class XMLGenerator extends XMLFile{
     public XMLGenerator(String fileName, Language language) {
         super(fileName);
         generateCaptions();
-        try {
-            aud.generateAudioXML(language);
-        } catch (IOException e) {
-            DevController.error("Fatal Error: Unable to create audio files for the XML", e);
-        }
+        getAllTranslatedText(language);
     }
 
     /**
@@ -72,6 +68,12 @@ public final class XMLGenerator extends XMLFile{
             DevController.error("Fatal error creating document builder", e);
             return;
         }
+        System.out.println((translatedText == null) + " ");
+        try {
+            aud.generateAudioXML(language);
+        } catch (IOException e) {
+            DevController.error("Fatal Error: Unable to create audio files for the XML", e);
+        }
         List<String> trans = getAllTranslatedText(language);
         // Create base file formatting
         Element comic = doc.createElement("comic");
@@ -115,6 +117,7 @@ public final class XMLGenerator extends XMLFile{
                     content.setTextContent(b.getContent().trim());
                     Element audio = doc.createElement("audio");
                     balloon.appendChild(audio);
+                    System.out.println("Audio retrieved: " + b.getContent() + aud.getAudioFileName(b.getContent()));
                     audio.setTextContent(aud.getAudioFileName(b.getContent()));
                 }
                 
@@ -138,6 +141,7 @@ public final class XMLGenerator extends XMLFile{
                     content.setTextContent(trans.get(i));
                     Element audio = doc.createElement("audio");
                     balloon.appendChild(audio);
+                    System.out.println("Audio retrieved: " + trans.get(i) + aud.getAudioFileName(trans.get(i)));
                     audio.setTextContent(aud.getAudioFileName(trans.get(i)));
                     i = i+1;
                 }

@@ -8,7 +8,7 @@ In the console you will see the audio files being generated until it tells
  you the XML is created.
 This will take a while, the huge number and variety of api calls from dialogue, 
  translations, captions and audio means there is only so much optimization to be done.
-The new xml will be generated as 'newSpecs.xml'
+The new xml will be generated as 'final.xml'
 
 
 Blogger: [https://www.blogger.com](https://thearays-comp30880.blogspot.com/)

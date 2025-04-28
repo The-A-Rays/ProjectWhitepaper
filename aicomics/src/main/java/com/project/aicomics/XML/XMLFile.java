@@ -242,11 +242,16 @@ private static List<Figure> parseFigures(Element elem){
         System.out.println("No scenes available.");
         return spokenText;
     }
+    int i = 0;
     for (Scene scene : scenes) {
       for (Panel panel : scene.getPanels()) {
         for(Position pos: panel.getPosition()){
           if (pos.getBubble() == null) continue;
           spokenText.add(pos.getBubble().getContent());
+          if (translatedText != null) {
+            spokenText.add(translatedText.get(i));
+            i++;
+          }
           spokenText.add(translate.getTranslation(pos.getBubble().getContent()));
         }
       }
